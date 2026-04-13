@@ -3,660 +3,955 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TeoCode | Sites Profissionais & Agentes de IA em Mauá, SP</title>
-  <meta name="description" content="TeoCode – Criação de sites modernos, SEO, e-commerce e agentes de inteligência artificial para impulsionar seu negócio em Mauá e região." />
-  <meta name="keywords" content="criação de sites, marketing digital, agente de IA, SEO, e-commerce, Mauá, São Paulo, TeoCode" />
-  <meta property="og:title" content="TeoCode | Sites Profissionais & Agentes de IA" />
-  <meta property="og:description" content="Transforme seu negócio com sites modernos e agentes de IA. Avaliação gratuita!" />
+ 
+  <!-- SEO Primary -->
+  <title>TeoCode | Criação de Sites & Agentes de IA em Mauá, SP</title>
+  <meta name="description" content="TeoCode – Criação de sites modernos, SEO, e-commerce e agentes de inteligência artificial para impulsionar seu negócio em Mauá e região. Avaliação gratuita!" />
+  <meta name="keywords" content="criação de sites Mauá, marketing digital Mauá, agente IA, SEO, e-commerce, TeoCode, sites profissionais São Paulo" />
+  <meta name="author" content="TeoCode" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://teocode.com.br/" />
+ 
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_BR" />
-
+  <meta property="og:title" content="TeoCode | Criação de Sites & Agentes de IA em Mauá, SP" />
+  <meta property="og:description" content="Soluções criativas e personalizadas para impulsionar seu negócio. Sites modernos, SEO e Agentes de IA. Avaliação gratuita!" />
+  <meta property="og:url" content="https://teocode.com.br/" />
+  <meta property="og:site_name" content="TeoCode" />
+ 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TeoCode | Criação de Sites & Agentes de IA" />
+  <meta name="twitter:description" content="Sites modernos e Agentes de IA para seu negócio crescer. Mauá, SP." />
+ 
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "TeoCode",
+    "description": "Criação de sites profissionais, SEO, e-commerce e agentes de inteligência artificial em Mauá, SP.",
+    "url": "https://teocode.com.br",
+    "telephone": "+55-11-93217-8033",
+    "email": "Contato@teocode.com.br",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "R. Valdemar Celestino da Silva",
+      "addressLocality": "Mauá",
+      "addressRegion": "SP",
+      "postalCode": "09371-317",
+      "addressCountry": "BR"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" }
+    ],
+    "priceRange": "$$",
+    "sameAs": ["https://wa.me/5511932178033"]
+  }
+  </script>
+ 
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+ 
   <style>
+    /* ═══════════════════════════════════
+       TOKENS
+    ═══════════════════════════════════ */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --teal-light: #7dd8d8;
-      --teal:       #3dbdbd;
-      --teal-mid:   #1a9eaa;
-      --teal-dark:  #0d7a8a;
-      --navy:       #0d2444;
-      --navy-mid:   #0f3460;
-      --navy-light: #1a4a7a;
-      --white:      #ffffff;
-      --off-white:  #f0fafc;
-      --text-dark:  #0d2444;
-      --text-mid:   #2c5f72;
-      --shadow:     0 8px 32px rgba(13,36,68,.18);
-      --shadow-sm:  0 3px 14px rgba(13,36,68,.12);
-      --r:          14px;
-      --r-sm:       10px;
+      --ink:    #0a0e1a;
+      --paper:  #f4f2ee;
+      --mid:    #1e2740;
+      --accent: #00c9a7;
+      --accent2:#3d7fff;
+      --muted:  #6b7280;
+      --border: rgba(0,0,0,.08);
+      --radius: 16px;
+      --fs-xl:  clamp(2.6rem,6vw,5rem);
+      --fs-lg:  clamp(1.6rem,3.5vw,2.5rem);
+      --fs-md:  clamp(1rem,2vw,1.15rem);
+      --ease:   cubic-bezier(.25,.46,.45,.94);
+      --ease-bounce: cubic-bezier(.34,1.56,.64,1);
     }
-
     html { scroll-behavior: smooth; }
-    body { font-family: 'Open Sans', sans-serif; color: var(--text-dark); background: var(--off-white); overflow-x: hidden; }
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #c8eee; }
-    ::-webkit-scrollbar-thumb { background: var(--navy); border-radius: 3px; }
-
-    /* ── NAV ── */
-    #nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-      padding: .9rem 5%;
-      display: flex; align-items: center; justify-content: space-between;
-      transition: background .35s, box-shadow .35s;
+    body { font-family:'DM Sans',sans-serif; background:var(--paper); color:var(--ink); overflow-x:hidden; line-height:1.65; }
+    ::-webkit-scrollbar { width:5px; }
+    ::-webkit-scrollbar-track { background:var(--paper); }
+    ::-webkit-scrollbar-thumb { background:var(--accent); border-radius:3px; }
+ 
+    /* ═══════════════════════════════════
+       NAV
+    ═══════════════════════════════════ */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:100;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1rem 5%;
+      transition:background .4s var(--ease), box-shadow .4s var(--ease), padding .3s;
     }
-    #nav.scrolled {
-      background: rgba(13,36,68,.96);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 2px 20px rgba(0,0,0,.3);
+    nav.scrolled {
+      background:rgba(10,14,26,.94);
+      backdrop-filter:blur(16px);
+      box-shadow:0 2px 24px rgba(0,0,0,.3);
+      padding:.7rem 5%;
     }
-    .nav-logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; }
-    .logo-circle {
-      width: 44px; height: 44px;
-      background: linear-gradient(135deg, #a8eaea, #3dbdbd);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 14px rgba(61,189,189,.5);
+    .nav-logo { display:flex; align-items:center; gap:.55rem; text-decoration:none; }
+    .logo-ball {
+      width:42px; height:42px; border-radius:50%; flex-shrink:0;
+      background:linear-gradient(135deg,#a8eaea 0%,#5bc8c8 45%,#1a9eaa 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 3px 14px rgba(91,200,200,.55);
+      transition:transform .3s var(--ease-bounce);
     }
-    .logo-circle svg { width: 26px; height: 26px; }
-    .logo-txt { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.5rem; color: white; }
-    .nav-links { display: flex; gap: 1.8rem; list-style: none; }
-    .nav-links a { color: rgba(255,255,255,.8); text-decoration: none; font-size: .9rem; font-weight: 600; transition: color .2s; }
-    .nav-links a:hover { color: var(--teal-light); }
-    .nav-cta-btn { background: var(--navy); color: white !important; padding: .45rem 1.1rem; border-radius: 100px; transition: background .2s !important; }
-    .nav-cta-btn:hover { background: var(--navy-mid) !important; }
-    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: white; border-radius: 2px; transition: .3s; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    .mobile-menu { display: none; position: fixed; inset: 0; z-index: 199; background: rgba(13,36,68,.97); flex-direction: column; align-items: center; justify-content: center; gap: 2.2rem; }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a { font-family: 'Nunito', sans-serif; font-size: 1.8rem; font-weight: 800; color: white; text-decoration: none; transition: color .2s; }
-    .mobile-menu a:hover { color: var(--teal-light); }
-
-    /* ── HERO ── */
+    .nav-logo:hover .logo-ball { transform:scale(1.1) rotate(-5deg); }
+    .logo-ball svg { width:26px; height:26px; }
+    .logo-name { font-family:'Syne',sans-serif; font-weight:800; font-size:1.4rem; color:#fff; letter-spacing:-.01em; }
+    .nav-links { display:flex; gap:2rem; list-style:none; }
+    .nav-links a { color:rgba(255,255,255,.75); text-decoration:none; font-size:.95rem; font-weight:500; transition:color .25s; position:relative; padding-bottom:2px; }
+    .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:1.5px; background:var(--accent); transition:width .3s var(--ease); }
+    .nav-links a:hover { color:var(--accent); }
+    .nav-links a:hover::after { width:100%; }
+    .nav-cta { background:var(--accent); color:var(--ink) !important; padding:.45rem 1.1rem; border-radius:100px; font-weight:600 !important; transition:transform .2s, box-shadow .2s !important; }
+    .nav-cta::after { display:none !important; }
+    .nav-cta:hover { transform:translateY(-2px) !important; box-shadow:0 6px 20px rgba(0,201,167,.4); }
+    .hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+    .hamburger span { display:block; width:24px; height:2px; background:#fff; border-radius:2px; transition:.3s; }
+    .hamburger.open span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity:0; }
+    .hamburger.open span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display:none; position:fixed; inset:0; background:rgba(10,14,26,.97); z-index:99; flex-direction:column; align-items:center; justify-content:center; gap:2.5rem; }
+    .mobile-menu.open { display:flex; }
+    .mobile-menu a { font-family:'Syne',sans-serif; font-size:1.8rem; font-weight:700; color:#fff; text-decoration:none; transition:color .2s; }
+    .mobile-menu a:hover { color:var(--accent); }
+ 
+    /* ═══════════════════════════════════
+       HERO
+    ═══════════════════════════════════ */
     #hero {
-      min-height: 100vh;
-      background: linear-gradient(160deg, #afe8e8 0%, #5cc8c8 30%, #1a9eaa 65%, #0d7a8a 100%);
-      display: flex; align-items: center;
-      position: relative; overflow: hidden;
-      padding: 9rem 5% 7rem;
+      min-height:100vh; background:var(--mid);
+      position:relative; display:flex; align-items:center; overflow:hidden;
     }
-    #hero::after {
-      content: ''; position: absolute; bottom: -1px; left: 0; right: 0;
-      height: 80px; background: var(--off-white);
-      clip-path: ellipse(55% 100% at 50% 100%);
+    .hero-grid {
+      position:absolute; inset:0;
+      background-image:linear-gradient(rgba(0,201,167,.055) 1px,transparent 1px),
+                       linear-gradient(90deg,rgba(0,201,167,.055) 1px,transparent 1px);
+      background-size:60px 60px;
+      animation:gridDrift 22s linear infinite;
     }
-    .h-circle { position: absolute; border-radius: 50%; background: rgba(255,255,255,.09); animation: hcFloat 9s ease-in-out infinite; }
-    .hc1 { width:440px;height:440px; top:-100px; right:-70px; }
-    .hc2 { width:260px;height:260px; bottom:70px; right:180px; animation-delay:-3.5s; }
-    .hc3 { width:150px;height:150px; top:180px; left:8%; animation-delay:-6s; }
-    @keyframes hcFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-18px) scale(1.03)} }
-    .hero-in { position: relative; z-index: 1; max-width: 680px; }
-    .hero-brand { display: flex; align-items: center; gap: .8rem; margin-bottom: 2.4rem; animation: fUp .5s ease both; }
-    .hero-brand-ball {
-      width: 66px; height: 66px;
-      background: linear-gradient(135deg, #c0eded, #5bc8c8);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 0 0 7px rgba(255,255,255,.2), 0 8px 28px rgba(0,0,0,.18);
+    @keyframes gridDrift { to { background-position:60px 60px; } }
+ 
+    /* floating particles */
+    .particle {
+      position:absolute; border-radius:50%; pointer-events:none;
+      background:rgba(0,201,167,.18);
+      animation:particleFloat linear infinite;
     }
-    .hero-brand-ball svg { width: 40px; height: 40px; }
-    .hero-brand-name { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 2.1rem; color: var(--navy); }
-    .hero-h1 { font-family: 'Nunito', sans-serif; font-size: clamp(2.2rem,5.5vw,3.6rem); font-weight: 900; line-height: 1.12; color: var(--navy); animation: fUp .55s .06s ease both; }
-    .hero-h1 .hl { color: white; }
-    .hero-sub { margin-top: 1rem; font-size: 1.05rem; color: var(--navy); line-height: 1.7; animation: fUp .55s .12s ease both; }
-    .hero-tag { margin-top: .4rem; font-size: .97rem; color: var(--navy-mid); font-weight: 600; animation: fUp .55s .17s ease both; }
-    .hero-tag strong { color: var(--navy); }
-    .hero-cta {
-      display: inline-flex; align-items: center; gap: .55rem; margin-top: 2rem;
-      background: var(--navy); color: white;
-      font-family: 'Nunito', sans-serif; font-size: 1.05rem; font-weight: 800;
-      padding: 1rem 2.3rem; border-radius: 50px;
-      text-decoration: none; box-shadow: 0 6px 22px rgba(13,36,68,.38);
-      transition: transform .25s, box-shadow .25s;
-      animation: fUp .55s .22s ease both;
+ 
+    @keyframes particleFloat {
+      0%   { transform:translateY(100vh) scale(0); opacity:0; }
+      10%  { opacity:1; }
+      90%  { opacity:.6; }
+      100% { transform:translateY(-10vh) scale(1); opacity:0; }
     }
-    .hero-cta:hover { transform: translateY(-3px); box-shadow: 0 10px 32px rgba(13,36,68,.5); }
-    @keyframes fUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:none} }
-
-    /* ── COMMONS ── */
-    section { padding: 6rem 5%; }
-    .s-label { display:inline-block; font-size:.75rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--teal-mid); margin-bottom:.5rem; }
-    .s-title { font-family:'Nunito',sans-serif; font-size:clamp(1.7rem,3.5vw,2.4rem); font-weight:900; color:var(--navy); line-height:1.18; }
-    .s-title-w { color:white; }
-    .s-desc { color:var(--text-mid); margin-top:.7rem; font-size:.97rem; line-height:1.75; }
-    .s-desc-w { color:rgba(255,255,255,.72); }
-    .reveal { opacity:0; transform:translateY(28px); transition:opacity .65s ease, transform .65s ease; }
-    .reveal.in { opacity:1; transform:none; }
-    .max { max-width:1100px; margin:0 auto; }
-
-    /* ── POR QUE ── */
-    #porque { background: linear-gradient(135deg, #9ee8e8 0%, #4ec0c0 45%, #15a0ac 100%); }
-    .porque-g { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
-    .porque-vis {
-      border-radius:var(--r); background:rgba(255,255,255,.18);
-      border:2px solid rgba(255,255,255,.3); aspect-ratio:4/3;
-      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.2rem;
-      backdrop-filter:blur(4px);
+ 
+    .orb { position:absolute; border-radius:50%; filter:blur(80px); pointer-events:none; }
+    .orb-1 { width:500px;height:500px; background:radial-gradient(circle,rgba(0,201,167,.25),transparent 70%); top:-100px;right:-100px; animation:pulse 8s ease-in-out infinite alternate; }
+    .orb-2 { width:400px;height:400px; background:radial-gradient(circle,rgba(61,127,255,.2),transparent 70%); bottom:-80px;left:-80px; animation:pulse 11s ease-in-out infinite alternate-reverse; }
+    @keyframes pulse { to { transform:scale(1.2); } }
+ 
+    .hero-inner { position:relative; z-index:1; padding:10rem 5% 6rem; max-width:1200px; margin:0 auto; width:100%; }
+ 
+    .hero-logo-wrap { display:flex; align-items:center; gap:.8rem; margin-bottom:2.5rem; animation:fadeUp .6s var(--ease) both; }
+    .hero-logo-ball {
+      width:68px; height:68px; border-radius:50%;
+      background:linear-gradient(135deg,#c0eded 0%,#5bc8c8 50%,#1a9eaa 100%);
+      display:flex; align-items:center; justify-content:center;
+      box-shadow:0 0 0 6px rgba(91,200,200,.2), 0 8px 28px rgba(91,200,200,.4);
+      animation:logoPulse 4s ease-in-out infinite;
     }
-    .porque-vis-icon { font-size:5rem; }
-    .porque-vis-txt { font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; color:var(--navy); text-align:center; padding:0 1.5rem; }
-    .porque-title { font-family:'Nunito',sans-serif; font-size:clamp(1.7rem,3.5vw,2.3rem); font-weight:900; color:var(--navy); margin-bottom:.8rem; }
-    .porque-p { color:var(--navy-mid); font-size:.97rem; line-height:1.75; margin-bottom:1.3rem; }
-    .porque-p strong { color:var(--navy); font-weight:700; }
-    .benefits { display:flex; flex-direction:column; gap:.7rem; }
-    .benefit {
-      display:flex; align-items:flex-start; gap:.85rem;
-      background:rgba(255,255,255,.88); border:1px solid rgba(255,255,255,.6);
-      border-radius:var(--r-sm); padding:.85rem 1rem;
-      transition:transform .25s, box-shadow .25s;
+    @keyframes logoPulse { 0%,100%{box-shadow:0 0 0 6px rgba(91,200,200,.2),0 8px 28px rgba(91,200,200,.4)} 50%{box-shadow:0 0 0 10px rgba(91,200,200,.12),0 12px 36px rgba(91,200,200,.5)} }
+    .hero-logo-ball svg { width:42px; height:42px; }
+    .hero-logo-name { font-family:'Syne',sans-serif; font-weight:800; font-size:2rem; color:#fff; }
+ 
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:rgba(0,201,167,.12); border:1px solid rgba(0,201,167,.3); color:var(--accent);
+      font-size:.8rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase;
+      padding:.4rem .9rem; border-radius:100px; margin-bottom:1.5rem;
+      animation:fadeUp .6s .05s var(--ease) both;
     }
-    .benefit:hover { transform:translateX(5px); box-shadow:var(--shadow-sm); }
-    .b-icon { width:36px;height:36px; flex-shrink:0; background:linear-gradient(135deg,var(--teal-light),var(--teal-mid)); border-radius:8px; display:flex;align-items:center;justify-content:center; font-size:1.1rem; }
-    .b-text strong { display:block; color:var(--teal-mid); font-family:'Nunito',sans-serif; font-weight:800; font-size:1rem; margin-bottom:.12rem; }
-    .b-text span { font-size:.88rem; color:var(--text-mid); }
-    .porque-btn {
-      display:inline-flex; align-items:center; gap:.5rem; margin-top:1.5rem;
-      background:var(--navy); color:white;
-      font-family:'Nunito',sans-serif; font-weight:800; font-size:1rem;
-      padding:.85rem 2rem; border-radius:50px; text-decoration:none;
-      box-shadow:0 4px 18px rgba(13,36,68,.35); transition:transform .25s, box-shadow .25s;
+    .hero-badge::before { content:'●'; font-size:.5rem; animation:blink 1.5s step-end infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+ 
+    .hero-title {
+      font-family:'Syne',sans-serif; font-size:var(--fs-xl); font-weight:800;
+      color:#fff; line-height:1.1; letter-spacing:-.03em; max-width:780px;
+      animation:fadeUp .7s .1s var(--ease) both;
     }
-    .porque-btn:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(13,36,68,.45); }
-
-    /* ── SERVIÇOS ── */
-    #servicos { background:white; }
-    .serv-head { text-align:center; margin-bottom:3rem; }
-    .serv-desc { color:var(--text-mid); margin:.8rem auto 0; font-size:.97rem; line-height:1.75; max-width:820px; }
-    .serv-desc strong { color:var(--navy); }
-    .serv-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1.5rem; }
-    .sc {
-      background:#f0fafc; border:1.5px solid rgba(61,189,189,.2);
-      border-radius:var(--r); overflow:hidden; display:flex; flex-direction:column;
-      transition:transform .3s, box-shadow .3s;
+    .hero-title em { font-style:normal; background:linear-gradient(135deg,var(--accent),var(--accent2)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+ 
+    /* typing cursor */
+    .hero-subtitle {
+      margin-top:1.4rem; font-size:var(--fs-md); color:rgba(255,255,255,.7); max-width:560px; font-weight:300;
+      animation:fadeUp .7s .2s var(--ease) both;
     }
-    .sc:hover { transform:translateY(-7px); box-shadow:var(--shadow); }
-    .sc-img {
-      height:160px; background:linear-gradient(135deg,var(--navy-light),var(--navy));
-      display:flex; align-items:center; justify-content:center; font-size:3.5rem;
+    .typed-wrap { display:inline; }
+    .typed-text { color:var(--accent); font-weight:500; }
+    .typed-cursor { color:var(--accent); animation:cursorBlink .8s step-end infinite; }
+    @keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+ 
+    .hero-tag { margin-top:.6rem; font-size:1rem; color:rgba(255,255,255,.8); font-weight:500; animation:fadeUp .7s .25s var(--ease) both; }
+    .hero-tag strong { color:var(--accent); }
+ 
+    .hero-actions { margin-top:2.5rem; display:flex; flex-wrap:wrap; gap:1rem; animation:fadeUp .7s .3s var(--ease) both; }
+ 
+    .btn { display:inline-flex; align-items:center; gap:.5rem; padding:.85rem 1.8rem; border-radius:100px; font-weight:600; font-size:1rem; cursor:pointer; text-decoration:none; transition:transform .2s, box-shadow .2s; border:none; }
+    .btn:hover { transform:translateY(-3px); }
+    .btn-primary { background:var(--accent); color:var(--ink); box-shadow:0 4px 20px rgba(0,201,167,.35); }
+    .btn-primary:hover { box-shadow:0 8px 30px rgba(0,201,167,.5); }
+    .btn-ghost { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2); color:#fff; }
+    .btn-ghost:hover { background:rgba(255,255,255,.14); }
+ 
+    /* ── COUNTERS BAR ── */
+    .hero-stats { display:flex; flex-wrap:wrap; gap:2.5rem; margin-top:5rem; animation:fadeUp .7s .4s var(--ease) both; }
+    .stat { display:flex; flex-direction:column; }
+    .stat-num { font-family:'Syne',sans-serif; font-size:2.2rem; font-weight:800; color:#fff; letter-spacing:-.04em; }
+    .stat-num span { color:var(--accent); }
+    .stat-label { font-size:.8rem; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.08em; }
+ 
+    @keyframes fadeUp { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:translateY(0)} }
+ 
+    /* ═══════════════════════════════════
+       SECTION COMMONS
+    ═══════════════════════════════════ */
+    section { padding:7rem 5%; }
+    .section-label { font-size:.78rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); margin-bottom:.6rem; }
+    .section-title { font-family:'Syne',sans-serif; font-size:var(--fs-lg); font-weight:800; line-height:1.15; letter-spacing:-.02em; }
+    .section-desc { color:var(--muted); font-size:var(--fs-md); max-width:600px; margin-top:.8rem; font-weight:300; }
+    .section-head { margin-bottom:3.5rem; }
+ 
+    /* reveal */
+    .reveal { opacity:0; transform:translateY(36px); transition:opacity .7s var(--ease), transform .7s var(--ease); }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+ 
+    /* ═══════════════════════════════════
+       SOBRE
+    ═══════════════════════════════════ */
+    #sobre { background:var(--paper); }
+    .sobre-grid { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:5rem; align-items:center; }
+    .sobre-visual {
+      position:relative; border-radius:var(--radius); overflow:hidden; aspect-ratio:4/3;
+      background:linear-gradient(135deg,var(--mid) 0%,#1a3a5c 100%);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .sobre-visual-inner { text-align:center; padding:2rem; position:relative; z-index:2; }
+    .sobre-icon { font-size:5rem; line-height:1; filter:drop-shadow(0 0 30px rgba(0,201,167,.5)); animation:floatIcon 4s ease-in-out infinite; }
+    @keyframes floatIcon { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+    .sobre-visual-text { font-family:'Syne',sans-serif; font-size:1.1rem; font-weight:700; color:rgba(255,255,255,.8); margin-top:1rem; }
+    .sobre-visual::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(0,201,167,.15),rgba(61,127,255,.15)); }
+    .sobre-badge-float { position:absolute; bottom:1.5rem; right:1.5rem; background:var(--accent); color:var(--ink); font-family:'Syne',sans-serif; font-size:.85rem; font-weight:700; padding:.6rem 1rem; border-radius:100px; z-index:2; box-shadow:0 4px 16px rgba(0,201,167,.4); animation:badgePop 3s ease-in-out infinite; }
+    @keyframes badgePop { 0%,100%{transform:scale(1)} 50%{transform:scale(1.05)} }
+    .sobre-content p { color:var(--muted); margin-bottom:1.2rem; font-weight:300; }
+    .sobre-pills { display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.8rem; }
+    .pill { background:rgba(0,201,167,.1); border:1px solid rgba(0,201,167,.25); color:var(--ink); font-size:.85rem; font-weight:500; padding:.35rem .85rem; border-radius:100px; transition:background .25s, transform .25s; cursor:default; }
+    .pill:hover { background:rgba(0,201,167,.2); transform:translateY(-2px); }
+ 
+    /* ═══════════════════════════════════
+       NÚMEROS (counters)
+    ═══════════════════════════════════ */
+    #numeros { background:var(--ink); padding:5rem 5%; }
+    .numeros-inner { max-width:1000px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:2rem; text-align:center; }
+    .numero-item { padding:2rem 1rem; border:1px solid rgba(255,255,255,.07); border-radius:var(--radius); background:rgba(255,255,255,.03); transition:border-color .3s, transform .3s; }
+    .numero-item:hover { border-color:rgba(0,201,167,.3); transform:translateY(-4px); }
+    .numero-val { font-family:'Syne',sans-serif; font-size:2.8rem; font-weight:800; color:var(--accent); line-height:1; }
+    .numero-label { color:rgba(255,255,255,.5); font-size:.85rem; margin-top:.5rem; text-transform:uppercase; letter-spacing:.08em; }
+ 
+    /* ═══════════════════════════════════
+       SERVIÇOS
+    ═══════════════════════════════════ */
+    #servicos { background:var(--ink); color:#fff; }
+    #servicos .section-title { color:#fff; }
+    #servicos .section-desc { color:rgba(255,255,255,.5); }
+    .servicos-inner { max-width:1200px; margin:0 auto; }
+    .cards-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:1.5rem; }
+ 
+    .service-card {
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius); padding:2.2rem 2rem;
       position:relative; overflow:hidden;
+      transition:transform .35s var(--ease), border-color .3s, box-shadow .3s;
+      cursor:default;
+      /* 3D tilt vars */
+      --rotX:0deg; --rotY:0deg;
+      transform:perspective(800px) rotateX(var(--rotX)) rotateY(var(--rotY)) translateY(0);
     }
-    .sc-img::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(61,189,189,.25),transparent); }
-    .sc-img span { position:relative; z-index:1; }
-    .sc-badge { position:absolute; top:10px; right:10px; background:rgba(61,189,189,.2); border:1px solid rgba(61,189,189,.4); color:var(--teal-light); font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:.25rem .6rem; border-radius:100px; z-index:2; }
-    .sc-body { padding:1.4rem 1.3rem; flex:1; display:flex; flex-direction:column; }
-    .sc-title { font-family:'Nunito',sans-serif; font-size:1.12rem; font-weight:800; color:var(--teal-mid); margin-bottom:.5rem; }
-    .sc-desc { font-size:.88rem; color:var(--text-mid); line-height:1.65; flex:1; }
-    .sc-desc strong { color:var(--navy); }
-    .sc-btn {
-      display:inline-flex; align-items:center; gap:.4rem; margin-top:1.1rem;
-      background:var(--navy); color:white;
-      font-family:'Nunito',sans-serif; font-weight:800; font-size:.88rem;
-      padding:.6rem 1.2rem; border-radius:50px; text-decoration:none; align-self:flex-start;
-      transition:background .2s, transform .2s;
+    .service-card::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(0,201,167,.08),rgba(61,127,255,.04)); opacity:0; transition:opacity .3s; }
+    .service-card:hover { border-color:rgba(0,201,167,.35); box-shadow:0 20px 50px rgba(0,0,0,.4); }
+    .service-card:hover::before { opacity:1; }
+    /* shine overlay on hover */
+    .service-card::after { content:''; position:absolute; top:-50%; left:-60%; width:40%; height:200%; background:linear-gradient(90deg,transparent,rgba(255,255,255,.04),transparent); transform:skewX(-15deg); transition:left .6s var(--ease); pointer-events:none; }
+    .service-card:hover::after { left:130%; }
+ 
+    .card-icon { font-size:2.2rem; margin-bottom:1.2rem; display:inline-block; transition:transform .3s var(--ease-bounce); }
+    .service-card:hover .card-icon { transform:scale(1.15) translateY(-3px); }
+    .card-title { font-family:'Syne',sans-serif; font-size:1.2rem; font-weight:700; color:#fff; margin-bottom:.6rem; }
+    .card-desc { color:rgba(255,255,255,.5); font-size:.93rem; font-weight:300; }
+    .card-desc strong { color:rgba(255,255,255,.8); font-weight:500; }
+    .card-tag { display:inline-block; margin-top:1.2rem; font-size:.72rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--accent); border:1px solid rgba(0,201,167,.3); padding:.25rem .7rem; border-radius:100px; }
+    .service-card.featured { background:linear-gradient(135deg,rgba(0,201,167,.12),rgba(61,127,255,.08)); border-color:rgba(0,201,167,.3); }
+ 
+    /* ═══════════════════════════════════
+       PROCESSO
+    ═══════════════════════════════════ */
+    #processo { background:var(--paper); }
+    .processo-inner { max-width:1200px; margin:0 auto; }
+    .steps { display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:2rem; counter-reset:step; }
+    .step {
+      position:relative; padding:2rem; background:#fff; border-radius:var(--radius);
+      border:1px solid var(--border); box-shadow:0 2px 12px rgba(0,0,0,.05);
+      counter-increment:step; transition:box-shadow .3s, transform .3s, border-color .3s;
     }
-    .sc-btn:hover { background:var(--navy-mid); transform:translateY(-2px); }
-
-    /* ── COMO FUNCIONA ── */
-    #como { background:linear-gradient(135deg,#c4eee 0%,#8de0e0 40%,#4bbdbd 100%); }
-    #como { background:linear-gradient(135deg,#beeaea 0%,#7dd8d8 45%,#3dbbbb 100%); }
-    .como-g { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; }
-    .como-title { font-family:'Nunito',sans-serif; font-size:clamp(1.7rem,3.5vw,2.4rem); font-weight:900; color:var(--navy); margin-bottom:.8rem; }
-    .como-p { color:var(--navy-mid); font-size:.97rem; line-height:1.75; margin-bottom:2rem; }
-    .como-p strong { color:var(--navy); }
-    .steps-2c { display:grid; grid-template-columns:1fr 1fr; gap:.9rem; }
-    .step-box {
-      background:rgba(255,255,255,.82); border:1px solid rgba(255,255,255,.6);
-      border-radius:var(--r-sm); padding:1.2rem; text-align:center;
-      transition:transform .25s, box-shadow .25s;
+    .step:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,.1); border-color:rgba(0,201,167,.25); }
+    .step::before { content:"0" counter(step); font-family:'Syne',sans-serif; font-size:2.5rem; font-weight:800; color:rgba(0,201,167,.15); display:block; margin-bottom:.5rem; transition:color .3s; }
+    .step:hover::before { color:rgba(0,201,167,.3); }
+    .step-title { font-family:'Syne',sans-serif; font-weight:700; margin-bottom:.5rem; }
+    .step-desc { font-size:.9rem; color:var(--muted); font-weight:300; }
+ 
+    /* ═══════════════════════════════════
+       DEPOIMENTOS
+    ═══════════════════════════════════ */
+    #depoimentos { background:var(--ink); color:#fff; }
+    #depoimentos .section-title { color:#fff; }
+    #depoimentos .section-desc { color:rgba(255,255,255,.5); }
+    .depo-inner { max-width:1200px; margin:0 auto; }
+    .depo-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(320px,1fr)); gap:1.5rem; }
+    .depo-card {
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+      border-radius:var(--radius); padding:2rem;
+      transition:transform .3s, border-color .3s, box-shadow .3s;
     }
-    .step-box:hover { transform:translateY(-4px); box-shadow:var(--shadow-sm); }
-    .step-icon { font-size:2rem; margin-bottom:.45rem; }
-    .step-name { font-family:'Nunito',sans-serif; font-weight:800; font-size:.97rem; color:var(--teal-mid); margin-bottom:.3rem; }
-    .step-txt { font-size:.83rem; color:var(--text-mid); line-height:1.55; }
-    .como-btn {
-      display:inline-flex; align-items:center; gap:.5rem; margin-top:1.8rem;
-      background:var(--navy); color:white;
-      font-family:'Nunito',sans-serif; font-weight:800; font-size:1rem;
-      padding:.85rem 2rem; border-radius:50px; text-decoration:none;
-      box-shadow:0 4px 18px rgba(13,36,68,.3); transition:transform .25s, box-shadow .25s;
+    .depo-card:hover { transform:translateY(-5px); border-color:rgba(0,201,167,.25); box-shadow:0 16px 40px rgba(0,0,0,.35); }
+    .depo-stars { color:var(--accent); font-size:1.1rem; margin-bottom:1rem; letter-spacing:.1rem; }
+    .depo-text { color:rgba(255,255,255,.7); font-size:.95rem; line-height:1.7; font-weight:300; font-style:italic; margin-bottom:1.4rem; }
+    .depo-author { display:flex; align-items:center; gap:.8rem; }
+    .depo-avatar { width:44px; height:44px; border-radius:50%; background:linear-gradient(135deg,var(--accent),var(--accent2)); display:flex; align-items:center; justify-content:center; font-family:'Syne',sans-serif; font-weight:800; font-size:1.1rem; color:var(--ink); flex-shrink:0; }
+    .depo-info strong { display:block; color:#fff; font-size:.92rem; font-weight:600; }
+    .depo-info span { color:rgba(255,255,255,.4); font-size:.82rem; }
+ 
+    /* ═══════════════════════════════════
+       FAQ
+    ═══════════════════════════════════ */
+    #faq { background:var(--paper); }
+    .faq-inner { max-width:800px; margin:0 auto; }
+    .faq-list { display:flex; flex-direction:column; gap:.8rem; }
+    .faq-item { background:#fff; border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:box-shadow .3s, border-color .3s; }
+    .faq-item:hover { box-shadow:0 4px 20px rgba(0,0,0,.07); border-color:rgba(0,201,167,.2); }
+    .faq-q {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:1.2rem 1.5rem; cursor:pointer;
+      font-family:'Syne',sans-serif; font-weight:700; font-size:1rem;
+      list-style:none; user-select:none;
     }
-    .como-btn:hover { transform:translateY(-3px); box-shadow:0 8px 28px rgba(13,36,68,.4); }
-    .como-vis {
-      border-radius:var(--r); background:rgba(255,255,255,.18); border:2px solid rgba(255,255,255,.3);
-      aspect-ratio:3/4; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1.4rem; padding:2rem;
-      backdrop-filter:blur(4px);
+    .faq-q::-webkit-details-marker { display:none; }
+    .faq-icon { width:28px; height:28px; border-radius:50%; background:rgba(0,201,167,.1); border:1px solid rgba(0,201,167,.2); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background .25s, transform .35s; }
+    .faq-item[open] .faq-icon { background:var(--accent); transform:rotate(45deg); }
+    .faq-icon svg { width:14px; height:14px; stroke:var(--accent); stroke-width:2.5; transition:stroke .25s; }
+    .faq-item[open] .faq-icon svg { stroke:var(--ink); }
+    .faq-a { padding:0 1.5rem 1.3rem; color:var(--muted); font-size:.95rem; line-height:1.7; font-weight:300; }
+ 
+    /* ═══════════════════════════════════
+       CTA BANNER (urgência)
+    ═══════════════════════════════════ */
+    #cta {
+      background:linear-gradient(135deg,var(--accent) 0%,#00a88b 50%,var(--accent2) 100%);
+      padding:5.5rem 5%; text-align:center; position:relative; overflow:hidden;
     }
-    .stp-row { display:flex; align-items:center; gap:.8rem; padding:.7rem .9rem; background:rgba(255,255,255,.72); border-radius:8px; width:100%; }
-    .stp-num { width:28px;height:28px; flex-shrink:0; background:var(--navy); color:white; border-radius:50%; font-family:'Nunito',sans-serif; font-weight:800; font-size:.8rem; display:flex;align-items:center;justify-content:center; }
-    .stp-lbl { font-family:'Nunito',sans-serif; font-weight:700; color:var(--teal-mid); font-size:.92rem; }
-
-    /* ── CTA BANNER ── */
-    #cta { background:linear-gradient(135deg,var(--teal-mid) 0%,var(--teal-dark) 50%,var(--navy-mid) 100%); text-align:center; padding:5.5rem 5%; }
-    .cta-title { font-family:'Nunito',sans-serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:900; color:white; margin-bottom:1rem; }
-    .cta-sub { color:rgba(255,255,255,.78); font-size:1rem; max-width:560px; margin:0 auto 2rem; }
-    .cta-sub strong { color:white; }
-    .cta-btn {
-      display:inline-flex; align-items:center; gap:.55rem;
-      background:white; color:var(--navy);
-      font-family:'Nunito',sans-serif; font-weight:900; font-size:1.05rem;
-      padding:1rem 2.4rem; border-radius:50px; text-decoration:none;
-      box-shadow:0 6px 28px rgba(13,36,68,.3); transition:transform .25s, box-shadow .25s;
+    #cta::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+    .cta-inner { position:relative; z-index:1; }
+    .cta-urgency { display:inline-block; background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.4); color:#fff; font-size:.78rem; font-weight:700; letter-spacing:.12em; text-transform:uppercase; padding:.4rem .9rem; border-radius:100px; margin-bottom:1.2rem; }
+    .cta-title { font-family:'Syne',sans-serif; font-size:clamp(1.8rem,4vw,2.8rem); font-weight:800; color:var(--ink); margin-bottom:1rem; }
+    .cta-sub { color:rgba(10,14,26,.7); font-size:1rem; max-width:560px; margin:0 auto 2rem; }
+    .cta-sub strong { color:var(--ink); }
+    .cta-btn { display:inline-flex; align-items:center; gap:.55rem; background:var(--ink); color:white; font-family:'Syne',sans-serif; font-weight:700; font-size:1.05rem; padding:1rem 2.4rem; border-radius:100px; text-decoration:none; box-shadow:0 6px 28px rgba(10,14,26,.35); transition:transform .25s, box-shadow .25s; }
+    .cta-btn:hover { transform:translateY(-3px); box-shadow:0 10px 36px rgba(10,14,26,.5); }
+ 
+    /* ═══════════════════════════════════
+       CONTATO
+    ═══════════════════════════════════ */
+    #contato { background:var(--mid); color:#fff; }
+    #contato .section-title { color:#fff; }
+    #contato .section-desc { color:rgba(255,255,255,.55); }
+    .contato-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1.2fr; gap:4rem; align-items:start; }
+    .info-block { display:flex; flex-direction:column; gap:1.5rem; }
+    .info-item { display:flex; align-items:flex-start; gap:1rem; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:1.2rem 1.4rem; transition:background .3s, transform .25s; }
+    .info-item:hover { background:rgba(255,255,255,.09); transform:translateX(4px); }
+    .info-icon { font-size:1.3rem; flex-shrink:0; width:44px; height:44px; background:rgba(0,201,167,.15); border-radius:10px; display:flex; align-items:center; justify-content:center; }
+    .info-text strong { display:block; font-weight:600; color:#fff; margin-bottom:.2rem; }
+    .info-text span, .info-text a { color:rgba(255,255,255,.55); font-size:.9rem; text-decoration:none; font-weight:300; }
+    .info-text a:hover { color:var(--accent); }
+    .hours-grid { display:grid; grid-template-columns:1fr 1fr; gap:.3rem .8rem; margin-top:.4rem; }
+    .hours-row { display:flex; justify-content:space-between; }
+    .hours-row .day { color:rgba(255,255,255,.55); font-size:.85rem; }
+    .hours-row .time { color:rgba(255,255,255,.85); font-size:.85rem; font-weight:500; }
+    .contact-form { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1); border-radius:var(--radius); padding:2.5rem; }
+    .form-title { font-family:'Syne',sans-serif; font-size:1.3rem; font-weight:700; margin-bottom:1.5rem; }
+    .form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+    .form-group { display:flex; flex-direction:column; gap:.45rem; margin-bottom:1rem; }
+    .form-group label { font-size:.82rem; font-weight:500; color:rgba(255,255,255,.65); }
+    .form-group input, .form-group textarea, .form-group select { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:.75rem 1rem; color:#fff; font-family:'DM Sans',sans-serif; font-size:.95rem; outline:none; transition:border-color .25s, background .25s, box-shadow .25s; width:100%; }
+    .form-group input::placeholder, .form-group textarea::placeholder { color:rgba(255,255,255,.25); }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--accent); background:rgba(255,255,255,.1); box-shadow:0 0 0 3px rgba(0,201,167,.12); }
+    .form-group select option { background:var(--mid); color:#fff; }
+    .form-group textarea { resize:vertical; min-height:110px; }
+    .form-success { display:none; text-align:center; padding:2rem 0; }
+    .form-success .check { font-size:3rem; margin-bottom:.8rem; }
+    .form-success p { color:rgba(255,255,255,.7); }
+ 
+    /* ═══════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════ */
+    footer { background:var(--ink); color:rgba(255,255,255,.45); text-align:center; padding:2.5rem 5%; font-size:.85rem; }
+    footer a { color:var(--accent); text-decoration:none; }
+    .footer-top { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem; margin-bottom:1.5rem; max-width:1200px; margin-left:auto; margin-right:auto; }
+    .footer-logo-wrap { display:flex; align-items:center; gap:.5rem; }
+    .footer-logo-ball { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,#a8eaea,#5bc8c8,#1a9eaa); display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(91,200,200,.4); }
+    .footer-logo-ball svg { width:20px; height:20px; }
+    .footer-logo-name { font-family:'Syne',sans-serif; font-weight:800; font-size:1.2rem; color:#fff; }
+    .footer-socials { display:flex; gap:1rem; }
+    .social-link { width:36px; height:36px; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:8px; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:1rem; transition:background .25s, border-color .25s, transform .25s; }
+    .social-link:hover { background:rgba(0,201,167,.15); border-color:rgba(0,201,167,.3); transform:translateY(-3px); }
+    .footer-divider { border:none; border-top:1px solid rgba(255,255,255,.07); margin-bottom:1.2rem; max-width:1200px; margin-left:auto; margin-right:auto; }
+ 
+    /* ═══════════════════════════════════
+       WHATSAPP FLOAT
+    ═══════════════════════════════════ */
+    .whatsapp-btn { position:fixed; bottom:2rem; right:2rem; z-index:200; width:60px; height:60px; border-radius:50%; background:#25d366; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 24px rgba(37,211,102,.5); text-decoration:none; animation:floatWA 3s ease-in-out infinite; transition:transform .25s, box-shadow .25s; }
+    .whatsapp-btn:hover { transform:scale(1.1); box-shadow:0 8px 32px rgba(37,211,102,.65); animation:none; }
+    .whatsapp-btn svg { width:32px; height:32px; fill:#fff; }
+    .wa-tooltip { position:absolute; right:72px; top:50%; transform:translateY(-50%); background:rgba(10,14,26,.9); color:#fff; font-size:.8rem; font-weight:500; padding:.4rem .8rem; border-radius:8px; white-space:nowrap; pointer-events:none; opacity:0; transition:opacity .2s; }
+    .whatsapp-btn:hover .wa-tooltip { opacity:1; }
+    @keyframes floatWA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+ 
+    /* ═══════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════ */
+    @media(max-width:900px) {
+      .sobre-grid { grid-template-columns:1fr; gap:2.5rem; }
+      .contato-inner { grid-template-columns:1fr; }
+      .form-row { grid-template-columns:1fr; }
     }
-    .cta-btn:hover { transform:translateY(-3px); box-shadow:0 10px 36px rgba(13,36,68,.4); }
-
-    /* ── CONTATO ── */
-    #contato { background:linear-gradient(160deg,var(--teal-dark) 0%,var(--navy-mid) 55%,var(--navy) 100%); padding:5rem 5% 0; }
-    .contato-g { display:grid; grid-template-columns:1fr 1fr; gap:4rem; padding-bottom:4rem; }
-    .c-logo { display:flex; align-items:center; gap:.7rem; margin-bottom:1.4rem; }
-    .c-logo-ball { width:52px;height:52px; background:linear-gradient(135deg,var(--teal-light),var(--teal-mid)); border-radius:50%; display:flex;align-items:center;justify-content:center; box-shadow:0 4px 16px rgba(61,189,189,.4); }
-    .c-logo-ball svg { width:30px;height:30px; }
-    .c-logo-name { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.8rem; color:white; }
-    .c-brand-desc { color:rgba(255,255,255,.62); font-size:.9rem; line-height:1.7; max-width:340px; margin-bottom:2rem; }
-    .c-sec-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-light); margin-bottom:.9rem; }
-    .c-items { display:flex; flex-direction:column; gap:.8rem; }
-    .c-item { display:flex; align-items:center; gap:.75rem; }
-    .c-icon { width:34px;height:34px; flex-shrink:0; background:rgba(255,255,255,.1); border-radius:8px; display:flex;align-items:center;justify-content:center; font-size:1rem; }
-    .c-txt { font-size:.9rem; color:rgba(255,255,255,.78); }
-    .c-txt strong { display:block; color:white; font-size:.78rem; font-weight:600; }
-    .c-txt a { color:rgba(255,255,255,.78); text-decoration:none; }
-    .c-txt a:hover { color:var(--teal-light); }
-    .socials { display:flex; gap:.6rem; margin-top:1.5rem; }
-    .soc { width:40px;height:40px; background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.2); border-radius:8px; display:flex;align-items:center;justify-content:center; text-decoration:none; font-size:1.1rem; transition:background .2s; }
-    .soc:hover { background:rgba(255,255,255,.2); }
-    .loc-box, .hours-box { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.13); border-radius:var(--r); padding:1.4rem; margin-bottom:1.2rem; }
-    .box-title { font-family:'Nunito',sans-serif; font-weight:900; font-size:.82rem; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-light); margin-bottom:.85rem; }
-    .loc-row { display:flex; align-items:flex-start; gap:.6rem; color:rgba(255,255,255,.78); font-size:.9rem; }
-    .loc-row span { line-height:1.6; }
-    .htbl { width:100%; border-collapse:collapse; }
-    .htbl tr td { padding:.27rem 0; font-size:.88rem; color:rgba(255,255,255,.72); }
-    .htbl tr td:last-child { text-align:right; font-weight:600; color:white; }
-    .htbl tr.cls td { color:rgba(255,255,255,.32); }
-    .htbl tr.cls td:last-child { color:rgba(255,90,90,.65); font-weight:400; }
-    .c-form { background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12); border-radius:var(--r); padding:1.8rem; margin-top:.5rem; }
-    .c-form h4 { font-family:'Nunito',sans-serif; font-weight:800; font-size:1.08rem; color:white; margin-bottom:1.2rem; }
-    .frow { display:grid; grid-template-columns:1fr 1fr; gap:.8rem; }
-    .fg { display:flex; flex-direction:column; gap:.33rem; margin-bottom:.8rem; }
-    .fg label { font-size:.78rem; font-weight:600; color:rgba(255,255,255,.58); }
-    .fg input, .fg select, .fg textarea { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15); border-radius:8px; padding:.7rem .9rem; color:white; font-family:'Open Sans',sans-serif; font-size:.9rem; outline:none; transition:border-color .2s,background .2s; width:100%; }
-    .fg input::placeholder, .fg textarea::placeholder { color:rgba(255,255,255,.25); }
-    .fg input:focus, .fg select:focus, .fg textarea:focus { border-color:var(--teal-light); background:rgba(255,255,255,.12); }
-    .fg select option { background:var(--navy-mid); }
-    .fg textarea { resize:vertical; min-height:88px; }
-    .fsub { width:100%; padding:.8rem; background:var(--navy); color:white; border:none; border-radius:50px; font-family:'Nunito',sans-serif; font-weight:800; font-size:.97rem; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:.5rem; transition:background .2s, transform .2s; }
-    .fsub:hover { background:var(--navy-mid); transform:translateY(-2px); }
-    .fnote { color:rgba(255,255,255,.3); font-size:.72rem; text-align:center; margin-top:.5rem; }
-    .fok { display:none; text-align:center; padding:1.5rem 0; }
-    .fok .ok-ico { font-size:2.5rem; margin-bottom:.5rem; }
-    .fok p { color:rgba(255,255,255,.7); font-size:.9rem; }
-    .footer-strip { border-top:1px solid rgba(255,255,255,.1); text-align:center; padding:1.5rem 5%; font-size:.8rem; color:rgba(255,255,255,.33); }
-    .footer-strip a { color:var(--teal-light); text-decoration:none; }
-
-    /* ── WHATSAPP ── */
-    .wa-float { position:fixed; bottom:1.8rem; right:1.8rem; z-index:300; width:58px;height:58px; border-radius:50%; background:#25d366; display:flex;align-items:center;justify-content:center; text-decoration:none; box-shadow:0 4px 20px rgba(37,211,102,.55); animation:waF 3s ease-in-out infinite; transition:transform .25s, box-shadow .25s; }
-    .wa-float:hover { transform:scale(1.12); box-shadow:0 8px 30px rgba(37,211,102,.7); animation:none; }
-    .wa-float svg { width:30px;height:30px;fill:white; }
-    .wa-tip { position:absolute; right:66px; top:50%; transform:translateY(-50%); background:rgba(13,36,68,.9); color:white; font-size:.78rem; font-weight:600; padding:.35rem .75rem; border-radius:8px; white-space:nowrap; pointer-events:none; opacity:0; transition:opacity .2s; }
-    .wa-float:hover .wa-tip { opacity:1; }
-    @keyframes waF { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:900px){
-      .porque-g, .como-g, .contato-g { grid-template-columns:1fr; gap:2.5rem; }
-      .como-vis { display:none; }
-      .contato-g { padding-bottom:3rem; }
-    }
-    @media(max-width:700px){
+    @media(max-width:700px) {
       .nav-links { display:none; }
       .hamburger { display:flex; }
-      .serv-grid { grid-template-columns:1fr; }
-      .frow, .steps-2c { grid-template-columns:1fr; }
+      section { padding:5rem 5%; }
+      .hero-stats { gap:1.5rem; }
     }
-    @media(max-width:480px){
-      .hero-cta, .porque-btn, .como-btn, .cta-btn { padding:.8rem 1.6rem; font-size:.95rem; }
+    @media(max-width:480px) {
+      .btn { padding:.75rem 1.3rem; font-size:.9rem; }
+      .numeros-inner { grid-template-columns:1fr 1fr; }
     }
   </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
-<nav id="nav">
-  <a href="#hero" class="nav-logo">
-    <div class="logo-circle">
-      <svg viewBox="0 0 40 40" fill="none">
-        <path d="M20 5L35 13.5V26.5L20 35L5 26.5V13.5Z" fill="rgba(13,36,68,.15)" stroke="rgba(13,36,68,.55)" stroke-width="1.5"/>
-        <path d="M20 5L35 13.5L20 22L5 13.5Z" fill="rgba(13,36,68,.25)" stroke="rgba(13,36,68,.5)" stroke-width="1"/>
-        <line x1="20" y1="22" x2="20" y2="35" stroke="rgba(13,36,68,.45)" stroke-width="1.5"/>
-        <line x1="5" y1="13.5" x2="5" y2="26.5" stroke="rgba(13,36,68,.35)" stroke-width="1"/>
-        <line x1="35" y1="13.5" x2="35" y2="26.5" stroke="rgba(13,36,68,.35)" stroke-width="1"/>
-      </svg>
+<nav id="nav" role="navigation" aria-label="Menu principal">
+  <a href="#hero" class="nav-logo" aria-label="TeoCode - Início">
+    <div class="logo-ball" aria-hidden="true">
+      <svg viewBox="0 0 40 40" fill="none"><path d="M20 6L34 14v16L20 38 6 30V14z" fill="rgba(13,36,68,.2)" stroke="rgba(13,36,68,.6)" stroke-width="1.5"/><path d="M20 6L34 14 20 22 6 14z" fill="rgba(13,36,68,.3)" stroke="rgba(13,36,68,.55)" stroke-width="1.2"/><line x1="20" y1="22" x2="20" y2="38" stroke="rgba(13,36,68,.5)" stroke-width="1.5"/><line x1="6" y1="14" x2="6" y2="30" stroke="rgba(13,36,68,.38)" stroke-width="1.2"/><line x1="34" y1="14" x2="34" y2="30" stroke="rgba(13,36,68,.38)" stroke-width="1.2"/></svg>
     </div>
-    <span class="logo-txt">TeoCode</span>
+    <span class="logo-name">TeoCode</span>
   </a>
-  <ul class="nav-links">
-    <li><a href="#porque">Por que um Site</a></li>
+  <ul class="nav-links" role="list">
+    <li><a href="#sobre">Sobre</a></li>
     <li><a href="#servicos">Serviços</a></li>
-    <li><a href="#como">Como Funciona</a></li>
-    <li><a href="#contato" class="nav-cta-btn">Contato</a></li>
+    <li><a href="#processo">Como Funciona</a></li>
+    <li><a href="#depoimentos">Depoimentos</a></li>
+    <li><a href="#contato" class="nav-cta">Fale Conosco</a></li>
   </ul>
-  <button class="hamburger" id="ham"><span></span><span></span><span></span></button>
+  <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
-
-<div class="mobile-menu" id="mob">
-  <a href="#porque" class="ml">Por que um Site?</a>
-  <a href="#servicos" class="ml">Serviços</a>
-  <a href="#como" class="ml">Como Funciona</a>
-  <a href="#contato" class="ml">Contato</a>
+ 
+<div class="mobile-menu" id="mobileMenu" role="dialog" aria-label="Menu mobile">
+  <a href="#sobre" class="mobile-link">Sobre</a>
+  <a href="#servicos" class="mobile-link">Serviços</a>
+  <a href="#processo" class="mobile-link">Como Funciona</a>
+  <a href="#depoimentos" class="mobile-link">Depoimentos</a>
+  <a href="#contato" class="mobile-link">Contato</a>
 </div>
-
+ 
 <!-- HERO -->
-<section id="hero">
-  <div class="h-circle hc1"></div>
-  <div class="h-circle hc2"></div>
-  <div class="h-circle hc3"></div>
-  <div class="hero-in">
-    <div class="hero-brand">
-      <div class="hero-brand-ball">
-        <svg viewBox="0 0 40 40" fill="none">
-          <path d="M20 5L35 13.5V26.5L20 35L5 26.5V13.5Z" fill="rgba(13,36,68,.15)" stroke="rgba(13,36,68,.5)" stroke-width="1.5"/>
-          <path d="M20 5L35 13.5L20 22L5 13.5Z" fill="rgba(13,36,68,.22)" stroke="rgba(13,36,68,.45)" stroke-width="1"/>
-          <line x1="20" y1="22" x2="20" y2="35" stroke="rgba(13,36,68,.4)" stroke-width="1.5"/>
-          <line x1="5" y1="13.5" x2="5" y2="26.5" stroke="rgba(13,36,68,.32)" stroke-width="1"/>
-          <line x1="35" y1="13.5" x2="35" y2="26.5" stroke="rgba(13,36,68,.32)" stroke-width="1"/>
-        </svg>
+<section id="hero" aria-label="Apresentação">
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div id="particles" aria-hidden="true"></div>
+  <div class="orb orb-1" aria-hidden="true"></div>
+  <div class="orb orb-2" aria-hidden="true"></div>
+ 
+  <div class="hero-inner">
+    <div class="hero-logo-wrap">
+      <div class="hero-logo-ball" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 6L34 14v16L20 38 6 30V14z" fill="rgba(13,36,68,.2)" stroke="rgba(13,36,68,.55)" stroke-width="1.5"/><path d="M20 6L34 14 20 22 6 14z" fill="rgba(13,36,68,.3)" stroke="rgba(13,36,68,.5)" stroke-width="1.2"/><line x1="20" y1="22" x2="20" y2="38" stroke="rgba(13,36,68,.48)" stroke-width="1.5"/><line x1="6" y1="14" x2="6" y2="30" stroke="rgba(13,36,68,.35)" stroke-width="1.2"/><line x1="34" y1="14" x2="34" y2="30" stroke="rgba(13,36,68,.35)" stroke-width="1.2"/></svg>
       </div>
-      <span class="hero-brand-name">TeoCode</span>
+      <span class="hero-logo-name">TeoCode</span>
     </div>
-    <h1 class="hero-h1"><span class="hl">Transforme</span> Seu Negócio</h1>
-    <p class="hero-sub">Sites incríveis para <strong>negócios</strong> que querem <strong>crescer.</strong></p>
+ 
+    <div class="hero-badge">Mauá · São Paulo</div>
+ 
+    <h1 class="hero-title"><em>Transforme</em> Seu Negócio</h1>
+ 
+    <p class="hero-subtitle">
+      Sites incríveis para negócios que querem
+      <span class="typed-wrap"> <span class="typed-text" id="typed" aria-live="polite"></span><span class="typed-cursor">|</span></span>
+    </p>
     <p class="hero-tag">Agende sua <strong>Avaliação Gratuita!</strong></p>
-    <a href="https://wa.me/5511932178033?text=Olá! Vim pelo site da TeoCode e quero criar meu site." target="_blank" class="hero-cta">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-      Vamos Criar Seu Site
-    </a>
-  </div>
-</section>
-
-<!-- POR QUE TER UM SITE -->
-<section id="porque">
-  <div class="max porque-g">
-    <div class="porque-vis reveal">
-      <div class="porque-vis-icon">💻</div>
-      <div class="porque-vis-txt">Presença Digital Profissional para o seu Negócio</div>
-    </div>
-    <div class="reveal" style="transition-delay:.1s">
-      <h2 class="porque-title">Por que Ter um Site?</h2>
-      <p class="porque-p">Impulsione seu negócio com um site personalizado! Um site moderno para garantir que sua empresa se destaque online, e <strong>aumente sua visibilidade</strong> nos mecanismos de busca com estratégias de SEO eficazes.</p>
-      <div class="benefits">
-        <div class="benefit"><div class="b-icon">🔍</div><div class="b-text"><strong>Mais Visibilidade</strong><span>Alcance novos clientes online.</span></div></div>
-        <div class="benefit"><div class="b-icon">⭐</div><div class="b-text"><strong>Credibilidade</strong><span>Mostre que seu negócio é profissional.</span></div></div>
-        <div class="benefit"><div class="b-icon">📞</div><div class="b-text"><strong>Facilidade de Contato</strong><span>Deixe seus clientes encontrarem você facilmente.</span></div></div>
-        <div class="benefit"><div class="b-icon">🛒</div><div class="b-text"><strong>Venda Online</strong><span>Amplie suas vendas com uma loja virtual.</span></div></div>
-      </div>
-      <a href="https://wa.me/5511932178033?text=Olá! Quero ter meu site." target="_blank" class="porque-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        Quero Meu Site
+ 
+    <div class="hero-actions">
+      <a href="https://wa.me/5511932178033?text=Olá! Vim pelo site da TeoCode e quero criar meu site." target="_blank" rel="noopener" class="btn btn-primary" aria-label="Criar site via WhatsApp">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Vamos Criar Seu Site
       </a>
+      <a href="#servicos" class="btn btn-ghost">Ver Serviços</a>
+    </div>
+ 
+    <div class="hero-stats" aria-label="Números da empresa">
+      <div class="stat"><span class="stat-num" data-target="50" data-suffix="+">0</span><span class="stat-label">Projetos Entregues</span></div>
+      <div class="stat"><span class="stat-num" data-target="100" data-suffix="%">0</span><span class="stat-label">Personalizado</span></div>
+      <div class="stat"><span class="stat-num" data-target="24" data-suffix="/7">0</span><span class="stat-label">Suporte dedicado</span></div>
+      <div class="stat"><span class="stat-num" data-target="5" data-suffix="★">0</span><span class="stat-label">Avaliação média</span></div>
     </div>
   </div>
 </section>
-
+ 
+<!-- SOBRE -->
+<section id="sobre" aria-labelledby="sobre-title">
+  <div class="sobre-grid">
+    <div class="sobre-visual reveal" aria-hidden="true">
+      <div class="sobre-visual-inner">
+        <div class="sobre-icon">🚀</div>
+        <div class="sobre-visual-text">Crescimento Digital</div>
+      </div>
+      <div class="sobre-badge-float">✦ Desde Mauá, SP</div>
+    </div>
+    <div class="sobre-content reveal" style="transition-delay:.12s">
+      <p class="section-label">Quem Somos</p>
+      <h2 class="section-title" id="sobre-title">Especialistas em crescimento digital sustentável</h2>
+      <p class="section-desc" style="max-width:100%;margin-top:1rem;">Oferecemos soluções criativas e personalizadas para impulsionar seu negócio. Entre em contato conosco e veja seus objetivos se tornarem realidade.</p>
+      <p style="color:var(--muted);font-weight:300;margin-top:.9rem;">Ajudamos você a alcançar novas alturas. Com nossa experiência e dedicação, seu negócio crescerá de maneira sustentável. Desenvolvemos estratégias inovadoras para levar seu negócio ao próximo nível.</p>
+      <p style="color:var(--muted);font-weight:300;margin-top:.9rem;">Somos especialistas em criar oportunidades de crescimento para empresas de todos os tamanhos. Conte com a nossa expertise para crescer de forma sustentável.</p>
+      <div class="sobre-pills" role="list">
+        <span class="pill" role="listitem">🌐 Sites Profissionais</span>
+        <span class="pill" role="listitem">🤖 Agentes de IA</span>
+        <span class="pill" role="listitem">📈 Marketing Digital</span>
+        <span class="pill" role="listitem">⚡ Resultados Rápidos</span>
+        <span class="pill" role="listitem">🎯 Estratégia Personalizada</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- NÚMEROS -->
+<section id="numeros" aria-label="Nossos números">
+  <div class="numeros-inner">
+    <div class="numero-item reveal">
+      <div class="numero-val" data-target="50" data-suffix="+">0+</div>
+      <div class="numero-label">Projetos Entregues</div>
+    </div>
+    <div class="numero-item reveal" style="transition-delay:.08s">
+      <div class="numero-val" data-target="98" data-suffix="%">0%</div>
+      <div class="numero-label">Clientes Satisfeitos</div>
+    </div>
+    <div class="numero-item reveal" style="transition-delay:.14s">
+      <div class="numero-val" data-target="3" data-suffix="x">0x</div>
+      <div class="numero-label">Mais Visibilidade</div>
+    </div>
+    <div class="numero-item reveal" style="transition-delay:.2s">
+      <div class="numero-val" data-target="5" data-suffix="★">0★</div>
+      <div class="numero-label">Avaliação no Google</div>
+    </div>
+  </div>
+</section>
+ 
 <!-- SERVIÇOS -->
-<section id="servicos">
-  <div class="max">
-    <div class="serv-head reveal">
-      <h2 class="s-title">Serviços Oferecidos</h2>
-      <p class="serv-desc">Com nossos serviços de desenvolvimento de sites <strong>modernos e otimizados</strong>, seu negócio ganha mais <strong>visibilidade e credibilidade online</strong>. Oferecemos design responsivo para uma experiência perfeita em qualquer dispositivo e implementamos estratégias de SEO para que seu site alcance as <strong>primeiras posições</strong> nos mecanismos de busca.</p>
+<section id="servicos" aria-labelledby="servicos-title">
+  <div class="servicos-inner">
+    <div class="section-head reveal">
+      <p class="section-label">O que fazemos</p>
+      <h2 class="section-title" id="servicos-title">Serviços Oferecidos</h2>
+      <p class="section-desc">Com nossos serviços de desenvolvimento de sites <strong style="color:rgba(255,255,255,.8)">modernos e otimizados</strong>, seu negócio ganha mais visibilidade e credibilidade online.</p>
     </div>
-    <div class="serv-grid">
-      <div class="sc reveal">
-        <div class="sc-img"><span>🌐</span><span class="sc-badge">Principal</span></div>
-        <div class="sc-body">
-          <div class="sc-title">Criação de Sites</div>
-          <div class="sc-desc">Criamos sites personalizados para atender às <strong>necessidades</strong> específicas do <strong>seu negócio.</strong></div>
-          <a href="https://wa.me/5511932178033?text=Olá! Quero criar meu site." target="_blank" class="sc-btn">Quero Meu Site</a>
+    <div class="cards-grid">
+      <div class="service-card featured reveal" role="article">
+        <span class="card-icon" aria-hidden="true">🌐</span>
+        <div class="card-title">Criação de Sites</div>
+        <div class="card-desc">Criamos sites personalizados para atender às <strong>necessidades</strong> específicas do <strong>seu negócio.</strong></div>
+        <span class="card-tag">⭐ Principal</span>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.08s" role="article">
+        <span class="card-icon" aria-hidden="true">📊</span>
+        <div class="card-title">SEO</div>
+        <div class="card-desc">Otimização para motores de busca. <strong>Aumente sua visibilidade</strong> e <strong>atraia mais clientes.</strong></div>
+        <span class="card-tag">Orgânico</span>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.14s" role="article">
+        <span class="card-icon" aria-hidden="true">🔧</span>
+        <div class="card-title">Manutenção</div>
+        <div class="card-desc">Oferecemos <strong>atualizações regulares, correções de bugs</strong> e <strong>monitoramento de segurança.</strong></div>
+        <span class="card-tag">Suporte</span>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.08s" role="article">
+        <span class="card-icon" aria-hidden="true">🛍️</span>
+        <div class="card-title">E-commerce</div>
+        <div class="card-desc">Criamos lojas virtuais para você <strong>vender mais</strong>, sua empresa pronta para vender <strong>online com sucesso.</strong></div>
+        <span class="card-tag">Loja Virtual</span>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.14s" role="article">
+        <span class="card-icon" aria-hidden="true">🤖</span>
+        <div class="card-title">Agentes de IA</div>
+        <div class="card-desc">Automatize atendimento e vendas com <strong>agentes de inteligência artificial</strong> treinados para o seu negócio.</div>
+        <span class="card-tag">✨ Novo</span>
+      </div>
+      <div class="service-card reveal" style="transition-delay:.2s" role="article">
+        <span class="card-icon" aria-hidden="true">📱</span>
+        <div class="card-title">Marketing Digital</div>
+        <div class="card-desc">Estratégias de <strong>marketing digital</strong> para ampliar sua presença online e <strong>gerar mais resultados.</strong></div>
+        <span class="card-tag">Performance</span>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- PROCESSO -->
+<section id="processo" aria-labelledby="processo-title">
+  <div class="processo-inner">
+    <div class="section-head reveal">
+      <p class="section-label">Nosso processo</p>
+      <h2 class="section-title" id="processo-title">Como Funciona.</h2>
+      <p class="section-desc">Planejamos metas claras, transformamos suas ideias em soluções e lançamos seu projeto com suporte contínuo.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="step-title">Contato Inicial</div><div class="step-desc">Conte-nos sobre seu negócio e suas necessidades. Faremos um diagnóstico completo.</div></div>
+      <div class="step reveal" style="transition-delay:.1s"><div class="step-title">Planejamento</div><div class="step-desc">Desenhamos um projeto que atende suas expectativas. Ajustamos cada detalhe para perfeição.</div></div>
+      <div class="step reveal" style="transition-delay:.2s"><div class="step-title">Desenvolvimento</div><div class="step-desc">Construímos seu site com cuidado e atenção, mantendo você informado a cada etapa.</div></div>
+      <div class="step reveal" style="transition-delay:.3s"><div class="step-title">Lançamento</div><div class="step-desc">Seu site está pronto para conquistar a internet! Suporte contínuo garantido.</div></div>
+    </div>
+  </div>
+</section>
+ 
+<!-- DEPOIMENTOS -->
+<section id="depoimentos" aria-labelledby="depo-title">
+  <div class="depo-inner">
+    <div class="section-head reveal">
+      <p class="section-label">O que dizem</p>
+      <h2 class="section-title" id="depo-title" style="color:#fff">Clientes que já cresceram</h2>
+      <p class="section-desc">Resultados reais de negócios que confiaram na TeoCode para sua presença digital.</p>
+    </div>
+    <div class="depo-grid">
+      <div class="depo-card reveal" role="article" aria-label="Depoimento de cliente">
+        <div class="depo-stars" aria-label="5 estrelas">★★★★★</div>
+        <p class="depo-text">"A TeoCode transformou completamente a presença online do meu salão. Em menos de 3 meses, triplicamos o número de agendamentos pelo site. Atendimento incrível e resultado além do esperado!"</p>
+        <div class="depo-author">
+          <div class="depo-avatar" aria-hidden="true">A</div>
+          <div class="depo-info"><strong>Ana Paula S.</strong><span>Salão de Beleza · Mauá, SP</span></div>
         </div>
       </div>
-      <div class="sc reveal" style="transition-delay:.08s">
-        <div class="sc-img"><span>📊</span></div>
-        <div class="sc-body">
-          <div class="sc-title">SEO</div>
-          <div class="sc-desc">Otimização motores de busca. <strong>Aumente sua visibilidade</strong> e <strong>atraia mais clientes.</strong></div>
-          <a href="https://wa.me/5511932178033?text=Olá! Quero aumentar minha visibilidade." target="_blank" class="sc-btn">Aumente Visibilidade</a>
+      <div class="depo-card reveal" style="transition-delay:.1s" role="article" aria-label="Depoimento de cliente">
+        <div class="depo-stars" aria-label="5 estrelas">★★★★★</div>
+        <p class="depo-text">"Profissionais excepcionais! Criaram nosso e-commerce do zero e nos ensinaram tudo. Já no primeiro mês as vendas online superaram nossas expectativas. Recomendo sem hesitar."</p>
+        <div class="depo-author">
+          <div class="depo-avatar" aria-hidden="true">R</div>
+          <div class="depo-info"><strong>Roberto M.</strong><span>Loja de Eletrônicos · Santo André, SP</span></div>
         </div>
       </div>
-      <div class="sc reveal" style="transition-delay:.14s">
-        <div class="sc-img"><span>🔧</span></div>
-        <div class="sc-body">
-          <div class="sc-title">Manutenção</div>
-          <div class="sc-desc">Oferecemos <strong>atualizações regulares, correções de bugs</strong> e <strong>monitoramento de segurança.</strong></div>
-          <a href="https://wa.me/5511932178033?text=Olá! Preciso de manutenção no site." target="_blank" class="sc-btn">Atualização</a>
-        </div>
-      </div>
-      <div class="sc reveal" style="transition-delay:.2s">
-        <div class="sc-img"><span>🛍️</span></div>
-        <div class="sc-body">
-          <div class="sc-title">E-commerce</div>
-          <div class="sc-desc">Criamos lojas virtuais para você <strong>vender mais</strong>, sua empresa estará pronta para vender <strong>online com sucesso.</strong></div>
-          <a href="https://wa.me/5511932178033?text=Olá! Quero criar minha loja virtual." target="_blank" class="sc-btn">Sua Loja Online</a>
-        </div>
-      </div>
-      <div class="sc reveal" style="transition-delay:.08s">
-        <div class="sc-img"><span>🤖</span><span class="sc-badge">Novo</span></div>
-        <div class="sc-body">
-          <div class="sc-title">Agentes de IA</div>
-          <div class="sc-desc">Automatize atendimento e vendas com <strong>agentes de inteligência artificial</strong> treinados para o seu negócio.</div>
-          <a href="https://wa.me/5511932178033?text=Olá! Quero saber sobre Agentes de IA." target="_blank" class="sc-btn">Saiba Mais</a>
-        </div>
-      </div>
-      <div class="sc reveal" style="transition-delay:.14s">
-        <div class="sc-img"><span>📱</span></div>
-        <div class="sc-body">
-          <div class="sc-title">Marketing Digital</div>
-          <div class="sc-desc">Estratégias de <strong>marketing digital</strong> para ampliar sua presença e <strong>gerar mais resultados.</strong></div>
-          <a href="https://wa.me/5511932178033?text=Olá! Quero saber sobre Marketing Digital." target="_blank" class="sc-btn">Falar com Especialista</a>
+      <div class="depo-card reveal" style="transition-delay:.2s" role="article" aria-label="Depoimento de cliente">
+        <div class="depo-stars" aria-label="5 estrelas">★★★★★</div>
+        <p class="depo-text">"O agente de IA que a TeoCode configurou para o meu consultório atende os pacientes 24h e agenda consultas automaticamente. Economizei tempo e melhorei o atendimento ao mesmo tempo."</p>
+        <div class="depo-author">
+          <div class="depo-avatar" aria-hidden="true">C</div>
+          <div class="depo-info"><strong>Dra. Carla F.</strong><span>Consultório Médico · Mauá, SP</span></div>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- COMO FUNCIONA -->
-<section id="como">
-  <div class="max como-g">
-    <div class="reveal">
-      <h2 class="como-title">Como Funciona.</h2>
-      <p class="como-p">Planejamos metas claras, transformamos <strong>suas ideias</strong> em <strong>soluções</strong>, ajustamos os detalhes para perfeição e <strong>lançamos</strong> seu projeto com <strong>suporte contínuo.</strong></p>
-      <div class="steps-2c">
-        <div class="step-box"><div class="step-icon">💬</div><div class="step-name">Contato Inicial</div><div class="step-txt">Conte-nos sobre seu negócio e suas necessidades.</div></div>
-        <div class="step-box"><div class="step-icon">✏️</div><div class="step-name">Planejamento</div><div class="step-txt">Desenhamos um site que atende suas expectativas.</div></div>
-        <div class="step-box"><div class="step-icon">💻</div><div class="step-name">Desenvolvimento</div><div class="step-txt">Construímos seu site com cuidado e atenção.</div></div>
-        <div class="step-box"><div class="step-icon">🚀</div><div class="step-name">Lançamento</div><div class="step-txt">Seu site está pronto para conquistar a internet!</div></div>
-      </div>
-      <a href="https://wa.me/5511932178033?text=Olá! Quero criar meu site." target="_blank" class="como-btn">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
-        Quero Meu Site
-      </a>
+ 
+<!-- FAQ -->
+<section id="faq" aria-labelledby="faq-title">
+  <div class="faq-inner">
+    <div class="section-head reveal" style="text-align:center">
+      <p class="section-label">Dúvidas</p>
+      <h2 class="section-title" id="faq-title">Perguntas Frequentes</h2>
+      <p class="section-desc" style="margin:0 auto">Tudo que você precisa saber antes de começar.</p>
     </div>
-    <div class="como-vis reveal" style="transition-delay:.12s">
-      <div style="font-size:2.8rem">📈</div>
-      <div style="font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;color:var(--navy);text-align:center">Do Contato ao Lançamento</div>
-      <div style="width:100%">
-        <div class="stp-row"><div class="stp-num">1</div><div class="stp-lbl">Contato Inicial</div></div>
-        <div class="stp-row" style="margin-top:.55rem"><div class="stp-num">2</div><div class="stp-lbl">Planejamento</div></div>
-        <div class="stp-row" style="margin-top:.55rem"><div class="stp-num">3</div><div class="stp-lbl">Desenvolvimento</div></div>
-        <div class="stp-row" style="margin-top:.55rem"><div class="stp-num">4</div><div class="stp-lbl">Lançamento 🚀</div></div>
-      </div>
+    <div class="faq-list reveal">
+      <details class="faq-item">
+        <summary class="faq-q">Quanto tempo leva para criar meu site? <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
+        <p class="faq-a">Sites institucionais ficam prontos em <strong>7 a 15 dias úteis</strong>. E-commerces e projetos mais complexos podem levar de 3 a 6 semanas. Sempre alinhamos prazos realistas antes de começar.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Preciso ter domínio e hospedagem? <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
+        <p class="faq-a">Podemos cuidar de tudo para você — registramos o domínio, configuramos a hospedagem e entregamos o site funcionando. Ou, se preferir, trabalhamos com sua infraestrutura existente.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">O site funciona no celular? <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
+        <p class="faq-a">Sim! Todos os nossos sites são <strong>100% responsivos</strong> — funcionam perfeitamente em celulares, tablets e computadores. Isso também melhora seu posicionamento no Google.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">Como funciona o suporte pós-lançamento? <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
+        <p class="faq-a">Oferecemos suporte via WhatsApp e planos de manutenção mensal que incluem atualizações de segurança, correções de bugs e pequenas alterações de conteúdo.</p>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q">O que é um Agente de IA e como pode ajudar meu negócio? <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></span></summary>
+        <p class="faq-a">Um Agente de IA é um assistente virtual inteligente treinado com as informações do seu negócio. Ele atende clientes 24h no WhatsApp, qualifica leads, agenda compromissos e responde dúvidas — tudo automaticamente.</p>
+      </details>
     </div>
   </div>
 </section>
-
-<!-- CTA BANNER -->
-<section id="cta">
-  <div class="reveal">
+ 
+<!-- CTA -->
+<section id="cta" aria-label="Chamada para ação">
+  <div class="cta-inner">
+    <div class="cta-urgency">🎯 Avaliação Gratuita</div>
     <h2 class="cta-title">Pronto para Começar?</h2>
     <p class="cta-sub">Agende sua <strong>avaliação gratuita</strong> agora e veja como a <strong>TeoCode</strong> pode transformar seu negócio online.</p>
-    <a href="https://wa.me/5511932178033?text=Olá! Quero agendar minha avaliação gratuita." target="_blank" class="cta-btn">
-      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-      Agendar Avaliação
+    <a href="https://wa.me/5511932178033?text=Olá! Quero agendar minha avaliação gratuita." target="_blank" rel="noopener" class="cta-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      Agendar Avaliação Gratuita
     </a>
   </div>
 </section>
-
-<!-- CONTATO + FOOTER -->
-<section id="contato">
-  <div class="max contato-g">
-    <!-- left -->
+ 
+<!-- CONTATO -->
+<section id="contato" aria-labelledby="contato-title">
+  <div class="contato-inner">
     <div class="reveal">
-      <div class="c-logo">
-        <div class="c-logo-ball">
-          <svg viewBox="0 0 40 40" fill="none">
-            <path d="M20 5L35 13.5V26.5L20 35L5 26.5V13.5Z" fill="rgba(13,36,68,.15)" stroke="rgba(13,36,68,.5)" stroke-width="1.5"/>
-            <path d="M20 5L35 13.5L20 22L5 13.5Z" fill="rgba(13,36,68,.22)" stroke="rgba(13,36,68,.45)" stroke-width="1"/>
-            <line x1="20" y1="22" x2="20" y2="35" stroke="rgba(13,36,68,.4)" stroke-width="1.5"/>
-            <line x1="5" y1="13.5" x2="5" y2="26.5" stroke="rgba(13,36,68,.32)" stroke-width="1"/>
-            <line x1="35" y1="13.5" x2="35" y2="26.5" stroke="rgba(13,36,68,.32)" stroke-width="1"/>
-          </svg>
+      <p class="section-label">Contato</p>
+      <h2 class="section-title" id="contato-title">Vamos conversar?</h2>
+      <p class="section-desc">Entre em contato e nossa equipe responde em até 1h durante o horário de atendimento.</p>
+      <div class="info-block" style="margin-top:2rem;">
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">📞</div>
+          <div class="info-text"><strong>Telefone / WhatsApp</strong><a href="https://wa.me/5511932178033" target="_blank" rel="noopener">(11) 93217-8033</a></div>
         </div>
-        <span class="c-logo-name">TeoCode</span>
-      </div>
-      <p class="c-brand-desc">Soluções criativas e personalizadas para impulsionar seu negócio. Ajudamos você a alcançar novas alturas com estratégias digitais inovadoras.</p>
-      <p class="c-sec-title">Entre em Contato</p>
-      <div class="c-items">
-        <div class="c-item"><div class="c-icon">📞</div><div class="c-txt"><strong>Telefone</strong><a href="tel:+5511932178033">(11) 93217-8033</a></div></div>
-        <div class="c-item"><div class="c-icon">💬</div><div class="c-txt"><strong>WhatsApp</strong><a href="https://wa.me/5511932178033" target="_blank">(11) 93217-8033</a></div></div>
-        <div class="c-item"><div class="c-icon">✉️</div><div class="c-txt"><strong>E-mail</strong><a href="mailto:Contato@teocode.com.br">Contato@teocode.com.br</a></div></div>
-      </div>
-      <div class="socials">
-        <a href="https://wa.me/5511932178033" target="_blank" class="soc" title="WhatsApp">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.847L.057 23.881l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.043a10.026 10.026 0 01-5.124-1.404l-.367-.218-3.782.99 1.011-3.686-.239-.378A10.01 10.01 0 011.957 12C1.957 6.451 6.451 1.957 12 1.957S22.043 6.451 22.043 12 17.549 22.043 12 22.043z"/></svg>
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="soc" title="LinkedIn">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://maps.google.com/?q=R.+Valdemar+Celestino+da+Silva,+Mauá,+SP" target="_blank" class="soc" title="Google Maps">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <!-- right -->
-    <div class="reveal" style="transition-delay:.1s">
-      <div class="loc-box">
-        <div class="box-title">📍 Onde Estamos</div>
-        <div class="loc-row"><span>📌</span><span><strong>Endereço:</strong> R. Valdemar Celestino da Silva, Parque São Vicente, Mauá – SP, 09371-317</span></div>
-      </div>
-      <div class="hours-box">
-        <div class="box-title">🕐 Horário de Atendimento</div>
-        <table class="htbl">
-          <tr><td>Segunda-feira</td><td>08:00–18:00</td></tr>
-          <tr><td>Terça-feira</td><td>08:00–18:00</td></tr>
-          <tr><td>Quarta-feira</td><td>08:00–18:00</td></tr>
-          <tr><td>Quinta-feira</td><td>08:00–18:00</td></tr>
-          <tr><td>Sexta-feira</td><td>08:00–18:00</td></tr>
-          <tr class="cls"><td>Sábado</td><td>Fechado</td></tr>
-          <tr class="cls"><td>Domingo</td><td>Fechado</td></tr>
-        </table>
-      </div>
-      <div class="c-form">
-        <h4>💬 Solicitar Orçamento Gratuito</h4>
-        <div id="fWrap">
-          <div class="frow">
-            <div class="fg"><label>Nome *</label><input type="text" id="fn" placeholder="Seu nome" /></div>
-            <div class="fg"><label>WhatsApp *</label><input type="tel" id="fp" placeholder="(11) 9 0000-0000" /></div>
-          </div>
-          <div class="fg"><label>E-mail</label><input type="email" id="fe" placeholder="seu@email.com" /></div>
-          <div class="fg">
-            <label>Serviço de interesse</label>
-            <select id="fs">
-              <option value="">Selecione...</option>
-              <option>Criação de Site</option>
-              <option>SEO</option>
-              <option>E-commerce / Loja Virtual</option>
-              <option>Manutenção</option>
-              <option>Agente de IA</option>
-              <option>Marketing Digital</option>
-              <option>Outro</option>
-            </select>
-          </div>
-          <div class="fg"><label>Mensagem</label><textarea id="fm" placeholder="Conte sobre seu projeto..."></textarea></div>
-          <button class="fsub" id="fsub">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.847L.057 23.881l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.043a10.026 10.026 0 01-5.124-1.404l-.367-.218-3.782.99 1.011-3.686-.239-.378A10.01 10.01 0 011.957 12C1.957 6.451 6.451 1.957 12 1.957S22.043 6.451 22.043 12 17.549 22.043 12 22.043z"/></svg>
-            Enviar via WhatsApp
-          </button>
-          <p class="fnote">Você será redirecionado ao WhatsApp para finalizar o contato.</p>
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">✉️</div>
+          <div class="info-text"><strong>E-mail</strong><a href="mailto:Contato@teocode.com.br">Contato@teocode.com.br</a></div>
         </div>
-        <div class="fok" id="fOk">
-          <div class="ok-ico">✅</div>
-          <h3 style="color:white;font-family:'Nunito',sans-serif;">Mensagem enviada!</h3>
-          <p>Nossa equipe entrará em contato em breve.</p>
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">📍</div>
+          <div class="info-text"><strong>Endereço</strong><span>R. Valdemar Celestino da Silva, Parque São Vicente, Mauá – SP, 09371-317</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">🕐</div>
+          <div class="info-text">
+            <strong>Horário de Atendimento</strong>
+            <div class="hours-grid">
+              <div class="hours-row"><span class="day">Segunda</span><span class="time">08:00–18:00</span></div>
+              <div class="hours-row"><span class="day">Terça</span><span class="time">08:00–18:00</span></div>
+              <div class="hours-row"><span class="day">Quarta</span><span class="time">08:00–18:00</span></div>
+              <div class="hours-row"><span class="day">Quinta</span><span class="time">08:00–18:00</span></div>
+              <div class="hours-row"><span class="day">Sexta</span><span class="time">08:00–18:00</span></div>
+              <div class="hours-row"><span class="day">Sábado</span><span class="time" style="color:rgba(255,100,100,.7)">Fechado</span></div>
+              <div class="hours-row"><span class="day">Domingo</span><span class="time" style="color:rgba(255,100,100,.7)">Fechado</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="footer-strip">
-    Copyright © 2024 – TeoCode | Todos os direitos reservados · CNPJ: 41.061.643/0001-22 · <a href="mailto:Contato@teocode.com.br">Contato@teocode.com.br</a>
+ 
+    <div class="contact-form reveal" style="transition-delay:.15s">
+      <div class="form-title">💬 Solicitar Orçamento Gratuito</div>
+      <div id="formWrap">
+        <div class="form-row">
+          <div class="form-group"><label for="name">Nome *</label><input type="text" id="name" name="name" placeholder="Seu nome completo" autocomplete="name" required /></div>
+          <div class="form-group"><label for="phone">WhatsApp *</label><input type="tel" id="phone" name="phone" placeholder="(11) 9 0000-0000" autocomplete="tel" required /></div>
+        </div>
+        <div class="form-group"><label for="email">E-mail</label><input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" /></div>
+        <div class="form-group">
+          <label for="service">Serviço de interesse</label>
+          <select id="service" name="service">
+            <option value="">Selecione...</option>
+            <option>Criação de Site</option>
+            <option>SEO</option>
+            <option>E-commerce / Loja Virtual</option>
+            <option>Manutenção</option>
+            <option>Agente de IA</option>
+            <option>Marketing Digital</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="message">Mensagem</label><textarea id="message" name="message" placeholder="Conte sobre seu projeto ou necessidade..."></textarea></div>
+        <button class="btn btn-primary" id="submitBtn" style="width:100%;justify-content:center;border-radius:10px;font-size:.97rem;" type="button">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Enviar via WhatsApp
+        </button>
+        <p style="color:rgba(255,255,255,.3);font-size:.75rem;margin-top:.7rem;text-align:center;">Você será redirecionado ao WhatsApp para finalizar o contato.</p>
+      </div>
+      <div class="form-success" id="formSuccess" role="alert">
+        <div class="check">✅</div>
+        <h3 style="color:#fff;font-family:'Syne',sans-serif;">Mensagem enviada!</h3>
+        <p>Nossa equipe entrará em contato em breve pelo WhatsApp.</p>
+      </div>
+    </div>
   </div>
 </section>
-
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/5511932178033?text=Olá! Vim pelo site da TeoCode." target="_blank" class="wa-float" aria-label="WhatsApp">
-  <span class="wa-tip">Fale conosco!</span>
-  <svg viewBox="0 0 32 32"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.13 6.742 3.054 9.37L1.055 31.04l5.852-1.874A15.924 15.924 0 0016.004 32C24.832 32 32 24.824 32 16S24.832 0 16.004 0zm9.208 22.594c-.382 1.076-1.902 1.97-3.11 2.228-.828.176-1.908.316-5.548-1.192-4.658-1.93-7.658-6.662-7.89-6.97-.222-.308-1.876-2.496-1.876-4.762s1.172-3.376 1.63-3.844c.38-.39.998-.568 1.592-.568.192 0 .364.01.52.018.456.018.686.044.988.768.382.912 1.312 3.178 1.426 3.41.116.232.232.546.07.854-.152.318-.286.458-.518.724-.232.266-.452.47-.684.754-.21.25-.448.518-.182.974.266.448 1.18 1.94 2.532 3.142 1.74 1.548 3.15 2.044 3.648 2.254.374.158.818.1 1.094-.198.348-.384.776-.964 1.212-1.536.308-.414.696-.466 1.104-.308.416.148 2.672 1.26 3.128 1.488.456.232.76.342.872.534.108.192.108 1.108-.274 2.23z"/></svg>
+ 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-wrap">
+      <div class="footer-logo-ball" aria-hidden="true">
+        <svg viewBox="0 0 40 40" fill="none"><path d="M20 6L34 14v16L20 38 6 30V14z" fill="rgba(13,36,68,.25)" stroke="rgba(13,36,68,.6)" stroke-width="1.5"/><path d="M20 6L34 14 20 22 6 14z" fill="rgba(13,36,68,.35)" stroke="rgba(13,36,68,.55)" stroke-width="1.2"/><line x1="20" y1="22" x2="20" y2="38" stroke="rgba(13,36,68,.5)" stroke-width="1.5"/><line x1="6" y1="14" x2="6" y2="30" stroke="rgba(13,36,68,.38)" stroke-width="1.2"/><line x1="34" y1="14" x2="34" y2="30" stroke="rgba(13,36,68,.38)" stroke-width="1.2"/></svg>
+      </div>
+      <span class="footer-logo-name">TeoCode</span>
+    </div>
+    <div class="footer-socials">
+      <a href="https://wa.me/5511932178033" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp TeoCode">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="white" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.847L.057 23.881l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.043a10.026 10.026 0 01-5.124-1.404l-.367-.218-3.782.99 1.011-3.686-.239-.378A10.01 10.01 0 011.957 12C1.957 6.451 6.451 1.957 12 1.957S22.043 6.451 22.043 12 17.549 22.043 12 22.043z"/></svg>
+      </a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn TeoCode">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="white" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="https://maps.google.com/?q=R.+Valdemar+Celestino+da+Silva,+Mauá,+SP" target="_blank" rel="noopener" class="social-link" aria-label="Localização no Google Maps">
+        <svg viewBox="0 0 24 24" width="17" height="17" fill="white" aria-hidden="true"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </a>
+    </div>
+  </div>
+  <hr class="footer-divider" />
+  <p>© 2024 TeoCode · Todos os direitos reservados · CNPJ: 41.061.643/0001-22 · <a href="mailto:Contato@teocode.com.br">Contato@teocode.com.br</a> · <a href="tel:+5511932178033">(11) 93217-8033</a></p>
+</footer>
+ 
+<!-- WHATSAPP -->
+<a href="https://wa.me/5511932178033?text=Olá! Vim pelo site da TeoCode e gostaria de saber mais." target="_blank" rel="noopener" class="whatsapp-btn" aria-label="Fale conosco pelo WhatsApp">
+  <span class="wa-tooltip">Fale conosco!</span>
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.13 6.742 3.054 9.37L1.055 31.04l5.852-1.874A15.924 15.924 0 0016.004 32C24.832 32 32 24.824 32 16S24.832 0 16.004 0zm9.208 22.594c-.382 1.076-1.902 1.97-3.11 2.228-.828.176-1.908.316-5.548-1.192-4.658-1.93-7.658-6.662-7.89-6.97-.222-.308-1.876-2.496-1.876-4.762s1.172-3.376 1.63-3.844c.38-.39.998-.568 1.592-.568.192 0 .364.01.52.018.456.018.686.044.988.768.382.912 1.312 3.178 1.426 3.41.116.232.232.546.07.854-.152.318-.286.458-.518.724-.232.266-.452.47-.684.754-.21.25-.448.518-.182.974.266.448 1.18 1.94 2.532 3.142 1.74 1.548 3.15 2.044 3.648 2.254.374.158.818.1 1.094-.198.348-.384.776-.964 1.212-1.536.308-.414.696-.466 1.104-.308.416.148 2.672 1.26 3.128 1.488.456.232.76.342.872.534.108.192.108 1.108-.274 2.23z"/></svg>
 </a>
-
+ 
 <script>
-  // Nav scroll
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 50), {passive:true});
-
-  // Hamburger
-  const ham = document.getElementById('ham'), mob = document.getElementById('mob');
-  ham.addEventListener('click', () => {
-    ham.classList.toggle('open'); mob.classList.toggle('open');
-    document.body.style.overflow = mob.classList.contains('open') ? 'hidden' : '';
+/* ── NAV SCROLL ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40), {passive:true});
+ 
+/* ── HAMBURGER ── */
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  const open = hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open', open);
+  hamburger.setAttribute('aria-expanded', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+document.querySelectorAll('.mobile-link').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open'); mobileMenu.classList.remove('open');
+  hamburger.setAttribute('aria-expanded','false'); document.body.style.overflow = '';
+}));
+ 
+/* ── SCROLL REVEAL ── */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); revealObs.unobserve(e.target); } });
+}, {threshold:.1, rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+ 
+/* ── TYPED EFFECT ── */
+const typedEl = document.getElementById('typed');
+const phrases = ['crescer.', 'vender mais.', 'se destacar.', 'ter mais clientes.', 'conquistar o digital.'];
+let pi = 0, ci = 0, deleting = false;
+function typeLoop() {
+  const phrase = phrases[pi];
+  typedEl.textContent = deleting ? phrase.slice(0, ci--) : phrase.slice(0, ci++);
+  let delay = deleting ? 55 : 95;
+  if (!deleting && ci === phrase.length + 1) { delay = 1800; deleting = true; }
+  else if (deleting && ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; delay = 400; }
+  setTimeout(typeLoop, delay);
+}
+typeLoop();
+ 
+/* ── COUNTERS ── */
+function animateCounter(el) {
+  const target = +el.dataset.target;
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+  function update(now) {
+    const p = Math.min((now - start) / duration, 1);
+    const ease = p < .5 ? 2*p*p : -1+(4-2*p)*p; // easeInOut
+    el.textContent = Math.floor(ease * target) + suffix;
+    if (p < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+ 
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting && e.target.dataset.target) {
+      animateCounter(e.target);
+      counterObs.unobserve(e.target);
+    }
   });
-  document.querySelectorAll('.ml').forEach(a => a.addEventListener('click', () => {
-    ham.classList.remove('open'); mob.classList.remove('open'); document.body.style.overflow = '';
-  }));
-
-  // Scroll reveal
-  const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } }), {threshold:.1, rootMargin:'0px 0px -35px 0px'});
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-
-  // Phone mask
-  const fp = document.getElementById('fp');
-  fp.addEventListener('input', e => {
-    let v = e.target.value.replace(/\D/g,'').slice(0,11);
-    if(v.length>6) v=`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
-    else if(v.length>2) v=`(${v.slice(0,2)}) ${v.slice(2)}`;
-    else if(v.length) v=`(${v}`;
-    e.target.value = v;
+}, {threshold:.5});
+document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+ 
+/* ── PARTICLES ── */
+const pCont = document.getElementById('particles');
+for(let i = 0; i < 18; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  const size = Math.random() * 6 + 3;
+  p.style.cssText = `
+    width:${size}px; height:${size}px;
+    left:${Math.random()*100}%;
+    animation-duration:${Math.random()*15+10}s;
+    animation-delay:${Math.random()*-20}s;
+    opacity:${Math.random()*.5+.1};
+  `;
+  pCont.appendChild(p);
+}
+ 
+/* ── 3D TILT on service cards ── */
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - .5;
+    const y = (e.clientY - r.top) / r.height - .5;
+    card.style.transform = `perspective(800px) rotateY(${x*10}deg) rotateX(${-y*10}deg) translateY(-6px)`;
   });
-
-  // Form → WhatsApp
-  document.getElementById('fsub').addEventListener('click', () => {
-    const n=document.getElementById('fn').value.trim(), p=document.getElementById('fp').value.trim(),
-          e=document.getElementById('fe').value.trim(), s=document.getElementById('fs').value,
-          m=document.getElementById('fm').value.trim();
-    if(!n||!p){ alert('Por favor, preencha nome e WhatsApp.'); return; }
-    const txt=encodeURIComponent(`Olá, TeoCode! 👋\n\nNome: ${n}\nWhatsApp: ${p}${e?'\nE-mail: '+e:''}${s?'\nServiço: '+s:''}\n\nMensagem: ${m||'Gostaria de saber mais sobre os serviços.'}`);
-    window.open(`https://wa.me/5511932178033?text=${txt}`, '_blank');
-    document.getElementById('fWrap').style.display='none';
-    document.getElementById('fOk').style.display='block';
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'perspective(800px) rotateX(0deg) rotateY(0deg) translateY(0)';
   });
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
-    const t=document.querySelector(a.getAttribute('href'));
-    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
-  }));
+});
+ 
+/* ── PHONE MASK ── */
+const phone = document.getElementById('phone');
+phone.addEventListener('input', e => {
+  let v = e.target.value.replace(/\D/g,'').slice(0,11);
+  if(v.length>6) v=`(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7)}`;
+  else if(v.length>2) v=`(${v.slice(0,2)}) ${v.slice(2)}`;
+  else if(v.length) v=`(${v}`;
+  e.target.value = v;
+});
+ 
+/* ── FORM → WHATSAPP ── */
+document.getElementById('submitBtn').addEventListener('click', () => {
+  const n=document.getElementById('name').value.trim();
+  const p=document.getElementById('phone').value.trim();
+  const em=document.getElementById('email').value.trim();
+  const s=document.getElementById('service').value;
+  const m=document.getElementById('message').value.trim();
+  if(!n||!p){ alert('Por favor, preencha nome e WhatsApp.'); return; }
+  const txt=encodeURIComponent(`Olá, TeoCode! 👋\n\nNome: ${n}\nWhatsApp: ${p}${em?'\nE-mail: '+em:''}${s?'\nServiço: '+s:''}\n\nMensagem: ${m||'Gostaria de saber mais sobre os serviços.'}`);
+  window.open(`https://wa.me/5511932178033?text=${txt}`, '_blank');
+  document.getElementById('formWrap').style.display='none';
+  document.getElementById('formSuccess').style.display='block';
+});
+ 
+/* ── SMOOTH SCROLL ── */
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth'}); }
+}));
 </script>
 </body>
 </html>
