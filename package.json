@@ -1,0 +1,14 @@
+{
+  "name": "teocode-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Landing page da TeoCode — sites e agentes de IA em Mauá, SP.",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/style.css -o ./assets/css/style.css --watch",
+    "build": "tailwindcss -i ./src/style.css -o ./assets/css/style.css --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}

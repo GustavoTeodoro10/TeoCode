@@ -1,0 +1,364 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #0a0e1a;
+  --color-ink-soft: #10182b;
+  --color-mid: #121a2d;
+  --color-paper: #f5f2ec;
+  --color-paper-dim: #ece6d9;
+  --color-stone: #d8d0c0;
+  --color-teal: #00c9a7;
+  --color-teal-dim: #00a88b;
+  --color-blue: #3d7fff;
+  --color-muted: #6b7280;
+
+  --font-display: "Syne", sans-serif;
+  --font-body: "DM Sans", sans-serif;
+
+  --breakpoint-xs: 420px;
+  --breakpoint-3xl: 1600px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--color-paper);
+    color: var(--color-ink);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--color-teal);
+    color: var(--color-ink);
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-teal);
+    border-radius: 3px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* ---- buttons ---- */
+  .btn-primary,
+  .btn-ghost,
+  .btn-dark {
+    @apply inline-flex items-center gap-2.5 rounded-full px-7 py-3.5 text-[0.97rem] font-semibold transition-all duration-300 ease-out active:translate-y-0;
+  }
+
+  .btn-primary {
+    @apply bg-teal text-ink shadow-[0_10px_30px_-8px_rgba(0,201,167,.55)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-8px_rgba(0,201,167,.7)];
+  }
+
+  .btn-ghost {
+    @apply border border-white/20 bg-white/[0.06] text-white backdrop-blur-sm hover:-translate-y-0.5 hover:bg-white/[0.12];
+  }
+
+  .btn-dark {
+    @apply bg-ink text-white shadow-[0_10px_30px_-8px_rgba(10,14,26,.5)] hover:-translate-y-0.5 hover:shadow-[0_16px_40px_-8px_rgba(10,14,26,.65)];
+  }
+
+  /* ---- section rhythm ---- */
+  .section {
+    @apply px-6 py-24 sm:px-10 lg:px-16 lg:py-32;
+  }
+
+  .wrap {
+    @apply mx-auto w-full max-w-[1240px];
+  }
+
+  .kicker {
+    @apply inline-flex items-center gap-2 text-[0.95rem] font-semibold text-teal;
+  }
+
+  .kicker::before {
+    content: "";
+    @apply block h-[7px] w-[7px] rotate-45 bg-teal;
+  }
+
+  .h2 {
+    @apply font-display text-[clamp(1.9rem,3.4vw,2.75rem)] font-extrabold leading-[1.12] tracking-[-0.02em];
+  }
+
+  /* ---- gem / diamond motif (from the mark) ---- */
+  .gem {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .gem-bullet {
+    @apply relative block h-2.5 w-2.5 shrink-0 bg-teal;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  /* ---- reveal-on-scroll ---- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s cubic-bezier(.25,.46,.45,.94), transform 0.7s cubic-bezier(.25,.46,.45,.94);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ---- chip / pill ---- */
+  .chip {
+    @apply rounded-full border border-teal/25 bg-teal/10 px-4 py-1.5 text-[0.85rem] font-medium text-ink transition-all duration-300 hover:bg-teal/20 hover:-translate-y-0.5;
+  }
+
+  /* ---- nav ---- */
+  .nav-link {
+    @apply relative text-sm font-medium text-white/75 no-underline transition-colors duration-200 after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-teal after:transition-[width] after:duration-300 hover:text-teal hover:after:w-full;
+  }
+
+  .mobile-link {
+    @apply font-display text-2xl font-bold text-white no-underline transition-colors duration-200 hover:text-teal;
+  }
+
+  /* ---- service cards ---- */
+  .service-card {
+    @apply relative flex flex-col justify-center overflow-hidden rounded-[20px] border border-white/[0.08] bg-white/[0.04] p-7 transition-all duration-300 hover:-translate-y-1 hover:border-teal/35 hover:shadow-[0_20px_50px_rgba(0,0,0,.4)];
+  }
+
+  .service-card.featured {
+    @apply justify-start bg-gradient-to-br from-teal/[0.12] to-blue/[0.08] p-8;
+    border-color: rgba(0, 201, 167, .3);
+  }
+
+  .card-icon {
+    @apply mb-4 inline-block text-3xl transition-transform duration-300;
+  }
+
+  .service-card:hover .card-icon {
+    transform: scale(1.12) translateY(-2px);
+  }
+
+  .card-title {
+    @apply font-display text-lg font-bold text-white;
+  }
+
+  .service-card.featured .card-title {
+    @apply text-xl;
+  }
+
+  .card-desc {
+    @apply mt-2 text-[0.93rem] leading-relaxed text-white/50;
+  }
+
+  .card-tag {
+    @apply mt-4 inline-block w-fit rounded-full border border-teal/30 px-3 py-1 text-[0.76rem] font-semibold text-teal;
+  }
+
+  /* ---- offer checklist ---- */
+  .offer-item {
+    @apply flex gap-3.5 rounded-2xl border border-black/5 bg-white/70 p-5;
+  }
+
+  /* ---- process steps ---- */
+  .step-num {
+    @apply mb-3 block font-display text-3xl font-extrabold text-teal/25;
+  }
+
+  /* ---- trust cards ---- */
+  .trust-card {
+    @apply rounded-[20px] border border-black/[0.06] bg-white p-6 shadow-[0_2px_12px_rgba(0,0,0,.04)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_36px_rgba(0,0,0,.08)];
+  }
+
+  /* ---- contact info items ---- */
+  .info-item {
+    @apply flex items-start gap-3.5 rounded-xl border border-white/[0.08] bg-white/5 p-4 transition-all duration-300 hover:translate-x-1 hover:bg-white/[0.09];
+  }
+
+  .info-icon {
+    @apply grid h-11 w-11 shrink-0 place-items-center rounded-[10px] bg-teal/[0.15] text-[1.2rem];
+  }
+
+  .info-link {
+    @apply text-sm font-light text-white/55 no-underline transition-colors duration-200 hover:text-teal;
+  }
+
+  /* ---- form ---- */
+  .form-group {
+    @apply mb-4 flex flex-col gap-1.5;
+  }
+
+  .form-group label {
+    @apply text-[0.82rem] font-medium text-white/65;
+  }
+
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    @apply w-full rounded-[10px] border border-white/[0.12] bg-white/[0.07] px-4 py-3 font-body text-[0.95rem] text-white outline-none transition-all duration-200 placeholder:text-white/25 focus:border-teal focus:bg-white/10 focus:shadow-[0_0_0_3px_rgba(0,201,167,.12)];
+  }
+
+  .form-group select option {
+    background: var(--color-mid);
+    color: #fff;
+  }
+
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+
+  /* ---- faq ---- */
+  .faq-item {
+    @apply overflow-hidden rounded-2xl border border-white/[0.08] bg-white/[0.04] transition-colors duration-300 hover:border-teal/25;
+  }
+
+  .faq-q {
+    @apply flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-display text-[1.02rem] font-bold text-white select-none;
+  }
+
+  .faq-q::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-icon {
+    @apply grid h-7 w-7 shrink-0 place-items-center rounded-full border border-teal/25 bg-teal/10 transition-all duration-300;
+  }
+
+  .faq-item[open] .faq-icon {
+    @apply rotate-45 border-teal bg-teal;
+  }
+
+  .faq-icon svg {
+    @apply h-3.5 w-3.5 stroke-teal transition-colors duration-200;
+  }
+
+  .faq-item[open] .faq-icon svg {
+    stroke: var(--color-ink);
+  }
+
+  .faq-a {
+    @apply px-6 pb-6 text-[0.95rem] leading-relaxed text-white/55;
+  }
+
+  /* ---- footer ---- */
+  .footer-link {
+    @apply text-white/45 no-underline transition-colors duration-200 hover:text-teal;
+  }
+
+  .social-link {
+    @apply grid h-9 w-9 place-items-center rounded-[8px] border border-white/10 bg-white/[0.06] no-underline transition-all duration-300 hover:-translate-y-0.5 hover:border-teal/30 hover:bg-teal/15;
+  }
+
+  /* ---- chat mockup bubbles ---- */
+  .bubble {
+    @apply max-w-[82%] rounded-2xl px-4 py-2.5 text-[0.87rem] leading-snug opacity-0;
+    animation: chat-in 0.4s ease-out forwards;
+  }
+
+  .bubble-in {
+    @apply self-start rounded-bl-md bg-white/10 text-white/85;
+  }
+
+  .bubble-out {
+    @apply self-end rounded-br-md bg-teal text-ink;
+  }
+
+  .typing-dots {
+    @apply flex w-fit items-center gap-1 self-end rounded-2xl rounded-br-md bg-teal/25 px-4 py-3;
+  }
+
+  .typing-dots span {
+    @apply h-1.5 w-1.5 rounded-full bg-teal;
+    animation: dot-bounce 1.2s ease-in-out infinite;
+  }
+
+  .typing-dots span:nth-child(2) { animation-delay: .15s; }
+  .typing-dots span:nth-child(3) { animation-delay: .3s; }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* interactive state overrides — must win over base utility classes on the same element */
+  #mobileMenu.is-open {
+    @apply pointer-events-auto scale-100 opacity-100;
+  }
+
+  #nav.is-scrolled {
+    @apply bg-ink/95 py-3 shadow-[0_2px_24px_rgba(0,0,0,.3)] backdrop-blur-xl;
+  }
+
+  #hamburger.is-open .hb-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #hamburger.is-open .hb-bar:nth-child(2) { opacity: 0; }
+  #hamburger.is-open .hb-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+/* ---- keyframes ---- */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.25; }
+}
+
+@keyframes float-y {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 6px rgba(0,201,167,.16), 0 8px 28px rgba(0,201,167,.35); }
+  50% { box-shadow: 0 0 0 11px rgba(0,201,167,.1), 0 12px 34px rgba(0,201,167,.45); }
+}
+
+@keyframes grid-drift {
+  to { background-position: 56px 56px; }
+}
+
+@keyframes orb-pulse {
+  to { transform: scale(1.18); }
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes chat-in {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes dot-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: .5; }
+  30% { transform: translateY(-4px); opacity: 1; }
+}
+
+.animate-blink { animation: blink 1.5s step-end infinite; }
+.animate-float { animation: float-y 4.5s ease-in-out infinite; }
+.animate-pulse-ring { animation: pulse-ring 3.6s ease-in-out infinite; }
+.animate-grid-drift { animation: grid-drift 24s linear infinite; }
+.animate-orb { animation: orb-pulse 9s ease-in-out infinite alternate; }
+.animate-cursor { animation: cursor-blink .85s step-end infinite; }
