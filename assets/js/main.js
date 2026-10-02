@@ -91,6 +91,9 @@
         typing.className = 'typing';
         typing.setAttribute('aria-hidden', 'true');
         typing.innerHTML = '<i></i><i></i><i></i>';
+        typing.style.position = 'absolute';
+        typing.style.right = '16px';
+        typing.style.top = `${msg.offsetTop + 4}px`;
         thread.appendChild(typing);
         await wait(1150);
         typing.remove();

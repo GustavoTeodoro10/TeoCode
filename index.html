@@ -119,7 +119,7 @@
                 @apply mt-auto inline-flex min-h-11 items-center gap-1.5 pt-8 text-[0.95rem] font-semibold underline-offset-4 transition-[gap,color,transform,translate,scale] duration-200 ease-out-expo hover:gap-2.5 hover:underline active:scale-[.97];
             }
             .field {
-                @apply w-full rounded-xl border border-paper/15 bg-ink/60 px-4 py-3 text-[0.95rem] text-paper outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-paper/40 focus:border-teal focus:shadow-[0_0_0_3px_rgba(0,201,167,.18)];
+                @apply w-full rounded-xl border border-paper/15 bg-ink/60 px-4 py-3 text-[0.95rem] text-paper outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-paper/55 focus:border-teal focus:shadow-[0_0_0_3px_rgba(0,201,167,.18)];
             }
             .field-label {
                 @apply mb-2 block text-sm font-medium text-paper/85;
@@ -145,15 +145,15 @@
 
     <!-- NAVEGAÇÃO -->
     <header id="topo"
-        class="fixed inset-x-0 top-0 z-40 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-300 [&.is-scrolled]:border-paper/10 [&.is-scrolled]:bg-ink/85 [&.is-scrolled]:backdrop-blur-md">
+        class="fixed inset-x-0 top-0 z-[55] border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-300 [&.is-scrolled]:border-paper/10 [&.is-scrolled]:bg-ink/85 [&.is-scrolled]:backdrop-blur-md">
         <nav aria-label="Principal"
-            class="mx-auto flex h-[68px] w-full max-w-[1280px] items-center justify-between px-5 sm:px-8 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+            class="mx-auto flex h-[68px] w-full max-w-[1344px] items-center justify-between px-5 sm:px-8 3xl:max-w-[1664px] 4xl:max-w-[1964px]">
             <a href="#inicio" class="logo-link flex items-center gap-2.5" aria-label="TeoCode, início">
                 <img src="assets/logo.svg" width="42" height="42" alt="" class="logo-ball" />
                 <span class="logo-word">TeoCode</span>
             </a>
 
-            <ul class="hidden items-center gap-8 lg:flex">
+            <ul class="hidden items-center gap-6 lg:flex xl:gap-8">
                 <li><a href="#servicos" class="nav-link">Serviços</a></li>
                 <li><a href="#ofertas" class="nav-link">Ofertas</a></li>
                 <li><a href="#processo" class="nav-link">Como funciona</a></li>
@@ -203,14 +203,14 @@
         <section id="inicio" aria-labelledby="hero-title"
             class="relative isolate flex min-h-[100dvh] items-center overflow-clip pb-16 pt-24">
             <div aria-hidden="true"
-                class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_82%_38%,rgba(0,201,167,.10),transparent_70%),radial-gradient(45%_45%_at_8%_96%,rgba(61,127,255,.08),transparent_70%)]">
+                class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_82%_38%,rgba(0,201,167,.10),transparent_70%),radial-gradient(45%_45%_at_8%_90%,rgba(61,127,255,.08),transparent_70%)] [-webkit-mask-image:linear-gradient(to_bottom,#000_65%,transparent)] [mask-image:linear-gradient(to_bottom,#000_65%,transparent)]">
             </div>
 
             <div
-                class="mx-auto grid w-full max-w-[1280px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-8 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+                class="mx-auto grid w-full max-w-[1344px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-8 3xl:max-w-[1664px] 4xl:max-w-[1964px]">
                 <div class="lg:col-span-7">
                     <h1 id="hero-title"
-                        class="font-display text-[clamp(2.2rem,9vw,4.5rem)] font-extrabold leading-[1.02] tracking-[-0.035em] text-paper lg:text-[clamp(2.4rem,5.3vw,4.3rem)]">
+                        class="font-display text-[clamp(2.2rem,9vw,4.5rem)] font-extrabold leading-[1.02] tracking-[-0.035em] text-paper lg:text-[clamp(2.4rem,5.3vw,4.6rem)]">
                         <span class="hl" style="--d:60ms"><span>Transforme</span></span>
                         <span class="hl" style="--d:170ms"><span>seu negócio.</span></span>
                     </h1>
@@ -249,10 +249,10 @@
                                     <p class="mt-0.5 text-[0.8rem] text-paper/65">Agente de IA, online</p>
                                 </div>
                             </div>
-                            <div id="chat-thread" class="flex min-h-[290px] flex-col gap-2.5 px-4 py-5 sm:min-h-[320px]">
+                            <div id="chat-thread" class="relative flex min-h-[290px] flex-col gap-2.5 px-4 py-5 sm:min-h-[320px]">
                                 <p class="msg msg-in max-w-[82%] self-start rounded-[18px_18px_18px_6px] bg-paper/10 px-4 py-2.5 text-[0.92rem] leading-snug text-paper">
                                     Oi! Tem horário na quarta à tarde?
-                                    <time class="tnum mt-1 block text-right text-[0.7rem] text-paper/50">14:02</time>
+                                    <time class="tnum mt-1 block text-right text-[0.7rem] text-paper/65">14:02</time>
                                 </p>
                                 <p class="msg msg-out max-w-[82%] self-end rounded-[18px_18px_6px_18px] bg-teal px-4 py-2.5 text-[0.92rem] leading-snug text-ink">
                                     Oi! Tenho 14h ou 16h30 na quarta. Qual prefere?
@@ -260,7 +260,7 @@
                                 </p>
                                 <p class="msg msg-in max-w-[82%] self-start rounded-[18px_18px_18px_6px] bg-paper/10 px-4 py-2.5 text-[0.92rem] leading-snug text-paper">
                                     16h30, por favor.
-                                    <time class="tnum mt-1 block text-right text-[0.7rem] text-paper/50">14:03</time>
+                                    <time class="tnum mt-1 block text-right text-[0.7rem] text-paper/65">14:03</time>
                                 </p>
                                 <p class="msg msg-out max-w-[82%] self-end rounded-[18px_18px_6px_18px] bg-teal px-4 py-2.5 text-[0.92rem] leading-snug text-ink">
                                     Agendado para quarta, às 16h30. Até lá!
@@ -270,6 +270,14 @@
                         </div>
                         <figcaption class="mt-4 text-center text-sm text-paper/60">Exemplo ilustrativo de um agente de
                             IA atendendo no WhatsApp.</figcaption>
+                        <p class="mt-1 text-center">
+                            <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                                data-wa="Olá, vi o site e quero um agente de IA como o do exemplo, para atender os clientes do meu negócio no WhatsApp."
+                                data-gc-event="cta-hero-agente"
+                                class="inline-flex min-h-11 items-center gap-1.5 text-[0.95rem] font-semibold text-teal underline-offset-4 transition-[gap] duration-200 ease-out-expo hover:gap-2.5 hover:underline">
+                                Quero um agente de IA assim <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                            </a>
+                        </p>
                     </figure>
                 </div>
             </div>
@@ -301,14 +309,14 @@
 
                     <!-- Agentes de IA (célula em teal) -->
                     <article data-reveal="rise" style="--d:60ms"
-                        class="tile border-teal bg-teal text-ink hover:border-teal sm:col-span-2 lg:col-span-5 lg:min-h-[330px]">
-                        <i class="ph ph-robot text-4xl" aria-hidden="true"></i>
+                        class="tile border-teal/60 bg-[linear-gradient(135deg,rgba(0,201,167,.30),rgba(30,39,64,.62)_70%)] sm:col-span-2 lg:col-span-5 lg:min-h-[330px]">
+                        <i class="ph ph-robot text-4xl text-teal" aria-hidden="true"></i>
                         <h3 class="mt-6 font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Agentes de IA</h3>
-                        <p class="mt-3 max-w-[40ch] leading-relaxed text-ink/80">Automatize atendimento e vendas com
+                        <p class="mt-3 max-w-[40ch] leading-relaxed text-paper/80">Automatize atendimento e vendas com
                             agentes de inteligência artificial treinados para o seu negócio.</p>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e tenho interesse em Agentes de IA para atendimento no WhatsApp."
-                            data-gc-event="cta-servico-agentes-ia" class="tile-link">Conversar sobre agentes de IA <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                            data-gc-event="cta-servico-agentes-ia" class="tile-link text-teal">Conversar sobre agentes de IA <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
                     </article>
 
                     <!-- SEO -->
@@ -337,7 +345,7 @@
 
                     <!-- Manutenção -->
                     <article data-reveal="rise" style="--d:0ms"
-                        class="tile bg-mid/40 sm:col-span-1 lg:col-span-6 lg:min-h-[260px]">
+                        class="tile bg-mid/40 sm:col-span-1 lg:col-span-7 lg:min-h-[260px]">
                         <i class="ph ph-wrench text-4xl text-teal" aria-hidden="true"></i>
                         <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">Manutenção</h3>
                         <p class="mt-3 max-w-[44ch] leading-relaxed text-paper/75">Oferecemos atualizações regulares,
@@ -349,7 +357,7 @@
 
                     <!-- Marketing digital -->
                     <article data-reveal="rise" style="--d:60ms"
-                        class="tile bg-[radial-gradient(120%_90%_at_100%_0%,rgba(0,201,167,.12),transparent_60%),rgba(30,39,64,.4)] sm:col-span-1 lg:col-span-6 lg:min-h-[260px]">
+                        class="tile bg-[radial-gradient(120%_90%_at_100%_0%,rgba(0,201,167,.12),transparent_60%),rgba(30,39,64,.4)] sm:col-span-1 lg:col-span-5 lg:min-h-[260px]">
                         <i class="ph ph-megaphone text-4xl text-teal" aria-hidden="true"></i>
                         <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">Marketing digital</h3>
                         <p class="mt-3 max-w-[44ch] leading-relaxed text-paper/75">Estratégias de marketing digital
@@ -414,7 +422,7 @@
                         <ul class="mt-6 grid gap-2.5 text-[0.95rem] text-paper/80 sm:grid-cols-2">
                             <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Sites institucionais em 7 a 15 dias úteis</li>
                             <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>E-commerce e projetos complexos em 3 a 6 semanas</li>
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Domínio e hospedagem por nossa conta, ou na sua infraestrutura</li>
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Domínio e hospedagem cuidados por nós, ou na sua infraestrutura</li>
                             <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>100% responsivo</li>
                         </ul>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
@@ -455,9 +463,10 @@
                         claras, transformamos suas ideias em soluções e lançamos seu projeto com suporte contínuo.</p>
                 </div>
 
-                <ol class="relative mt-16 grid gap-12 lg:grid-cols-4 lg:gap-8">
-                    <span aria-hidden="true"
-                        class="process-line absolute left-[21px] top-[21px] h-[calc(100%-42px)] w-px bg-paper/20 lg:left-[21px] lg:right-[21px] lg:h-px lg:w-[calc(100%-42px)]"></span>
+                <div class="relative mt-16">
+                <span aria-hidden="true"
+                    class="process-line absolute left-[21px] top-[21px] hidden h-px w-[calc(75%+24px)] bg-paper/20 lg:block"></span>
+                <ol class="grid gap-12 lg:grid-cols-4 lg:gap-8">
 
                     <li class="step relative pl-16 lg:pl-0 lg:pt-16" style="--d:250ms">
                         <span class="step-node absolute left-0 top-0 grid size-[43px] place-items-center rounded-full border border-paper/30 font-display text-sm font-bold">1</span>
@@ -480,6 +489,7 @@
                         <p class="mt-2.5 max-w-[34ch] leading-relaxed text-paper/70">Seu site está pronto para conquistar a internet. Suporte contínuo garantido.</p>
                     </li>
                 </ol>
+                </div>
 
                 <div class="mt-14" data-reveal="rise">
                     <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
@@ -522,7 +532,7 @@
                     <div class="grid gap-3 border-t border-paper/10 py-8 lg:grid-cols-12 lg:gap-10 lg:py-10" data-reveal="rise">
                         <h3 class="font-display text-[1.55rem] font-bold leading-snug tracking-[-0.02em] lg:col-span-7 lg:text-[1.9rem]">Empresa registrada, em Mauá, SP.</h3>
                         <div class="lg:col-span-5">
-                            <p class="tnum leading-relaxed text-paper/70">CNPJ 41.061.643/0001-22. Respondemos em até 1h durante o horário de atendimento, de segunda a sexta, das 8h às 18h.</p>
+                            <p class="tnum leading-relaxed text-paper/70">CNPJ 41.061.643/0001-22. Atendimento de segunda a sexta, das 8h às 18h.</p>
                             <a href="https://www.google.com/maps/place/TeoCode/@-23.6656131,-46.4840818,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce6971df8926f3:0x5eda3e3e42c58448!8m2!3d-23.6656131!4d-46.4840818!16s%2Fg%2F11wqy1f6_c"
                                 target="_blank" rel="noopener noreferrer"
                                 data-gc-event="link-perfil-google" class="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-teal underline-offset-4 hover:underline">

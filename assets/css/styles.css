@@ -142,9 +142,19 @@ a { text-underline-offset: 0.22em; }
 .js .process-line { transform: scaleX(0); transition: transform 1.6s var(--ease-in-out) 0.2s; }
 .js .process-line.is-in { transform: scaleX(1); }
 @media (max-width: 1023px) {
-  .process-line { transform-origin: top center; }
-  .js .process-line { transform: scaleY(0); }
-  .js .process-line.is-in { transform: scaleY(1); }
+  /* no celular cada etapa traz o seu proprio conector ate a proxima */
+  .step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 21px;
+    top: 43px;
+    bottom: -48px;
+    width: 1px;
+    background: rgba(244, 242, 238, 0.2);
+    transform-origin: top center;
+  }
+  .js .step:not(:last-child)::after { transform: scaleY(0); transition: transform 0.8s var(--ease-in-out) 0.3s; }
+  .js .step.is-in:not(:last-child)::after { transform: scaleY(1); }
 }
 .step-node {
   transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
@@ -180,8 +190,17 @@ summary:active { background-color: rgba(244, 242, 238, 0.04); }
 details .faq-icon { transition: transform 0.35s var(--ease-out), background-color 0.2s ease, color 0.2s ease; }
 details[open] .faq-icon { transform: rotate(45deg); background-color: var(--teal); color: var(--ink); }
 
-/* ---- mapa em tema escuro ---- */
+/* ---- mapa em tema escuro, tingido de navy para ficar no mesmo chao da pagina ---- */
+.map-frame { background: var(--ink); }
 .map-frame iframe { filter: invert(0.92) hue-rotate(180deg) saturate(0.65) contrast(0.92); }
+.map-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 39, 64, 0.55);
+  mix-blend-mode: color;
+  pointer-events: none;
+}
 
 /* ---- formulario ---- */
 .field[aria-invalid="true"] { border-color: #ff8e8e; }
@@ -238,7 +257,7 @@ details[open] .faq-icon { transform: rotate(45deg); background-color: var(--teal
   .js .hl > span { transform: none !important; opacity: 0; transition: opacity 0.4s ease-out !important; transition-delay: 0ms !important; }
   .js .hero-in .hl > span { opacity: 1; }
   .js .msg, .js .msg.is-in { transform: none !important; transition: opacity 0.3s ease-out !important; }
-  .js .process-line { transform: none !important; transition: none !important; }
+  .js .process-line, .js .step::after { transform: none !important; transition: none !important; }
   .js .wa-float { transform: none !important; }
   details::details-content { transition: none !important; }
   details > p, details[open] > p { transform: none !important; }

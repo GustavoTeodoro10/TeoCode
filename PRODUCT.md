@@ -31,6 +31,7 @@ All contact is WhatsApp: (11) 92637-7723. Hours: Monday to Friday, 08:00 to 18:0
 - Services (original copy, keep the meaning): Criação de Sites, Agentes de IA, Manutenção, SEO, E-commerce, Marketing Digital.
 - Process: Contato inicial, Planejamento, Desenvolvimento, Lançamento.
 - Facts from the FAQ: institutional sites take 7 to 15 business days; e-commerce and complex projects 3 to 6 weeks; domain and hosting can be handled by TeoCode or use the client's own; all sites are responsive; post-launch support via WhatsApp plus monthly maintenance plans (security updates, bug fixes, small content changes); an AI agent is trained with the business's information and answers customers on WhatsApp, qualifies leads and books appointments.
+- Claims carried over from the original site copy, kept as published and not independently verified: the team answers within 1 hour during business hours; AI agents answer customers 24 hours a day; continuous support after launch.
 - Contact e-mail: contato@teocode.com.br (confirmed by the user as active).
 - Offer structure decided with the user, without prices: Avaliação gratuita, Projeto de site, Manutenção mensal.
 - No prices exist anywhere. Do not invent any.

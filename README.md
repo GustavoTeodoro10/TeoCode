@@ -70,6 +70,7 @@ msedge --headless=new --window-size=1200,630 --virtual-time-budget=12000 --scree
   | `cta-nav` | botão "Agendar avaliação" do menu (desktop) |
   | `cta-menu-mobile` | botão do menu no celular |
   | `cta-hero` | botão principal do topo da página |
+  | `cta-hero-agente` | link "Quero um agente de IA assim" abaixo da conversa de exemplo |
   | `cta-servico-sites` | serviço Criação de sites |
   | `cta-servico-agentes-ia` | serviço Agentes de IA |
   | `cta-servico-seo` | serviço SEO |

@@ -15,7 +15,7 @@ colors:
 typography:
   display:
     fontFamily: "Syne, ui-sans-serif, system-ui, sans-serif"
-    fontSize: "clamp(2.4rem, 5.3vw, 4.3rem)"
+    fontSize: "clamp(2.4rem, 5.3vw, 4.6rem)"
     fontWeight: 800
     lineHeight: 1.02
     letterSpacing: "-0.035em"
@@ -71,8 +71,8 @@ components:
     rounded: "{rounded.surface}"
     padding: "36px"
   tile-featured:
-    backgroundColor: "{colors.teal}"
-    textColor: "{colors.ink}"
+    backgroundColor: "{colors.mid}"
+    textColor: "{colors.paper}"
     rounded: "{rounded.surface}"
     padding: "36px"
   field:
@@ -90,7 +90,7 @@ components:
 
 Um balcão de atendimento que continua aceso depois do expediente: o navy profundo é a noite, o teal é a luz que fica ligada, e cada superfície existe para levar o visitante a uma conversa no WhatsApp. O sistema é escuro por escolha (template Premium/Dark pedido para esta marca), sóbrio nos blocos e ousado em um único lugar: a tipografia Syne em peso 800, larga e densa, que carrega a personalidade da marca (é também a face do wordmark do logotipo).
 
-A profundidade vem de camadas tonais do próprio navy e de sombras com deslocamento, nunca de brilho neon. O teal é a única cor de ação e aparece em poucos lugares com muita força: o botão principal, o serviço em destaque (Agentes de IA) e uma faixa final inteira. O azul `#3d7fff` existe só como tinta ambiente muito discreta.
+A profundidade vem de camadas tonais do próprio navy e de sombras com deslocamento, nunca de brilho neon. O teal é a única cor de ação e aparece em poucos lugares com muita força: o botão principal, uma tinta forte no serviço em destaque (Agentes de IA) e uma faixa final inteira. O azul `#3d7fff` existe só como tinta ambiente muito discreta.
 
 **Key Characteristics:**
 - Fundo `ink` em toda a página; seções se diferenciam por tons de `mid` em baixa opacidade, nunca por inversão para claro.
@@ -103,7 +103,7 @@ A profundidade vem de camadas tonais do próprio navy e de sombras com deslocame
 Paleta original da marca, mantida exatamente: navy profundo, navy de superfície, papel quente (só para texto e a faixa de contraste) e um teal vivo como única cor de ação.
 
 ### Primary
-- **Teal da Luz Acesa** (#00c9a7): botões primários, ícones de ação, estados ativos, o serviço em destaque e a faixa final "Pronto para começar?". Texto sobre teal é sempre `ink`.
+- **Teal da Luz Acesa** (#00c9a7): botões primários, ícones de ação, estados ativos, a tinta do serviço em destaque e a faixa final "Pronto para começar?", o único campo sólido de teal da página. Texto sobre teal é sempre `ink`.
 - **Teal de Hover** (#14dbb8): apenas o estado hover do botão primário.
 
 ### Secondary
@@ -129,7 +129,7 @@ Paleta original da marca, mantida exatamente: navy profundo, navy de superfície
 **Character:** Syne é larga, densa e um pouco excêntrica, e já é a voz do wordmark; Hanken Grotesk é neutra e legível, deixa a Syne falar sozinha. O contraste entre as duas é de largura e peso, não de estilo.
 
 ### Hierarchy
-- **Display** (800, `clamp(2.4rem, 5.3vw, 4.3rem)`, 1.02): apenas o título do topo, em no máximo duas linhas, com tracking -0.035em.
+- **Display** (800, `clamp(2.4rem, 5.3vw, 4.6rem)`, 1.02): apenas o título do topo, em no máximo duas linhas, com tracking -0.035em.
 - **Headline** (800, `clamp(2rem, 3.6vw, 3.25rem)`, 1.06): títulos de seção, tracking -0.03em, `text-wrap: balance`.
 - **Title** (700, 1.3rem a 1.9rem, 1.15): títulos de cartões, ofertas e linhas de diferenciais.
 - **Body** (400, 1.05rem, 1.65): parágrafos, no máximo 52 a 56 caracteres por linha nos textos de apoio, em `paper` a 70% a 80%.
@@ -142,9 +142,9 @@ Paleta original da marca, mantida exatamente: navy profundo, navy de superfície
 
 ## Layout
 
-Uma página, navegação por âncoras. Contêiner de 1280px centralizado (1600px a partir de 1920px e 1900px a partir de 2560px), gutters de 20px no celular e 32px de 640px em diante; o tamanho raiz sobe para 112,5% a partir de 1920px e 125% a partir de 2560px para que a página cresça junto com a tela. Ritmo vertical de 96px (celular) a 128px (desktop) entre seções, com mais espaço acima do título do que abaixo.
+Uma página, navegação por âncoras. Contêiner de conteúdo de 1280px centralizado (1600px a partir de 1920px e 1900px a partir de 2560px; barra de navegação e topo usam a mesma largura de conteúdo das demais seções), gutters de 20px no celular e 32px de 640px em diante; o tamanho raiz sobe para 112,5% a partir de 1920px e 125% a partir de 2560px para que a página cresça junto com a tela. Ritmo vertical de 96px (celular) a 128px (desktop) entre seções, com mais espaço acima do título do que abaixo.
 
-As famílias de layout se alternam e nunca se repetem em seções vizinhas: topo assimétrico 7/5 com a conversa de exemplo, bento de seis células (7/5, 5/7, 6/6), coluna fixa à esquerda com pilha de ofertas, linha do tempo horizontal com linha que se desenha, linhas tipográficas divididas por hairlines, accordion estreito, faixa teal de largura total e contato em 5/7. Em telas abaixo de 1024px tudo vira coluna única e o menu vira tela cheia.
+As famílias de layout se alternam e nunca se repetem em seções vizinhas: topo assimétrico 7/5 com a conversa de exemplo, bento de seis células (7/5, 5/7, 7/5), coluna fixa à esquerda com pilha de ofertas, linha do tempo horizontal com linha que se desenha, linhas tipográficas divididas por hairlines, accordion estreito, faixa teal de largura total e contato em 5/7. Em telas abaixo de 1024px tudo vira coluna única e o menu vira tela cheia.
 
 ## Elevation & Depth
 
@@ -172,7 +172,7 @@ Três raios com regra fixa: botões em pílula (9999px), superfícies e cartões
 
 ### Cards / Containers (tile)
 - **Corner Style:** 24px.
-- **Background:** `mid` entre 40% e 55%, com variações reais por célula (gradiente de teal, gradiente de azul, ou teal sólido no destaque).
+- **Background:** `mid` entre 40% e 55%, com variações reais por célula (gradiente de teal, gradiente de azul, tinta forte de teal no destaque).
 - **Border:** 1px `paper` a 10%; vira teal a 45% no hover.
 - **Internal Padding:** 28px no celular, 36px a partir de 640px.
 
