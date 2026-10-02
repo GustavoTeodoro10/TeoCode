@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<title>TeoCode - icones (favicon e apple-touch-icon)</title>
+<style>
+  * { margin: 0; padding: 0; }
+  html, body { background: transparent; }
+  /* ?s=32 gera o favicon; ?s=180 gera o apple-touch-icon sobre fundo ink */
+  img { display: block; }
+</style>
+</head>
+<body>
+<script>
+  const size = Number(new URLSearchParams(location.search).get('s')) || 32;
+  const apple = size >= 180;
+  document.body.style.width = size + 'px';
+  document.body.style.height = size + 'px';
+  if (apple) document.body.style.background = '#0a0e1a';
+  const img = new Image();
+  const inner = apple ? Math.round(size * 0.72) : size;
+  img.width = inner; img.height = inner; img.src = 'logo.svg';
+  img.style.margin = apple ? Math.round((size - inner) / 2) + 'px' : '0';
+  document.body.appendChild(img);
+</script>
+</body>
+</html>

@@ -1,731 +1,802 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="no-js">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#0a0e1a" />
+    <script>
+        document.documentElement.classList.replace('no-js', 'js');
+        // Se o main.js nao carregar (rede, bloqueio), devolve o conteudo visivel em vez de deixar tudo oculto.
+        setTimeout(function () {
+            if (!window.__teocodeReady) document.documentElement.classList.replace('js', 'no-js');
+        }, 6000);
+    </script>
 
-    <!-- SEO Primary -->
-    <title>TeoCode | Criação de Sites & Agentes de IA em Mauá, SP</title>
+    <!-- SEO -->
+    <title>TeoCode | Criação de Sites e Agentes de IA em Mauá, SP</title>
     <meta name="description"
-        content="Sites profissionais, SEO, e-commerce e agentes de IA para o WhatsApp, feitos em Mauá, SP. Avaliação gratuita, sem compromisso." />
-    <meta name="keywords"
-        content="criação de sites Mauá, agência digital Mauá, agente de IA WhatsApp, SEO, e-commerce, TeoCode, sites profissionais São Paulo" />
+        content="Sites personalizados, e-commerce, SEO e agentes de IA para o WhatsApp, em Mauá, SP. Agende sua avaliação gratuita pelo WhatsApp." />
     <meta name="author" content="TeoCode" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://teocode.com.br/" />
 
-    <!-- Open Graph -->
+    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="pt_BR" />
-    <meta property="og:title" content="TeoCode | Criação de Sites & Agentes de IA em Mauá, SP" />
-    <meta property="og:description"
-        content="Sites profissionais, SEO, e-commerce e agentes de IA para o WhatsApp, feitos em Mauá, SP. Avaliação gratuita, sem compromisso." />
-    <meta property="og:url" content="https://teocode.com.br/" />
     <meta property="og:site_name" content="TeoCode" />
-
-    <!-- Twitter Card -->
+    <meta property="og:url" content="https://teocode.com.br/" />
+    <meta property="og:title" content="TeoCode | Criação de Sites e Agentes de IA em Mauá, SP" />
+    <meta property="og:description"
+        content="Sites personalizados e agentes de IA no WhatsApp para negócios de Mauá e região. Agende sua avaliação gratuita." />
+    <meta property="og:image" content="https://teocode.com.br/assets/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="TeoCode: sites e agentes de IA para o seu negócio crescer" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="TeoCode | Criação de Sites & Agentes de IA" />
-    <meta name="twitter:description" content="Sites e agentes de IA para o WhatsApp, feitos em Mauá, SP." />
+    <meta name="twitter:title" content="TeoCode | Criação de Sites e Agentes de IA em Mauá, SP" />
+    <meta name="twitter:description"
+        content="Sites personalizados e agentes de IA no WhatsApp para negócios de Mauá e região." />
+    <meta name="twitter:image" content="https://teocode.com.br/assets/og-image.png" />
 
-    <!-- Schema.org JSON-LD -->
+    <!-- Favicon (gerado a partir do logo original) -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+    <!-- Dados estruturados -->
     <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "TeoCode",
-    "description": "Criação de sites profissionais, SEO, e-commerce e agentes de inteligência artificial em Mauá, SP.",
-    "url": "https://teocode.com.br",
-    "telephone": "+55-11-926377723",
-    "email": "contato@teocode.com.br",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "R. Valdemar Celestino da Silva",
-      "addressLocality": "Mauá",
-      "addressRegion": "SP",
-      "postalCode": "09371-317",
-      "addressCountry": "BR"
-    },
-    "openingHoursSpecification": [
-      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" }
-    ],
-    "priceRange": "$$",
-    "sameAs": ["https://wa.me/5511926377723"]
-  }
-  </script>
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "TeoCode",
+      "description": "Criação de sites profissionais, SEO, e-commerce, marketing digital e agentes de inteligência artificial em Mauá, SP.",
+      "url": "https://teocode.com.br",
+      "logo": "https://teocode.com.br/assets/logo.svg",
+      "image": "https://teocode.com.br/assets/og-image.png",
+      "telephone": "+55-11-92637-7723",
+      "email": "contato@teocode.com.br",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "R. Valdemar Celestino da Silva",
+        "addressLocality": "Mauá",
+        "addressRegion": "SP",
+        "postalCode": "09371-317",
+        "addressCountry": "BR"
+      },
+      "geo": { "@type": "GeoCoordinates", "latitude": -23.6656131, "longitude": -46.4840818 },
+      "hasMap": "https://www.google.com/maps/place/TeoCode/@-23.6656131,-46.4840818,17z",
+      "openingHoursSpecification": [
+        { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "18:00" }
+      ],
+      "sameAs": ["https://wa.me/5511926377723", "https://www.google.com/maps/place/TeoCode/@-23.6656131,-46.4840818,17z"]
+    }
+    </script>
 
-    <!-- Fonts -->
+    <!-- Analytics: GoatCounter (sem cookies) -->
+    <script data-goatcounter="https://teocode.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+    <!-- Fontes e ícones -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
         rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
 
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
-    <link rel="stylesheet" href="assets/css/style.css" />
+    <!-- Tailwind CSS via CDN (sem build) -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+        @theme {
+            --color-ink: #0a0e1a;
+            --color-mid: #1e2740;
+            --color-paper: #f4f2ee;
+            --color-teal: #00c9a7;
+            --color-blue: #3d7fff;
+            --color-muted: #6b7280;
+            --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
+            --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+            --breakpoint-3xl: 120rem;
+            --breakpoint-4xl: 160rem;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @layer components {
+            /* Botoes: pill. Superficies: 24px. Campos: 12px. */
+            .btn-primary {
+                @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-teal px-6 py-3 text-[0.95rem] font-semibold text-ink shadow-[0_10px_26px_-12px_rgba(0,201,167,.65)] transition-[transform,translate,scale,box-shadow,background-color] duration-200 ease-out-expo hover:-translate-y-0.5 hover:bg-[#14dbb8] hover:shadow-[0_16px_32px_-12px_rgba(0,201,167,.75)] active:translate-y-0 active:scale-[.97];
+            }
+            .btn-ink {
+                @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-ink px-6 py-3 text-[0.95rem] font-semibold text-paper shadow-[0_12px_28px_-14px_rgba(10,14,26,.8)] transition-[transform,translate,scale,box-shadow,background-color] duration-200 ease-out-expo hover:-translate-y-0.5 hover:bg-[#141b30] active:translate-y-0 active:scale-[.97];
+            }
+            .btn-quiet {
+                @apply inline-flex min-h-12 items-center gap-2 rounded-full px-3 py-3 text-[0.95rem] font-medium text-paper/75 transition-[color,transform,translate,scale] duration-200 ease-out-expo hover:text-teal active:scale-[.97];
+            }
+            .tile {
+                @apply relative flex flex-col overflow-hidden rounded-3xl border border-paper/10 p-7 transition-[transform,translate,scale,border-color,background-color] duration-300 ease-out-expo hover:-translate-y-1 hover:border-teal/45 sm:p-9;
+            }
+            .tile-link {
+                @apply mt-auto inline-flex min-h-11 items-center gap-1.5 pt-8 text-[0.95rem] font-semibold underline-offset-4 transition-[gap,color,transform,translate,scale] duration-200 ease-out-expo hover:gap-2.5 hover:underline active:scale-[.97];
+            }
+            .field {
+                @apply w-full rounded-xl border border-paper/15 bg-ink/60 px-4 py-3 text-[0.95rem] text-paper outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-paper/40 focus:border-teal focus:shadow-[0_0_0_3px_rgba(0,201,167,.18)];
+            }
+            .field-label {
+                @apply mb-2 block text-sm font-medium text-paper/85;
+            }
+            .nav-link {
+                @apply relative py-2 text-sm font-medium text-paper/75 transition-colors duration-200 hover:text-paper after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-teal after:transition-transform after:duration-200 after:ease-out-expo hover:after:scale-x-100;
+            }
+            .footer-link {
+                @apply inline-flex min-h-8 items-center text-sm text-paper/65 transition-colors duration-200 hover:text-teal;
+            }
+            .h2 {
+                @apply font-display text-balance text-[clamp(2rem,3.6vw,3.25rem)] font-extrabold leading-[1.06] tracking-[-0.03em];
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
-<body class="font-body text-ink bg-paper">
+<body class="font-sans text-paper">
+    <a href="#conteudo"
+        class="sr-only z-[60] rounded-full bg-teal px-5 py-3 font-semibold text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Ir
+        para o conteúdo</a>
 
-    <!-- NAV -->
-    <nav id="nav" role="navigation" aria-label="Menu principal"
-        class="fixed inset-x-0 top-0 z-[100] flex items-center justify-between px-6 py-4 transition-all duration-300 sm:px-10 lg:px-16">
-        <a href="#hero" class="group flex items-center gap-2.5" aria-label="TeoCode — início">
-            <span class="gem grid h-10 w-10 shrink-0 place-items-center bg-gradient-to-br from-[#c0eded] via-[#5bc8c8] to-[#1a9eaa] shadow-[0_3px_14px_rgba(91,200,200,.5)] transition-transform duration-300 group-hover:rotate-[-6deg] group-hover:scale-105"
-                aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" class="h-6 w-6">
-                    <path d="M20 6L34 14v16L20 38 6 30V14z" fill="rgba(13,36,68,.2)" stroke="rgba(13,36,68,.6)" stroke-width="1.5" />
-                    <path d="M20 6L34 14 20 22 6 14z" fill="rgba(13,36,68,.3)" stroke="rgba(13,36,68,.55)" stroke-width="1.2" />
-                    <line x1="20" y1="22" x2="20" y2="38" stroke="rgba(13,36,68,.5)" stroke-width="1.5" />
-                    <line x1="6" y1="14" x2="6" y2="30" stroke="rgba(13,36,68,.38)" stroke-width="1.2" />
-                    <line x1="34" y1="14" x2="34" y2="30" stroke="rgba(13,36,68,.38)" stroke-width="1.2" />
-                </svg>
-            </span>
-            <span class="font-display text-xl font-extrabold text-white">TeoCode</span>
+    <!-- NAVEGAÇÃO -->
+    <header id="topo"
+        class="fixed inset-x-0 top-0 z-40 border-b border-transparent transition-[background-color,border-color,backdrop-filter] duration-300 [&.is-scrolled]:border-paper/10 [&.is-scrolled]:bg-ink/85 [&.is-scrolled]:backdrop-blur-md">
+        <nav aria-label="Principal"
+            class="mx-auto flex h-[68px] w-full max-w-[1280px] items-center justify-between px-5 sm:px-8 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+            <a href="#inicio" class="logo-link flex items-center gap-2.5" aria-label="TeoCode, início">
+                <img src="assets/logo.svg" width="42" height="42" alt="" class="logo-ball" />
+                <span class="logo-word">TeoCode</span>
+            </a>
+
+            <ul class="hidden items-center gap-8 lg:flex">
+                <li><a href="#servicos" class="nav-link">Serviços</a></li>
+                <li><a href="#ofertas" class="nav-link">Ofertas</a></li>
+                <li><a href="#processo" class="nav-link">Como funciona</a></li>
+                <li><a href="#diferenciais" class="nav-link">Diferenciais</a></li>
+                <li><a href="#faq" class="nav-link">Perguntas</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+                <li>
+                    <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                        data-wa="Olá! Vim pelo site da TeoCode e quero agendar uma avaliação gratuita."
+                        data-gc-event="cta-nav" class="btn-primary !min-h-11 !px-5 !py-2 !text-sm">
+                        <i class="ph ph-whatsapp-logo text-lg" aria-hidden="true"></i>
+                        Agendar avaliação
+                    </a>
+                </li>
+            </ul>
+
+            <button id="hamburger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"
+                class="grid size-11 place-items-center rounded-full transition-transform duration-150 ease-out-expo active:scale-90 lg:hidden">
+                <span class="relative block h-[16px] w-6">
+                    <span class="hb-bar absolute inset-x-0 top-0 h-0.5 rounded bg-paper"></span>
+                    <span class="hb-bar absolute inset-x-0 top-[7px] h-0.5 rounded bg-paper"></span>
+                    <span class="hb-bar absolute inset-x-0 top-[14px] h-0.5 rounded bg-paper"></span>
+                </span>
+            </button>
+        </nav>
+    </header>
+
+    <div id="menu" role="dialog" aria-modal="true" aria-label="Menu"
+        class="fixed inset-0 z-50 flex flex-col justify-center gap-6 bg-ink px-8 pb-10 pt-24 lg:hidden">
+        <a href="#servicos" class="menu-link font-display text-3xl font-bold" style="--i:0">Serviços</a>
+        <a href="#ofertas" class="menu-link font-display text-3xl font-bold" style="--i:1">Ofertas</a>
+        <a href="#processo" class="menu-link font-display text-3xl font-bold" style="--i:2">Como funciona</a>
+        <a href="#diferenciais" class="menu-link font-display text-3xl font-bold" style="--i:3">Diferenciais</a>
+        <a href="#faq" class="menu-link font-display text-3xl font-bold" style="--i:4">Perguntas</a>
+        <a href="#contato" class="menu-link font-display text-3xl font-bold" style="--i:5">Contato</a>
+        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+            data-wa="Olá! Vim pelo site da TeoCode (menu no celular) e quero agendar uma avaliação gratuita."
+            data-gc-event="cta-menu-mobile" class="btn-primary menu-link mt-4 self-start" style="--i:6">
+            <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+            Agendar avaliação gratuita
         </a>
-
-        <ul role="list" class="hidden items-center gap-9 lg:flex">
-            <li><a href="#sobre" class="nav-link">Sobre</a></li>
-            <li><a href="#servicos" class="nav-link">Serviços</a></li>
-            <li><a href="#processo" class="nav-link">Como funciona</a></li>
-            <li><a href="#confianca" class="nav-link">Diferenciais</a></li>
-            <li>
-                <a href="https://wa.me/5511926377723?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TeoCode%20e%20quero%20falar%20com%20voc%C3%AAs."
-                    target="_blank" rel="noopener"
-                    class="rounded-full bg-teal px-5 py-2 text-sm font-semibold text-ink transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(0,201,167,.4)]">
-                    Falar no WhatsApp
-                </a>
-            </li>
-        </ul>
-
-        <button id="hamburger" aria-label="Abrir menu" aria-expanded="false"
-            class="flex flex-col gap-[5px] border-none bg-transparent p-1 lg:hidden">
-            <span class="hb-bar block h-[2px] w-6 rounded bg-white transition-transform duration-300"></span>
-            <span class="hb-bar block h-[2px] w-6 rounded bg-white transition-opacity duration-300"></span>
-            <span class="hb-bar block h-[2px] w-6 rounded bg-white transition-transform duration-300"></span>
-        </button>
-    </nav>
-
-    <div id="mobileMenu" role="dialog" aria-label="Menu"
-        class="pointer-events-none fixed inset-0 z-[99] flex scale-95 flex-col items-center justify-center gap-8 bg-ink/98 opacity-0 backdrop-blur-xl transition-all duration-300">
-        <a href="#sobre" class="mobile-link">Sobre</a>
-        <a href="#servicos" class="mobile-link">Serviços</a>
-        <a href="#processo" class="mobile-link">Como funciona</a>
-        <a href="#confianca" class="mobile-link">Diferenciais</a>
-        <a href="#faq" class="mobile-link">Perguntas</a>
-        <a href="#contato" class="mobile-link">Contato</a>
-        <a href="https://wa.me/5511926377723?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TeoCode%20e%20quero%20falar%20com%20voc%C3%AAs."
-            target="_blank" rel="noopener" class="btn-primary mt-2">Falar no WhatsApp</a>
     </div>
 
-    <!-- HERO -->
-    <section id="hero" aria-label="Apresentação" class="relative flex min-h-screen items-center overflow-hidden bg-ink">
-        <div aria-hidden="true"
-            class="animate-grid-drift absolute inset-0 bg-[linear-gradient(rgba(0,201,167,.06)_1px,transparent_1px),linear-gradient(90deg,rgba(0,201,167,.06)_1px,transparent_1px)] bg-[size:56px_56px]">
-        </div>
-        <div aria-hidden="true"
-            class="animate-orb absolute -right-24 -top-24 h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle,rgba(0,201,167,.22),transparent_70%)] blur-[80px]">
-        </div>
-        <div aria-hidden="true"
-            class="animate-orb absolute -bottom-20 -left-20 h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,rgba(61,127,255,.18),transparent_70%)] blur-[80px] [animation-direction:alternate-reverse]">
-        </div>
+    <main id="conteudo">
 
-        <div class="wrap relative z-[1] grid gap-16 px-6 py-40 sm:px-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:px-16 lg:py-32">
-            <div>
-                <p class="reveal mb-6 inline-flex items-center gap-2 rounded-full border border-teal/30 bg-teal/10 px-4 py-1.5 text-sm font-medium text-teal">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
-                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                    </svg>
-                    Mauá, SP
-                </p>
-
-                <h1 class="reveal text-balance font-display text-[clamp(2rem,7vw,4rem)] font-extrabold leading-[1.1] tracking-[-0.03em] text-white [transition-delay:80ms]">
-                    Seu negócio online, do jeito que ele merece aparecer.
-                </h1>
-
-                <p class="reveal mt-6 max-w-[540px] text-[1.1rem] font-light leading-relaxed text-white/70 [transition-delay:140ms]">
-                    Criamos sites rápidos e agentes de IA que respondem no WhatsApp por você —
-                    para negócios de Mauá e região que querem vender mais sem precisar
-                    entender de tecnologia.
-                </p>
-
-                <div class="reveal mt-9 flex flex-wrap gap-4 [transition-delay:200ms]">
-                    <a href="https://wa.me/5511926377723?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TeoCode%20e%20quero%20criar%20meu%20site."
-                        target="_blank" rel="noopener" class="btn-primary" aria-label="Falar com a TeoCode pelo WhatsApp">
-                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" />
-                        </svg>
-                        Falar com a TeoCode agora
-                    </a>
-                    <a href="#servicos" class="btn-ghost">Ver serviços</a>
-                </div>
-
-                <div class="reveal mt-16 grid grid-cols-2 gap-x-8 gap-y-7 sm:grid-cols-4 [transition-delay:260ms]">
-                    <div>
-                        <p class="font-display text-3xl font-extrabold text-white"><span data-count="50" data-suffix="+">0+</span></p>
-                        <p class="mt-1 text-xs uppercase tracking-[0.08em] text-white/45">Projetos entregues</p>
-                    </div>
-                    <div>
-                        <p class="font-display text-3xl font-extrabold text-white"><span data-count="100" data-suffix="%">0%</span></p>
-                        <p class="mt-1 text-xs uppercase tracking-[0.08em] text-white/45">Personalizado</p>
-                    </div>
-                    <div>
-                        <p class="font-display text-3xl font-extrabold text-white">7–15</p>
-                        <p class="mt-1 text-xs uppercase tracking-[0.08em] text-white/45">Dias p/ seu site</p>
-                    </div>
-                    <div>
-                        <p class="font-display text-3xl font-extrabold text-white">WhatsApp</p>
-                        <p class="mt-1 text-xs uppercase tracking-[0.08em] text-white/45">Suporte direto</p>
-                    </div>
-                </div>
+        <!-- HERO -->
+        <section id="inicio" aria-labelledby="hero-title"
+            class="relative isolate flex min-h-[100dvh] items-center overflow-clip pb-16 pt-24">
+            <div aria-hidden="true"
+                class="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_55%_at_82%_38%,rgba(0,201,167,.10),transparent_70%),radial-gradient(45%_45%_at_8%_96%,rgba(61,127,255,.08),transparent_70%)]">
             </div>
 
-            <!-- WhatsApp mock: shows what the AI agent does, not a real transcript -->
-            <div class="reveal [transition-delay:180ms]">
-                <div class="mx-auto w-full max-w-[380px] rounded-[28px] border border-white/10 bg-white/[0.04] p-5 shadow-2xl backdrop-blur-xl">
-                    <div class="mb-4 flex items-center gap-3 border-b border-white/10 pb-4">
-                        <span class="gem grid h-10 w-10 shrink-0 place-items-center bg-gradient-to-br from-teal to-blue" aria-hidden="true">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0a0e1a" stroke-width="2.4">
-                                <path d="M12 8V4H8" /><rect x="4" y="8" width="16" height="12" rx="2" /><path d="M2 14h2M20 14h2M9 13v2M15 13v2" />
-                            </svg>
-                        </span>
-                        <div>
-                            <p class="font-display text-sm font-bold text-white">Agente TeoCode</p>
-                            <p class="flex items-center gap-1.5 text-xs text-white/45">
-                                <span class="h-1.5 w-1.5 rounded-full bg-teal"></span> online agora
-                            </p>
-                        </div>
-                    </div>
-                    <div id="chatLog" class="flex min-h-[230px] flex-col justify-end gap-2.5" aria-live="polite"></div>
-                </div>
-                <p class="mt-3 text-center text-xs text-white/35">Exemplo de como o agente de IA atende no WhatsApp</p>
-            </div>
-        </div>
-    </section>
+            <div
+                class="mx-auto grid w-full max-w-[1280px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-12 lg:gap-8 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+                <div class="lg:col-span-7">
+                    <h1 id="hero-title"
+                        class="font-display text-[clamp(2.2rem,9vw,4.5rem)] font-extrabold leading-[1.02] tracking-[-0.035em] text-paper lg:text-[clamp(2.4rem,5.3vw,4.3rem)]">
+                        <span class="hl" style="--d:60ms"><span>Transforme</span></span>
+                        <span class="hl" style="--d:170ms"><span>seu negócio.</span></span>
+                    </h1>
 
-    <!-- SOBRE -->
-    <section id="sobre" aria-labelledby="sobre-title" class="section bg-paper">
-        <div class="wrap grid items-center gap-16 lg:grid-cols-2">
-            <div class="reveal relative aspect-[4/3] overflow-hidden rounded-[28px] border border-black/5 bg-gradient-to-br from-mid to-ink-soft">
-                <div aria-hidden="true"
-                    class="absolute inset-0 opacity-[0.14] bg-[linear-gradient(rgba(0,201,167,.5)_1px,transparent_1px),linear-gradient(90deg,rgba(0,201,167,.5)_1px,transparent_1px)] bg-[size:30px_30px]">
+                    <p class="hero-rise mt-7 max-w-[34ch] text-[1.125rem] leading-relaxed text-paper/75 sm:max-w-[44ch] sm:text-[1.2rem]"
+                        style="--d:420ms">
+                        Sites personalizados e agentes de IA no WhatsApp para negócios de Mauá e região que querem
+                        crescer.
+                    </p>
+
+                    <div class="hero-rise mt-9 flex flex-wrap items-center gap-x-4 gap-y-3" style="--d:560ms">
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá! Vi o site da TeoCode e quero agendar minha avaliação gratuita."
+                            data-gc-event="cta-hero" class="btn-primary">
+                            <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+                            Agendar avaliação gratuita
+                        </a>
+                        <a href="#servicos" class="btn-quiet">
+                            Conhecer os serviços
+                            <i class="ph ph-arrow-down" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="relative z-[1] flex h-full items-center justify-center p-8">
-                    <div class="w-full max-w-[260px] overflow-hidden rounded-xl border border-white/10 bg-white/[0.06] shadow-2xl backdrop-blur">
-                        <div class="flex items-center gap-1.5 border-b border-white/10 px-3 py-2.5">
-                            <span class="h-2 w-2 rounded-full bg-white/20"></span>
-                            <span class="h-2 w-2 rounded-full bg-white/20"></span>
-                            <span class="h-2 w-2 rounded-full bg-white/20"></span>
-                        </div>
-                        <div class="space-y-2.5 p-4">
-                            <div class="h-3 w-2/3 rounded bg-teal/70"></div>
-                            <div class="h-2 w-full rounded bg-white/15"></div>
-                            <div class="h-2 w-5/6 rounded bg-white/15"></div>
-                            <div class="grid grid-cols-3 gap-2 pt-1.5">
-                                <div class="h-9 rounded bg-white/10"></div>
-                                <div class="h-9 rounded bg-white/10"></div>
-                                <div class="h-9 rounded bg-white/10"></div>
+
+                <!-- Conversa de exemplo: ilustra o que um agente de IA faz. Não é uma conversa real. -->
+                <div class="hero-rise lg:col-span-5" style="--d:700ms">
+                    <figure class="mx-auto w-full max-w-[400px]">
+                        <div
+                            class="overflow-hidden rounded-3xl border border-paper/10 bg-mid/55 shadow-[0_40px_80px_-30px_rgba(0,0,0,.7)]">
+                            <div class="flex items-center gap-3 border-b border-paper/10 bg-ink/40 px-5 py-4">
+                                <span class="grid size-10 place-items-center rounded-full bg-teal/15 text-teal">
+                                    <i class="ph ph-storefront text-xl" aria-hidden="true"></i>
+                                </span>
+                                <div class="leading-tight">
+                                    <p class="font-display text-[0.95rem] font-bold">Seu negócio</p>
+                                    <p class="mt-0.5 text-[0.8rem] text-paper/65">Agente de IA, online</p>
+                                </div>
                             </div>
-                            <div class="mt-2 h-7 w-24 rounded-full bg-teal"></div>
+                            <div id="chat-thread" class="flex min-h-[290px] flex-col gap-2.5 px-4 py-5 sm:min-h-[320px]">
+                                <p class="msg msg-in max-w-[82%] self-start rounded-[18px_18px_18px_6px] bg-paper/10 px-4 py-2.5 text-[0.92rem] leading-snug text-paper">
+                                    Oi! Tem horário na quarta à tarde?
+                                    <time class="tnum mt-1 block text-right text-[0.7rem] text-paper/50">14:02</time>
+                                </p>
+                                <p class="msg msg-out max-w-[82%] self-end rounded-[18px_18px_6px_18px] bg-teal px-4 py-2.5 text-[0.92rem] leading-snug text-ink">
+                                    Oi! Tenho 14h ou 16h30 na quarta. Qual prefere?
+                                    <span class="mt-1 flex items-center justify-end gap-1 text-[0.7rem] text-ink/70"><time class="tnum">14:02</time><i class="ph ph-checks text-sm" aria-hidden="true"></i></span>
+                                </p>
+                                <p class="msg msg-in max-w-[82%] self-start rounded-[18px_18px_18px_6px] bg-paper/10 px-4 py-2.5 text-[0.92rem] leading-snug text-paper">
+                                    16h30, por favor.
+                                    <time class="tnum mt-1 block text-right text-[0.7rem] text-paper/50">14:03</time>
+                                </p>
+                                <p class="msg msg-out max-w-[82%] self-end rounded-[18px_18px_6px_18px] bg-teal px-4 py-2.5 text-[0.92rem] leading-snug text-ink">
+                                    Agendado para quarta, às 16h30. Até lá!
+                                    <span class="mt-1 flex items-center justify-end gap-1 text-[0.7rem] text-ink/70"><time class="tnum">14:03</time><i class="ph ph-checks text-sm" aria-hidden="true"></i></span>
+                                </p>
+                            </div>
+                        </div>
+                        <figcaption class="mt-4 text-center text-sm text-paper/60">Exemplo ilustrativo de um agente de
+                            IA atendendo no WhatsApp.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVIÇOS -->
+        <section id="servicos" aria-labelledby="servicos-title" class="px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto w-full max-w-[1280px] 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+                <div class="max-w-[880px]" data-reveal="rise">
+                    <h2 id="servicos-title" class="h2">Serviços oferecidos</h2>
+                    <p class="mt-5 max-w-[56ch] text-[1.05rem] leading-relaxed text-paper/70">
+                        Com nossos serviços de desenvolvimento de sites modernos e otimizados, seu negócio ganha mais
+                        visibilidade e credibilidade online.
+                    </p>
+                </div>
+
+                <div class="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-16 lg:grid-cols-12 lg:gap-5">
+                    <!-- Criação de sites -->
+                    <article data-reveal="rise" style="--d:0ms"
+                        class="tile bg-[linear-gradient(135deg,rgba(0,201,167,.14),rgba(30,39,64,.55)_55%)] sm:col-span-2 lg:col-span-7 lg:min-h-[330px]">
+                        <i class="ph ph-browser text-4xl text-teal" aria-hidden="true"></i>
+                        <h3 class="mt-6 font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Criação de sites</h3>
+                        <p class="mt-3 max-w-[46ch] leading-relaxed text-paper/75">Criamos sites personalizados para
+                            atender às necessidades específicas do seu negócio.</p>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e tenho interesse em Criação de Sites." data-gc-event="cta-servico-sites"
+                            class="tile-link text-teal">Conversar sobre sites <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <!-- Agentes de IA (célula em teal) -->
+                    <article data-reveal="rise" style="--d:60ms"
+                        class="tile border-teal bg-teal text-ink hover:border-teal sm:col-span-2 lg:col-span-5 lg:min-h-[330px]">
+                        <i class="ph ph-robot text-4xl" aria-hidden="true"></i>
+                        <h3 class="mt-6 font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Agentes de IA</h3>
+                        <p class="mt-3 max-w-[40ch] leading-relaxed text-ink/80">Automatize atendimento e vendas com
+                            agentes de inteligência artificial treinados para o seu negócio.</p>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e tenho interesse em Agentes de IA para atendimento no WhatsApp."
+                            data-gc-event="cta-servico-agentes-ia" class="tile-link">Conversar sobre agentes de IA <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <!-- SEO -->
+                    <article data-reveal="rise" style="--d:0ms"
+                        class="tile bg-mid/40 lg:col-span-5 lg:min-h-[290px]">
+                        <i class="ph ph-magnifying-glass text-4xl text-teal" aria-hidden="true"></i>
+                        <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">SEO</h3>
+                        <p class="mt-3 max-w-[40ch] leading-relaxed text-paper/75">Otimização para motores de busca.
+                            Aumente sua visibilidade e atraia mais clientes.</p>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e tenho interesse em SEO." data-gc-event="cta-servico-seo"
+                            class="tile-link text-teal">Conversar sobre SEO <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <!-- E-commerce -->
+                    <article data-reveal="rise" style="--d:60ms"
+                        class="tile bg-[linear-gradient(160deg,rgba(61,127,255,.16),rgba(30,39,64,.45)_60%)] lg:col-span-7 lg:min-h-[290px]">
+                        <i class="ph ph-storefront text-4xl text-teal" aria-hidden="true"></i>
+                        <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">E-commerce</h3>
+                        <p class="mt-3 max-w-[46ch] leading-relaxed text-paper/75">Criamos lojas virtuais para você
+                            vender mais. Sua empresa pronta para vender online com sucesso.</p>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e tenho interesse em E-commerce (loja virtual)." data-gc-event="cta-servico-ecommerce"
+                            class="tile-link text-teal">Conversar sobre e-commerce <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <!-- Manutenção -->
+                    <article data-reveal="rise" style="--d:0ms"
+                        class="tile bg-mid/40 sm:col-span-1 lg:col-span-6 lg:min-h-[260px]">
+                        <i class="ph ph-wrench text-4xl text-teal" aria-hidden="true"></i>
+                        <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">Manutenção</h3>
+                        <p class="mt-3 max-w-[44ch] leading-relaxed text-paper/75">Oferecemos atualizações regulares,
+                            correções de bugs e monitoramento de segurança.</p>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e tenho interesse em Manutenção de site." data-gc-event="cta-servico-manutencao"
+                            class="tile-link text-teal">Conversar sobre manutenção <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <!-- Marketing digital -->
+                    <article data-reveal="rise" style="--d:60ms"
+                        class="tile bg-[radial-gradient(120%_90%_at_100%_0%,rgba(0,201,167,.12),transparent_60%),rgba(30,39,64,.4)] sm:col-span-1 lg:col-span-6 lg:min-h-[260px]">
+                        <i class="ph ph-megaphone text-4xl text-teal" aria-hidden="true"></i>
+                        <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">Marketing digital</h3>
+                        <p class="mt-3 max-w-[44ch] leading-relaxed text-paper/75">Estratégias de marketing digital
+                            para ampliar sua presença online e gerar mais resultados.</p>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e tenho interesse em Marketing Digital." data-gc-event="cta-servico-marketing"
+                            class="tile-link text-teal">Conversar sobre marketing <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- OFERTAS -->
+        <section id="ofertas" aria-labelledby="ofertas-title"
+            class="border-y border-paper/[0.07] bg-mid/20 px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto grid w-full max-w-[1280px] gap-12 lg:grid-cols-12 lg:gap-10 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+                <div class="lg:col-span-5" data-reveal="rise">
+                    <div class="lg:sticky lg:top-28">
+                        <h2 id="ofertas-title" class="h2">Escolha por onde começar</h2>
+                        <p class="mt-5 max-w-[44ch] text-[1.05rem] leading-relaxed text-paper/70">Toda conversa
+                            começa pela avaliação gratuita. Depois, você decide qual formato faz sentido para o seu
+                            negócio. O orçamento também é gratuito.</p>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4 lg:col-span-7">
+                    <!-- Avaliação gratuita (destaque) -->
+                    <article data-reveal="rise"
+                        class="rounded-3xl border border-teal/55 bg-[linear-gradient(135deg,rgba(0,201,167,.16),rgba(30,39,64,.6)_60%)] p-7 shadow-[0_30px_60px_-34px_rgba(0,201,167,.45)] sm:p-9">
+                        <div class="flex items-start justify-between gap-6">
+                            <div>
+                                <h3 class="font-display text-[1.9rem] font-extrabold leading-tight tracking-[-0.025em]">Avaliação gratuita</h3>
+                                <p class="mt-3 max-w-[48ch] leading-relaxed text-paper/80">Conte sobre o seu negócio e
+                                    as suas necessidades. Nós fazemos um diagnóstico completo.</p>
+                            </div>
+                            <i class="ph ph-calendar-check shrink-0 text-4xl text-teal" aria-hidden="true"></i>
+                        </div>
+                        <ul class="mt-6 grid gap-2.5 text-[0.95rem] text-paper/85 sm:grid-cols-2">
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Diagnóstico completo do seu negócio</li>
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Conversa direto pelo WhatsApp</li>
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Orçamento gratuito</li>
+                        </ul>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e quero agendar a avaliação gratuita."
+                            data-gc-event="cta-oferta-avaliacao" class="btn-primary mt-8">
+                            <i class="ph ph-calendar-check text-xl" aria-hidden="true"></i>
+                            Agendar avaliação gratuita
+                        </a>
+                    </article>
+
+                    <!-- Projeto de site -->
+                    <article data-reveal="rise" style="--d:80ms"
+                        class="rounded-3xl border border-paper/10 bg-mid/40 p-7 transition-[border-color,transform,translate,scale] duration-300 ease-out-expo hover:-translate-y-0.5 hover:border-paper/25 sm:p-9">
+                        <div class="flex items-start justify-between gap-6">
+                            <div>
+                                <h3 class="font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">Projeto de site</h3>
+                                <p class="mt-3 max-w-[48ch] leading-relaxed text-paper/75">Do planejamento ao
+                                    lançamento, um site personalizado para o seu negócio.</p>
+                            </div>
+                            <i class="ph ph-browser shrink-0 text-3xl text-paper/55" aria-hidden="true"></i>
+                        </div>
+                        <ul class="mt-6 grid gap-2.5 text-[0.95rem] text-paper/80 sm:grid-cols-2">
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Sites institucionais em 7 a 15 dias úteis</li>
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>E-commerce e projetos complexos em 3 a 6 semanas</li>
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Domínio e hospedagem por nossa conta, ou na sua infraestrutura</li>
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>100% responsivo</li>
+                        </ul>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e tenho interesse em um projeto de site."
+                            data-gc-event="cta-oferta-projeto" class="tile-link !pt-7 text-teal">Pedir um projeto de site <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </article>
+
+                    <!-- Manutenção mensal -->
+                    <article data-reveal="rise" style="--d:160ms"
+                        class="rounded-3xl border border-paper/10 bg-mid/40 p-7 transition-[border-color,transform,translate,scale] duration-300 ease-out-expo hover:-translate-y-0.5 hover:border-paper/25 sm:p-9">
+                        <div class="flex items-start justify-between gap-6">
+                            <div>
+                                <h3 class="font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">Manutenção mensal</h3>
+                                <p class="mt-3 max-w-[48ch] leading-relaxed text-paper/75">Seu site cuidado depois do
+                                    lançamento, com suporte pelo WhatsApp.</p>
+                            </div>
+                            <i class="ph ph-wrench shrink-0 text-3xl text-paper/55" aria-hidden="true"></i>
+                        </div>
+                        <ul class="mt-6 grid gap-2.5 text-[0.95rem] text-paper/80 sm:grid-cols-2">
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Atualizações de segurança</li>
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Correção de bugs</li>
+                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-1 text-teal" aria-hidden="true"></i>Pequenas alterações de conteúdo</li>
+                        </ul>
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá, vi o site e tenho interesse no plano de manutenção mensal."
+                            data-gc-event="cta-oferta-manutencao" class="tile-link !pt-7 text-teal">Pedir manutenção mensal <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMO FUNCIONA -->
+        <section id="processo" aria-labelledby="processo-title" class="px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto w-full max-w-[1280px] 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+                <div class="max-w-[880px]" data-reveal="rise">
+                    <h2 id="processo-title" class="h2">Como funciona</h2>
+                    <p class="mt-5 max-w-[52ch] text-[1.05rem] leading-relaxed text-paper/70">Planejamos metas
+                        claras, transformamos suas ideias em soluções e lançamos seu projeto com suporte contínuo.</p>
+                </div>
+
+                <ol class="relative mt-16 grid gap-12 lg:grid-cols-4 lg:gap-8">
+                    <span aria-hidden="true"
+                        class="process-line absolute left-[21px] top-[21px] h-[calc(100%-42px)] w-px bg-paper/20 lg:left-[21px] lg:right-[21px] lg:h-px lg:w-[calc(100%-42px)]"></span>
+
+                    <li class="step relative pl-16 lg:pl-0 lg:pt-16" style="--d:250ms">
+                        <span class="step-node absolute left-0 top-0 grid size-[43px] place-items-center rounded-full border border-paper/30 font-display text-sm font-bold">1</span>
+                        <h3 class="font-display text-[1.3rem] font-bold tracking-[-0.015em]">Contato inicial</h3>
+                        <p class="mt-2.5 max-w-[34ch] leading-relaxed text-paper/70">Conte-nos sobre seu negócio e suas necessidades. Faremos um diagnóstico completo.</p>
+                    </li>
+                    <li class="step relative pl-16 lg:pl-0 lg:pt-16" style="--d:800ms">
+                        <span class="step-node absolute left-0 top-0 grid size-[43px] place-items-center rounded-full border border-paper/30 font-display text-sm font-bold">2</span>
+                        <h3 class="font-display text-[1.3rem] font-bold tracking-[-0.015em]">Planejamento</h3>
+                        <p class="mt-2.5 max-w-[34ch] leading-relaxed text-paper/70">Desenhamos um projeto que atende suas expectativas e ajustamos cada detalhe.</p>
+                    </li>
+                    <li class="step relative pl-16 lg:pl-0 lg:pt-16" style="--d:1350ms">
+                        <span class="step-node absolute left-0 top-0 grid size-[43px] place-items-center rounded-full border border-paper/30 font-display text-sm font-bold">3</span>
+                        <h3 class="font-display text-[1.3rem] font-bold tracking-[-0.015em]">Desenvolvimento</h3>
+                        <p class="mt-2.5 max-w-[34ch] leading-relaxed text-paper/70">Construímos seu site com cuidado e atenção, mantendo você informado a cada etapa.</p>
+                    </li>
+                    <li class="step relative pl-16 lg:pl-0 lg:pt-16" style="--d:1850ms">
+                        <span class="step-node absolute left-0 top-0 grid size-[43px] place-items-center rounded-full border border-paper/30 font-display text-sm font-bold">4</span>
+                        <h3 class="font-display text-[1.3rem] font-bold tracking-[-0.015em]">Lançamento</h3>
+                        <p class="mt-2.5 max-w-[34ch] leading-relaxed text-paper/70">Seu site está pronto para conquistar a internet. Suporte contínuo garantido.</p>
+                    </li>
+                </ol>
+
+                <div class="mt-14" data-reveal="rise">
+                    <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                        data-wa="Olá, vi o site e quero dar o contato inicial para conversar sobre o meu projeto."
+                        data-gc-event="cta-processo" class="btn-primary">
+                        <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+                        Começar pelo contato inicial
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIFERENCIAIS (fatos verificáveis; sem avaliações até haver reviews reais) -->
+        <section id="diferenciais" aria-labelledby="diferenciais-title"
+            class="border-y border-paper/[0.07] bg-mid/20 px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto w-full max-w-[1280px] 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+                <div class="max-w-[720px]" data-reveal="rise">
+                    <h2 id="diferenciais-title" class="h2">Por que a TeoCode</h2>
+                    <p class="mt-5 max-w-[52ch] text-[1.05rem] leading-relaxed text-paper/70">Informações que você
+                        pode conferir antes de falar com a gente.</p>
+                </div>
+
+                <div class="mt-14 border-b border-paper/10 lg:mt-16">
+                    <div class="grid gap-3 border-t border-paper/10 py-8 lg:grid-cols-12 lg:gap-10 lg:py-10" data-reveal="rise">
+                        <h3 class="font-display text-[1.55rem] font-bold leading-snug tracking-[-0.02em] lg:col-span-7 lg:text-[1.9rem]">Site personalizado, nunca um modelo pronto.</h3>
+                        <p class="leading-relaxed text-paper/70 lg:col-span-5">Cada projeto é criado para atender às necessidades específicas do seu negócio.</p>
+                    </div>
+                    <div class="grid gap-3 border-t border-paper/10 py-8 lg:grid-cols-12 lg:gap-10 lg:py-10" data-reveal="rise">
+                        <h3 class="font-display text-[1.55rem] font-bold leading-snug tracking-[-0.02em] lg:col-span-7 lg:text-[1.9rem]">Prazos combinados antes de começar.</h3>
+                        <p class="leading-relaxed text-paper/70 lg:col-span-5">Sites institucionais ficam prontos em 7 a 15 dias úteis. Sempre alinhamos prazos realistas antes de iniciar.</p>
+                    </div>
+                    <div class="grid gap-3 border-t border-paper/10 py-8 lg:grid-cols-12 lg:gap-10 lg:py-10" data-reveal="rise">
+                        <h3 class="font-display text-[1.55rem] font-bold leading-snug tracking-[-0.02em] lg:col-span-7 lg:text-[1.9rem]">Funciona em celular, tablet e computador.</h3>
+                        <p class="leading-relaxed text-paper/70 lg:col-span-5">Todos os nossos sites são 100% responsivos, o que também ajuda no posicionamento no Google.</p>
+                    </div>
+                    <div class="grid gap-3 border-t border-paper/10 py-8 lg:grid-cols-12 lg:gap-10 lg:py-10" data-reveal="rise">
+                        <h3 class="font-display text-[1.55rem] font-bold leading-snug tracking-[-0.02em] lg:col-span-7 lg:text-[1.9rem]">Suporte depois do lançamento.</h3>
+                        <p class="leading-relaxed text-paper/70 lg:col-span-5">Atendimento pelo WhatsApp e planos de manutenção mensal.</p>
+                    </div>
+                    <div class="grid gap-3 border-t border-paper/10 py-8 lg:grid-cols-12 lg:gap-10 lg:py-10" data-reveal="rise">
+                        <h3 class="font-display text-[1.55rem] font-bold leading-snug tracking-[-0.02em] lg:col-span-7 lg:text-[1.9rem]">Empresa registrada, em Mauá, SP.</h3>
+                        <div class="lg:col-span-5">
+                            <p class="tnum leading-relaxed text-paper/70">CNPJ 41.061.643/0001-22. Respondemos em até 1h durante o horário de atendimento, de segunda a sexta, das 8h às 18h.</p>
+                            <a href="https://www.google.com/maps/place/TeoCode/@-23.6656131,-46.4840818,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce6971df8926f3:0x5eda3e3e42c58448!8m2!3d-23.6656131!4d-46.4840818!16s%2Fg%2F11wqy1f6_c"
+                                target="_blank" rel="noopener noreferrer"
+                                data-gc-event="link-perfil-google" class="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-teal underline-offset-4 hover:underline">
+                                Ver o perfil da TeoCode no Google
+                                <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="gem absolute bottom-5 right-5 z-[1] bg-teal px-3.5 py-2 font-display text-xs font-bold text-ink">
-                    Feito em Mauá, SP
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" aria-labelledby="faq-title" class="px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto w-full max-w-[820px]">
+                <div data-reveal="rise">
+                    <h2 id="faq-title" class="h2">Perguntas frequentes</h2>
+                    <p class="mt-5 text-[1.05rem] leading-relaxed text-paper/70">Tudo que você precisa saber antes de começar.</p>
+                </div>
+
+                <div class="mt-12 flex flex-col gap-3" data-reveal="rise">
+                    <details class="group rounded-2xl border border-paper/10 bg-mid/30 transition-colors duration-300 open:border-teal/35 hover:border-paper/25">
+                        <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
+                            Quanto tempo leva para criar meu site?
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full border border-teal/40 bg-teal/10 text-teal"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                        </summary>
+                        <p class="px-6 pb-6 leading-relaxed text-paper/75">Sites institucionais ficam prontos em 7 a 15 dias úteis. E-commerces e projetos mais complexos podem levar de 3 a 6 semanas. Sempre alinhamos prazos realistas antes de começar.</p>
+                    </details>
+                    <details class="group rounded-2xl border border-paper/10 bg-mid/30 transition-colors duration-300 open:border-teal/35 hover:border-paper/25">
+                        <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
+                            Preciso ter domínio e hospedagem?
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full border border-teal/40 bg-teal/10 text-teal"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                        </summary>
+                        <p class="px-6 pb-6 leading-relaxed text-paper/75">Podemos cuidar de tudo para você: registramos o domínio, configuramos a hospedagem e entregamos o site funcionando. Ou, se preferir, trabalhamos com sua infraestrutura existente.</p>
+                    </details>
+                    <details class="group rounded-2xl border border-paper/10 bg-mid/30 transition-colors duration-300 open:border-teal/35 hover:border-paper/25">
+                        <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
+                            O site funciona no celular?
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full border border-teal/40 bg-teal/10 text-teal"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                        </summary>
+                        <p class="px-6 pb-6 leading-relaxed text-paper/75">Sim. Todos os nossos sites são 100% responsivos e funcionam perfeitamente em celulares, tablets e computadores. Isso também melhora seu posicionamento no Google.</p>
+                    </details>
+                    <details class="group rounded-2xl border border-paper/10 bg-mid/30 transition-colors duration-300 open:border-teal/35 hover:border-paper/25">
+                        <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
+                            Como funciona o suporte pós-lançamento?
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full border border-teal/40 bg-teal/10 text-teal"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                        </summary>
+                        <p class="px-6 pb-6 leading-relaxed text-paper/75">Oferecemos suporte via WhatsApp e planos de manutenção mensal, que incluem atualizações de segurança, correções de bugs e pequenas alterações de conteúdo.</p>
+                    </details>
+                    <details class="group rounded-2xl border border-paper/10 bg-mid/30 transition-colors duration-300 open:border-teal/35 hover:border-paper/25">
+                        <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
+                            O que é um agente de IA e como ele pode ajudar meu negócio?
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full border border-teal/40 bg-teal/10 text-teal"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                        </summary>
+                        <p class="px-6 pb-6 leading-relaxed text-paper/75">Um agente de IA é um assistente virtual inteligente treinado com as informações do seu negócio. Ele atende clientes 24h no WhatsApp, qualifica leads, agenda compromissos e responde dúvidas, tudo automaticamente.</p>
+                    </details>
+                </div>
+
+                <div class="mt-10 flex flex-wrap items-center gap-x-5 gap-y-2" data-reveal="rise">
+                    <p class="text-paper/75">Ficou com alguma dúvida?</p>
+                    <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                        data-wa="Olá, vi o site e tenho uma dúvida."
+                        data-gc-event="cta-faq" class="inline-flex min-h-11 items-center gap-2 font-semibold text-teal underline-offset-4 hover:underline">
+                        Perguntar pelo WhatsApp
+                        <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <div class="reveal [transition-delay:100ms]">
-                <p class="kicker mb-3">Quem somos</p>
-                <h2 class="h2">Uma agência local, pensada para o pequeno e médio negócio</h2>
-                <p class="mt-5 leading-relaxed text-muted">
-                    A TeoCode nasceu em Mauá, SP, para resolver um problema comum: negócios locais
-                    que ainda dependem só do boca a boca ou de redes sociais para vender, sem um site
-                    que realmente traga cliente novo.
-                </p>
-                <p class="mt-4 leading-relaxed text-muted">
-                    Cuidamos de cada projeto do início ao fim — planejamento, design, desenvolvimento
-                    e, quando faz sentido para o seu negócio, um agente de IA que atende no WhatsApp.
-                    Você foca no seu negócio; a gente cuida da parte técnica.
-                </p>
-                <div role="list" class="mt-8 flex flex-wrap gap-2.5">
-                    <span role="listitem" class="chip">Sites profissionais</span>
-                    <span role="listitem" class="chip">Agentes de IA</span>
-                    <span role="listitem" class="chip">Marketing digital</span>
-                    <span role="listitem" class="chip">Prazos claros</span>
-                    <span role="listitem" class="chip">Atendimento personalizado</span>
+        <!-- CTA FINAL (faixa em teal) -->
+        <section id="agendar" aria-labelledby="cta-title" class="bg-teal px-5 py-24 text-ink sm:px-8 lg:py-32">
+            <div class="mx-auto flex w-full max-w-[1280px] flex-col items-start gap-10 lg:flex-row lg:items-end lg:justify-between 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+                <div data-reveal="rise">
+                    <h2 id="cta-title"
+                        class="font-display text-[clamp(2.4rem,6vw,5rem)] font-extrabold leading-[1.02] tracking-[-0.035em]">
+                        Pronto para<br />começar?</h2>
+                    <p class="mt-6 max-w-[44ch] text-[1.1rem] leading-relaxed text-ink/80">Agende sua avaliação
+                        gratuita agora e veja como a TeoCode pode transformar seu negócio online.</p>
+                </div>
+                <div data-reveal="rise" style="--d:120ms">
+                    <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                        data-wa="Olá! Quero agendar minha avaliação gratuita com a TeoCode."
+                        data-gc-event="cta-banner" class="btn-ink !min-h-14 !px-8 !text-base">
+                        <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+                        Agendar avaliação gratuita
+                    </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- SERVIÇOS -->
-    <section id="servicos" aria-labelledby="servicos-title" class="section bg-ink text-white">
-        <div class="wrap">
-            <div class="reveal mb-14 max-w-[620px]">
-                <p class="kicker mb-3">O que fazemos</p>
-                <h2 class="h2 text-white">Serviços pensados para negócios como o seu</h2>
-                <p class="mt-4 leading-relaxed text-white/55">
-                    Cada serviço pode ser contratado separado ou combinado — o ponto de partida
-                    é sempre entender o que o seu negócio precisa antes de propor qualquer coisa.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:auto-rows-[minmax(150px,auto)]">
-                <article class="reveal service-card featured lg:col-span-3 lg:row-span-2">
-                    <span class="card-icon" aria-hidden="true">🌐</span>
-                    <h3 class="card-title">Criação de sites</h3>
-                    <p class="card-desc">Sites institucionais e landing pages rápidos, responsivos e
-                        pensados para converter visita em contato — desenhados para o seu segmento,
-                        não um modelo genérico.</p>
-                    <span class="card-tag">Principal</span>
-                </article>
-
-                <article class="reveal service-card featured lg:col-span-3 lg:row-span-2 [transition-delay:70ms]">
-                    <span class="card-icon" aria-hidden="true">🤖</span>
-                    <h3 class="card-title">Agentes de IA</h3>
-                    <p class="card-desc">Um assistente treinado com as informações do seu negócio,
-                        que atende no WhatsApp, qualifica quem chega e agenda compromissos
-                        automaticamente.</p>
-                    <span class="card-tag">Destaque</span>
-                </article>
-
-                <article class="reveal service-card lg:col-span-3 [transition-delay:100ms]">
-                    <span class="card-icon" aria-hidden="true">🔧</span>
-                    <h3 class="card-title">Manutenção</h3>
-                    <p class="card-desc">Atualizações regulares, correção de bugs e monitoramento
-                        de segurança — para o site continuar no ar sem surpresas.</p>
-                </article>
-
-                <article class="reveal service-card lg:col-span-3 [transition-delay:130ms]">
-                    <span class="card-icon" aria-hidden="true">📊</span>
-                    <h3 class="card-title">SEO</h3>
-                    <p class="card-desc">Otimização para motores de busca, para o seu negócio
-                        aparecer quando alguém pesquisa pelo que você vende.</p>
-                </article>
-
-                <article class="reveal service-card lg:col-span-3 [transition-delay:160ms]">
-                    <span class="card-icon" aria-hidden="true">🛍️</span>
-                    <h3 class="card-title">E-commerce</h3>
-                    <p class="card-desc">Loja virtual própria, com catálogo, pagamento e
-                        gestão de pedidos — pronta para vender online.</p>
-                </article>
-
-                <article class="reveal service-card lg:col-span-3 [transition-delay:190ms]">
-                    <span class="card-icon" aria-hidden="true">📱</span>
-                    <h3 class="card-title">Marketing digital</h3>
-                    <p class="card-desc">Estratégias para ampliar sua presença online e
-                        gerar mais contatos qualificados, de forma consistente.</p>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- OFERTA -->
-    <section id="oferta" aria-labelledby="oferta-title" class="section bg-paper">
-        <div class="wrap grid items-center gap-14 lg:grid-cols-[0.95fr_1.05fr]">
-            <div class="reveal">
-                <p class="kicker mb-3">Como começar</p>
-                <h2 class="h2">A avaliação gratuita, sem letra miúda</h2>
-                <p class="mt-5 leading-relaxed text-muted">
-                    Antes de falar em orçamento, queremos entender o que já existe — site atual,
-                    Instagram, Google Meu Negócio — e mostrar, na prática, onde dá para melhorar.
-                    Sem formulário longo: é uma conversa direto no WhatsApp.
-                </p>
-                <a href="https://wa.me/5511926377723?text=Ol%C3%A1!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20gratuita."
-                    target="_blank" rel="noopener" class="btn-dark mt-8">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                        <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
-                    </svg>
-                    Agendar avaliação gratuita
-                </a>
-            </div>
-
-            <div class="reveal grid gap-3.5 [transition-delay:100ms]">
-                <div class="offer-item">
-                    <span class="gem-bullet mt-2"></span>
-                    <div>
-                        <p class="font-display font-bold">Diagnóstico do que existe hoje</p>
-                        <p class="mt-1 text-sm text-muted">Olhamos seu site atual (se tiver), redes sociais
-                            e como um cliente novo te encontra hoje.</p>
-                    </div>
+        <!-- CONTATO -->
+        <section id="contato" aria-labelledby="contato-title" class="px-5 py-24 sm:px-8 lg:py-32">
+            <div class="mx-auto w-full max-w-[1280px] 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+                <div class="max-w-[880px]" data-reveal="rise">
+                    <h2 id="contato-title" class="h2">Vamos conversar?</h2>
+                    <p class="mt-5 max-w-[52ch] text-[1.05rem] leading-relaxed text-paper/70">Entre em contato e
+                        nossa equipe responde em até 1h durante o horário de atendimento.</p>
                 </div>
-                <div class="offer-item">
-                    <span class="gem-bullet mt-2"></span>
-                    <div>
-                        <p class="font-display font-bold">Sugestões concretas de melhoria</p>
-                        <p class="mt-1 text-sm text-muted">Pontos específicos, não genéricos — o que
-                            faria diferença real no seu caso.</p>
-                    </div>
-                </div>
-                <div class="offer-item">
-                    <span class="gem-bullet mt-2"></span>
-                    <div>
-                        <p class="font-display font-bold">Orçamento sem compromisso</p>
-                        <p class="mt-1 text-sm text-muted">Prazo realista e valor fechado antes de
-                            começar — você decide com calma.</p>
-                    </div>
-                </div>
-                <div class="offer-item">
-                    <span class="gem-bullet mt-2"></span>
-                    <div>
-                        <p class="font-display font-bold">Tudo pelo WhatsApp</p>
-                        <p class="mt-1 text-sm text-muted">Sem formulário, sem ligação marcada —
-                            você fala direto com quem vai fazer o projeto.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- PROCESSO -->
-    <section id="processo" aria-labelledby="processo-title" class="section bg-ink text-white">
-        <div class="wrap">
-            <div class="reveal mb-14 max-w-[620px]">
-                <p class="kicker mb-3">Nosso processo</p>
-                <h2 class="h2 text-white">Do primeiro contato ao site no ar</h2>
-                <p class="mt-4 leading-relaxed text-white/55">Quatro etapas, sempre nessa ordem —
-                    para você saber exatamente em que ponto o seu projeto está.</p>
-            </div>
-
-            <ol class="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-                <li class="reveal step">
-                    <span class="step-num">01</span>
-                    <h3 class="font-display text-lg font-bold text-white">Contato inicial</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-white/50">Você conta sobre o
-                        negócio e a necessidade. Fazemos um diagnóstico completo.</p>
-                </li>
-                <li class="reveal step [transition-delay:80ms]">
-                    <span class="step-num">02</span>
-                    <h3 class="font-display text-lg font-bold text-white">Planejamento</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-white/50">Desenhamos o projeto
-                        e alinhamos prazo e escopo antes de codar qualquer linha.</p>
-                </li>
-                <li class="reveal step [transition-delay:160ms]">
-                    <span class="step-num">03</span>
-                    <h3 class="font-display text-lg font-bold text-white">Desenvolvimento</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-white/50">Construímos o site com
-                        atualizações periódicas, sem sumir até a entrega.</p>
-                </li>
-                <li class="reveal step [transition-delay:240ms]">
-                    <span class="step-num">04</span>
-                    <h3 class="font-display text-lg font-bold text-white">Lançamento</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-white/50">Site no ar e suporte
-                        contínuo garantido para o que vier depois.</p>
-                </li>
-            </ol>
-        </div>
-    </section>
-
-    <!-- CONFIANÇA (prova social honesta, sem depoimentos fabricados) -->
-    <section id="confianca" aria-labelledby="confianca-title" class="section bg-paper">
-        <div class="wrap">
-            <div class="reveal mb-14 max-w-[620px]">
-                <p class="kicker mb-3">Por que a TeoCode</p>
-                <h2 class="h2">Confiança construída em cima de fatos, não de promessas</h2>
-                <p class="mt-4 leading-relaxed text-muted">Ainda estamos construindo nossa página
-                    de depoimentos públicos. Enquanto isso, aqui está o que já podemos garantir
-                    sobre como trabalhamos.</p>
-            </div>
-
-            <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                <div class="reveal trust-card">
-                    <span class="text-2xl" aria-hidden="true">🧾</span>
-                    <h3 class="mt-4 font-display font-bold">Empresa registrada</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-muted">CNPJ 41.061.643/0001-22 —
-                        não é um trabalho informal, é uma empresa constituída.</p>
-                </div>
-                <div class="reveal trust-card [transition-delay:70ms]">
-                    <span class="text-2xl" aria-hidden="true">💬</span>
-                    <h3 class="mt-4 font-display font-bold">Sem central de atendimento</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-muted">Você fala direto com quem
-                        vai planejar e construir o seu projeto.</p>
-                </div>
-                <div class="reveal trust-card [transition-delay:140ms]">
-                    <span class="text-2xl" aria-hidden="true">📍</span>
-                    <h3 class="mt-4 font-display font-bold">Baseados em Mauá, SP</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-muted">Perto de você, com
-                        atendimento presencial quando fizer sentido para o projeto.</p>
-                </div>
-                <div class="reveal trust-card [transition-delay:210ms]">
-                    <span class="text-2xl" aria-hidden="true">🛠️</span>
-                    <h3 class="mt-4 font-display font-bold">Suporte depois da entrega</h3>
-                    <p class="mt-2 text-sm leading-relaxed text-muted">O trabalho não termina
-                        quando o site vai ao ar — seguimos com manutenção e ajustes.</p>
-                </div>
-            </div>
-
-            <div class="reveal mt-6 flex flex-col items-start justify-between gap-5 rounded-[24px] border border-black/5 bg-white/60 p-7 sm:flex-row sm:items-center">
-                <p class="max-w-[520px] font-display text-lg font-bold leading-snug">
-                    Quer ver exemplos de projetos que já entregamos antes de decidir?
-                </p>
-                <a href="https://wa.me/5511926377723?text=Ol%C3%A1!%20Quero%20ver%20exemplos%20de%20projetos%20que%20a%20TeoCode%20j%C3%A1%20entregou."
-                    target="_blank" rel="noopener" class="btn-dark shrink-0">Pedir exemplos no WhatsApp</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" aria-labelledby="faq-title" class="section bg-ink text-white">
-        <div class="wrap max-w-[800px]">
-            <div class="reveal mb-12 text-center">
-                <p class="kicker mb-3 justify-center">Dúvidas</p>
-                <h2 class="h2 text-white">Perguntas frequentes</h2>
-                <p class="mt-4 leading-relaxed text-white/55">Tudo que você precisa saber
-                    antes de começar.</p>
-            </div>
-
-            <div class="reveal flex flex-col gap-3">
-                <details class="faq-item">
-                    <summary class="faq-q">
-                        Quanto tempo leva para criar meu site?
-                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" /><line x1="1" y1="7" x2="13" y2="7" /></svg></span>
-                    </summary>
-                    <p class="faq-a">Sites institucionais ficam prontos em 7 a 15 dias úteis.
-                        E-commerces e projetos mais complexos podem levar de 3 a 6 semanas.
-                        Sempre alinhamos prazos realistas antes de começar.</p>
-                </details>
-                <details class="faq-item">
-                    <summary class="faq-q">
-                        Preciso ter domínio e hospedagem?
-                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" /><line x1="1" y1="7" x2="13" y2="7" /></svg></span>
-                    </summary>
-                    <p class="faq-a">Podemos cuidar de tudo para você — registramos o domínio,
-                        configuramos a hospedagem e entregamos o site funcionando. Ou, se
-                        preferir, trabalhamos com sua infraestrutura existente.</p>
-                </details>
-                <details class="faq-item">
-                    <summary class="faq-q">
-                        O site funciona no celular?
-                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" /><line x1="1" y1="7" x2="13" y2="7" /></svg></span>
-                    </summary>
-                    <p class="faq-a">Sim. Todos os nossos sites são 100% responsivos — funcionam
-                        em celulares, tablets e computadores, o que também ajuda no
-                        posicionamento no Google.</p>
-                </details>
-                <details class="faq-item">
-                    <summary class="faq-q">
-                        Como funciona o suporte pós-lançamento?
-                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" /><line x1="1" y1="7" x2="13" y2="7" /></svg></span>
-                    </summary>
-                    <p class="faq-a">Oferecemos suporte via WhatsApp e planos de manutenção
-                        mensal, que incluem atualizações de segurança, correção de bugs e
-                        pequenas alterações de conteúdo.</p>
-                </details>
-                <details class="faq-item">
-                    <summary class="faq-q">
-                        O que é um agente de IA e como ele ajuda meu negócio?
-                        <span class="faq-icon"><svg viewBox="0 0 14 14" fill="none"><line x1="7" y1="1" x2="7" y2="13" /><line x1="1" y1="7" x2="13" y2="7" /></svg></span>
-                    </summary>
-                    <p class="faq-a">É um assistente virtual treinado com as informações do seu
-                        negócio. Ele atende no WhatsApp, qualifica quem chega, agenda
-                        compromissos e responde dúvidas — automaticamente.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section id="cta" aria-label="Chamada para ação" class="relative overflow-hidden bg-gradient-to-br from-teal via-teal-dim to-blue px-6 py-24 text-center sm:px-10">
-        <div aria-hidden="true"
-            class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.06%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]">
-        </div>
-        <div class="relative z-[1] mx-auto max-w-[640px]">
-            <p class="mx-auto mb-5 inline-block rounded-full border border-white/40 bg-white/20 px-4 py-1.5 text-sm font-semibold text-white">
-                Avaliação gratuita, sem compromisso
-            </p>
-            <h2 class="font-display text-[clamp(1.8rem,4vw,2.75rem)] font-extrabold text-ink">Pronto para começar?</h2>
-            <p class="mx-auto mt-4 max-w-[500px] text-ink/70">Agende sua avaliação gratuita agora
-                e veja, na prática, o que dá para melhorar no seu site ou atendimento.</p>
-            <a href="https://wa.me/5511926377723?text=Ol%C3%A1!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20gratuita."
-                target="_blank" rel="noopener" class="btn-dark mt-8">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" />
-                </svg>
-                Agendar avaliação gratuita
-            </a>
-        </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section id="contato" aria-labelledby="contato-title" class="section bg-mid text-white">
-        <div class="wrap grid items-start gap-16 lg:grid-cols-[1fr_1.2fr]">
-            <div class="reveal">
-                <p class="kicker mb-3">Contato</p>
-                <h2 class="h2 text-white">Vamos conversar?</h2>
-                <p class="mt-4 leading-relaxed text-white/55">Entre em contato e nossa equipe
-                    responde em até 1h durante o horário de atendimento.</p>
-
-                <div class="mt-8 flex flex-col gap-4">
-                    <div class="info-item">
-                        <span class="info-icon" aria-hidden="true">📞</span>
-                        <div>
-                            <p class="font-semibold text-white">Telefone / WhatsApp</p>
-                            <a href="https://wa.me/5511926377723" target="_blank" rel="noopener" class="info-link">(11) 92637-7723</a>
+                <div class="mt-14 grid gap-10 lg:grid-cols-12 lg:gap-12">
+                    <div class="flex flex-col gap-3 lg:col-span-5" data-reveal="rise">
+                        <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                            data-wa="Olá! Vim pelo site da TeoCode e gostaria de conversar."
+                            data-gc-event="cta-contato-whatsapp"
+                            class="group flex items-center gap-4 rounded-2xl border border-paper/10 bg-mid/30 p-4 transition-[border-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-teal/45 active:scale-[.99]">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-teal/15 text-xl text-teal"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></span>
+                            <span><span class="block font-semibold">Telefone e WhatsApp</span><span class="tnum text-sm text-paper/70">(11) 92637-7723</span></span>
+                        </a>
+                        <a href="mailto:contato@teocode.com.br" data-gc-event="link-contato-email"
+                            class="group flex items-center gap-4 rounded-2xl border border-paper/10 bg-mid/30 p-4 transition-[border-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-teal/45 active:scale-[.99]">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-teal/15 text-xl text-teal"><i class="ph ph-envelope-simple" aria-hidden="true"></i></span>
+                            <span><span class="block font-semibold">E-mail</span><span class="text-sm text-paper/70">contato@teocode.com.br</span></span>
+                        </a>
+                        <div class="flex items-start gap-4 rounded-2xl border border-paper/10 bg-mid/30 p-4">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-teal/15 text-xl text-teal"><i class="ph ph-map-pin" aria-hidden="true"></i></span>
+                            <span><span class="block font-semibold">Endereço</span><span class="text-sm leading-relaxed text-paper/70">R. Valdemar Celestino da Silva, Parque São Vicente, Mauá, SP, 09371-317</span></span>
                         </div>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-icon" aria-hidden="true">✉️</span>
-                        <div>
-                            <p class="font-semibold text-white">E-mail</p>
-                            <a href="mailto:contato@teocode.com.br" class="info-link">contato@teocode.com.br</a>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-icon" aria-hidden="true">📍</span>
-                        <div>
-                            <p class="font-semibold text-white">Endereço</p>
-                            <span class="info-link">R. Valdemar Celestino da Silva, Parque São Vicente, Mauá – SP, 09371-317</span>
-                        </div>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-icon" aria-hidden="true">🕐</span>
-                        <div class="w-full">
-                            <p class="font-semibold text-white">Horário de atendimento</p>
-                            <div class="mt-1.5 grid grid-cols-2 gap-x-6 gap-y-0.5 text-sm">
-                                <div class="flex justify-between gap-4"><span class="text-white/55">Segunda</span><span class="font-medium text-white/85">08:00–18:00</span></div>
-                                <div class="flex justify-between gap-4"><span class="text-white/55">Terça</span><span class="font-medium text-white/85">08:00–18:00</span></div>
-                                <div class="flex justify-between gap-4"><span class="text-white/55">Quarta</span><span class="font-medium text-white/85">08:00–18:00</span></div>
-                                <div class="flex justify-between gap-4"><span class="text-white/55">Quinta</span><span class="font-medium text-white/85">08:00–18:00</span></div>
-                                <div class="flex justify-between gap-4"><span class="text-white/55">Sexta</span><span class="font-medium text-white/85">08:00–18:00</span></div>
-                                <div class="flex justify-between gap-4"><span class="text-white/55">Sábado</span><span class="font-medium text-red-300/80">Fechado</span></div>
-                                <div class="flex justify-between gap-4"><span class="text-white/55">Domingo</span><span class="font-medium text-red-300/80">Fechado</span></div>
+                        <div class="flex items-start gap-4 rounded-2xl border border-paper/10 bg-mid/30 p-4">
+                            <span class="grid size-11 shrink-0 place-items-center rounded-xl bg-teal/15 text-xl text-teal"><i class="ph ph-clock" aria-hidden="true"></i></span>
+                            <div class="w-full">
+                                <p class="font-semibold">Horário de atendimento</p>
+                                <dl class="tnum mt-2 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-sm">
+                                    <dt class="text-paper/70">Segunda a sexta</dt><dd class="text-right font-medium">08:00 às 18:00</dd>
+                                    <dt class="text-paper/70">Sábado e domingo</dt><dd class="text-right font-medium text-paper/65">Fechado</dd>
+                                </dl>
                             </div>
                         </div>
                     </div>
+
+                    <div class="rounded-3xl border border-paper/10 bg-mid/35 p-6 sm:p-9 lg:col-span-7" data-reveal="rise" style="--d:100ms">
+                        <h3 class="font-display text-[1.4rem] font-bold tracking-[-0.02em]">Solicitar orçamento gratuito</h3>
+
+                        <form id="lead-form" novalidate class="mt-6">
+                            <div id="form-fields">
+                                <div class="grid gap-5 sm:grid-cols-2">
+                                    <div>
+                                        <label for="name" class="field-label">Nome</label>
+                                        <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="name-error" aria-invalid="false" class="field" placeholder="Seu nome completo" />
+                                        <p id="name-error" class="field-error mt-1.5 min-h-5 text-sm" role="alert"></p>
+                                    </div>
+                                    <div>
+                                        <label for="phone" class="field-label">WhatsApp</label>
+                                        <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="phone-error" aria-invalid="false" class="field tnum" placeholder="(11) 90000-0000" />
+                                        <p id="phone-error" class="field-error mt-1.5 min-h-5 text-sm" role="alert"></p>
+                                    </div>
+                                </div>
+                                <div class="mt-1 grid gap-5 sm:grid-cols-2">
+                                    <div>
+                                        <label for="email" class="field-label">E-mail <span class="font-normal text-paper/60">(opcional)</span></label>
+                                        <input id="email" name="email" type="email" autocomplete="email" class="field" placeholder="voce@empresa.com.br" />
+                                    </div>
+                                    <div>
+                                        <label for="service" class="field-label">Serviço de interesse</label>
+                                        <select id="service" name="service" class="field">
+                                            <option value="">Selecione</option>
+                                            <option>Criação de Sites</option>
+                                            <option>Agentes de IA</option>
+                                            <option>SEO</option>
+                                            <option>E-commerce</option>
+                                            <option>Manutenção</option>
+                                            <option>Marketing Digital</option>
+                                            <option>Outro</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="mt-5">
+                                    <label for="message" class="field-label">Mensagem <span class="font-normal text-paper/60">(opcional)</span></label>
+                                    <textarea id="message" name="message" rows="4" class="field resize-y" placeholder="Conte sobre o seu projeto ou necessidade"></textarea>
+                                </div>
+                                <button type="submit" data-gc-event="cta-contato-formulario" class="btn-primary mt-7 w-full">
+                                    <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+                                    Enviar pelo WhatsApp
+                                </button>
+                                <p class="mt-3 text-center text-sm text-paper/60">Ao enviar, você abre o WhatsApp com a mensagem pronta para finalizar o contato.</p>
+                            </div>
+
+                            <div id="form-success" hidden tabindex="-1" role="status" class="py-10 text-center outline-none">
+                                <i class="ph ph-check-circle text-5xl text-teal" aria-hidden="true"></i>
+                                <p class="mt-4 font-display text-xl font-bold">Mensagem pronta no WhatsApp</p>
+                                <p class="mx-auto mt-2 max-w-[40ch] text-paper/70">Finalize o envio por lá. Se a janela não abriu, tente novamente.</p>
+                                <button type="button" id="form-reset" class="btn-quiet mt-4">Preencher de novo</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Localização -->
+                <div class="mt-12 overflow-hidden rounded-3xl border border-paper/10" data-reveal="scale">
+                    <div class="map-frame relative h-[320px] bg-mid/40 sm:h-[400px]">
+                        <iframe title="Mapa com a localização da TeoCode em Mauá, SP" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            src="https://maps.google.com/maps?q=-23.6656131,-46.4840818&z=17&hl=pt-BR&output=embed"
+                            class="absolute inset-0 size-full border-0"></iframe>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-between gap-3 border-t border-paper/10 bg-mid/35 px-6 py-4">
+                        <p class="text-sm text-paper/75">R. Valdemar Celestino da Silva, Parque São Vicente, Mauá, SP</p>
+                        <a href="https://www.google.com/maps/place/TeoCode/@-23.6656131,-46.4840818,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce6971df8926f3:0x5eda3e3e42c58448!8m2!3d-23.6656131!4d-46.4840818!16s%2Fg%2F11wqy1f6_c"
+                            target="_blank" rel="noopener noreferrer" data-gc-event="link-contato-maps"
+                            class="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-teal underline-offset-4 hover:underline">
+                            Abrir no Google Maps <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="border-t border-paper/10 bg-ink px-5 pb-10 pt-16 sm:px-8">
+        <div class="mx-auto w-full max-w-[1280px] 3xl:max-w-[1600px] 4xl:max-w-[1900px]">
+            <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-12">
+                <div class="lg:col-span-4">
+                    <a href="#inicio" class="logo-link inline-flex items-center gap-2.5" aria-label="TeoCode, início">
+                        <img src="assets/logo.svg" width="42" height="42" alt="" class="logo-ball" loading="lazy" />
+                        <span class="logo-word">TeoCode</span>
+                    </a>
+                    <p class="mt-5 max-w-[32ch] leading-relaxed text-paper/65">Sites personalizados e agentes de IA para negócios de Mauá e região.</p>
+                </div>
+
+                <div class="lg:col-span-3">
+                    <h2 class="font-display text-base font-bold">Contato</h2>
+                    <ul class="mt-4 flex flex-col gap-1.5">
+                        <li><a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                                data-wa="Olá! Vim pelo rodapé do site da TeoCode e gostaria de mais informações."
+                                data-gc-event="cta-footer" class="footer-link tnum gap-2"><i class="ph ph-whatsapp-logo text-lg text-teal" aria-hidden="true"></i>(11) 92637-7723</a></li>
+                        <li><a href="mailto:contato@teocode.com.br" data-gc-event="link-footer-email" class="footer-link gap-2"><i class="ph ph-envelope-simple text-lg text-teal" aria-hidden="true"></i>contato@teocode.com.br</a></li>
+                        <li class="flex items-start gap-2 py-1 text-sm leading-relaxed text-paper/65"><i class="ph ph-map-pin mt-0.5 text-lg text-teal" aria-hidden="true"></i><span>R. Valdemar Celestino da Silva, Parque São Vicente, Mauá, SP, 09371-317</span></li>
+                    </ul>
+                </div>
+
+                <nav aria-label="Rodapé" class="lg:col-span-3">
+                    <h2 class="font-display text-base font-bold">Navegação</h2>
+                    <ul class="mt-4 grid grid-cols-2 gap-x-6 gap-y-1.5">
+                        <li><a href="#servicos" class="footer-link">Serviços</a></li>
+                        <li><a href="#ofertas" class="footer-link">Ofertas</a></li>
+                        <li><a href="#processo" class="footer-link">Como funciona</a></li>
+                        <li><a href="#diferenciais" class="footer-link">Diferenciais</a></li>
+                        <li><a href="#faq" class="footer-link">Perguntas</a></li>
+                        <li><a href="#contato" class="footer-link">Contato</a></li>
+                    </ul>
+                </nav>
+
+                <div class="lg:col-span-2">
+                    <h2 class="font-display text-base font-bold">Redes</h2>
+                    <ul class="mt-4 flex gap-3">
+                        <li><a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+                                data-wa="Olá! Vim pelos ícones de contato do site da TeoCode."
+                                data-gc-event="cta-footer-social" aria-label="WhatsApp da TeoCode"
+                                class="grid size-11 place-items-center rounded-full border border-paper/15 text-xl text-paper/80 transition-[color,border-color,background-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-teal hover:bg-teal hover:text-ink active:scale-95"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.google.com/maps/place/TeoCode/@-23.6656131,-46.4840818,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce6971df8926f3:0x5eda3e3e42c58448!8m2!3d-23.6656131!4d-46.4840818!16s%2Fg%2F11wqy1f6_c"
+                                target="_blank" rel="noopener noreferrer" data-gc-event="link-footer-maps" aria-label="Perfil da TeoCode no Google Maps"
+                                class="grid size-11 place-items-center rounded-full border border-paper/15 text-xl text-paper/80 transition-[color,border-color,background-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-teal hover:bg-teal hover:text-ink active:scale-95"><i class="ph ph-map-pin" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
             </div>
 
-            <div class="reveal rounded-[24px] border border-white/10 bg-white/5 p-8 [transition-delay:120ms]">
-                <p class="mb-6 font-display text-xl font-bold">Solicitar orçamento gratuito</p>
-                <div id="formWrap">
-                    <div class="grid gap-4 sm:grid-cols-2">
-                        <div class="form-group">
-                            <label for="name">Nome *</label>
-                            <input type="text" id="name" name="name" placeholder="Seu nome completo" autocomplete="name" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">WhatsApp *</label>
-                            <input type="tel" id="phone" name="phone" placeholder="(11) 9 0000-0000" autocomplete="tel" required />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">E-mail</label>
-                        <input type="email" id="email" name="email" placeholder="seu@email.com" autocomplete="email" />
-                    </div>
-                    <div class="form-group">
-                        <label for="service">Serviço de interesse</label>
-                        <select id="service" name="service">
-                            <option value="">Selecione...</option>
-                            <option>Criação de Site</option>
-                            <option>SEO</option>
-                            <option>E-commerce / Loja Virtual</option>
-                            <option>Manutenção</option>
-                            <option>Agente de IA</option>
-                            <option>Marketing Digital</option>
-                            <option>Outro</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Mensagem</label>
-                        <textarea id="message" name="message" placeholder="Conte sobre seu projeto ou necessidade..."></textarea>
-                    </div>
-                    <button id="submitBtn" type="button" class="btn-primary w-full justify-center !rounded-xl">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true">
-                            <line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" />
-                        </svg>
-                        Enviar via WhatsApp
-                    </button>
-                    <p class="mt-3 text-center text-xs text-white/30">Você será redirecionado ao
-                        WhatsApp para finalizar o contato.</p>
-                </div>
-                <div id="formSuccess" role="alert" class="hidden py-8 text-center">
-                    <div class="mb-3 text-4xl">✅</div>
-                    <h3 class="font-display text-lg font-bold text-white">Mensagem pronta!</h3>
-                    <p class="mt-1 text-white/60">Você foi redirecionado ao WhatsApp para
-                        finalizar com a nossa equipe.</p>
-                </div>
+            <div class="mt-14 flex flex-col gap-2 border-t border-paper/10 pt-6 text-sm text-paper/60 sm:flex-row sm:items-center sm:justify-between">
+                <p>© 2026 TeoCode - Todos os direitos reservados.</p>
+                <p class="tnum">CNPJ 41.061.643/0001-22</p>
             </div>
         </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="bg-ink px-6 py-14 text-white/45 sm:px-10 lg:px-16">
-        <div class="wrap grid gap-12 border-b border-white/[0.07] pb-10 sm:grid-cols-2 lg:grid-cols-4">
-            <div>
-                <a href="#hero" class="flex items-center gap-2.5" aria-label="TeoCode — início">
-                    <span class="gem grid h-9 w-9 shrink-0 place-items-center bg-gradient-to-br from-[#a8eaea] via-[#5bc8c8] to-[#1a9eaa]" aria-hidden="true">
-                        <svg viewBox="0 0 40 40" fill="none" class="h-5 w-5">
-                            <path d="M20 6L34 14v16L20 38 6 30V14z" fill="rgba(13,36,68,.25)" stroke="rgba(13,36,68,.6)" stroke-width="1.5" />
-                            <path d="M20 6L34 14 20 22 6 14z" fill="rgba(13,36,68,.35)" stroke="rgba(13,36,68,.55)" stroke-width="1.2" />
-                            <line x1="20" y1="22" x2="20" y2="38" stroke="rgba(13,36,68,.5)" stroke-width="1.5" />
-                            <line x1="6" y1="14" x2="6" y2="30" stroke="rgba(13,36,68,.38)" stroke-width="1.2" />
-                            <line x1="34" y1="14" x2="34" y2="30" stroke="rgba(13,36,68,.38)" stroke-width="1.2" />
-                        </svg>
-                    </span>
-                    <span class="font-display text-lg font-extrabold text-white">TeoCode</span>
-                </a>
-                <p class="mt-4 max-w-[220px] text-sm leading-relaxed">Sites e agentes de IA para
-                    negócios locais crescerem, feitos em Mauá, SP.</p>
-            </div>
-
-            <div>
-                <p class="mb-4 text-sm font-semibold text-white/70">Contato</p>
-                <ul class="flex flex-col gap-2.5 text-sm">
-                    <li><a href="https://wa.me/5511926377723" target="_blank" rel="noopener" class="footer-link">(11) 92637-7723 · WhatsApp</a></li>
-                    <li><a href="mailto:contato@teocode.com.br" class="footer-link">contato@teocode.com.br</a></li>
-                    <li class="max-w-[240px] leading-relaxed">R. Valdemar Celestino da Silva, Parque São Vicente, Mauá – SP, 09371-317</li>
-                </ul>
-            </div>
-
-            <div>
-                <p class="mb-4 text-sm font-semibold text-white/70">Navegação</p>
-                <ul class="flex flex-col gap-2.5 text-sm">
-                    <li><a href="#servicos" class="footer-link">Serviços</a></li>
-                    <li><a href="#processo" class="footer-link">Como funciona</a></li>
-                    <li><a href="#confianca" class="footer-link">Diferenciais</a></li>
-                    <li><a href="#faq" class="footer-link">Perguntas frequentes</a></li>
-                    <li><a href="#contato" class="footer-link">Contato</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <p class="mb-4 text-sm font-semibold text-white/70">Encontre a gente</p>
-                <div class="flex gap-3">
-                    <a href="https://wa.me/5511926377723" target="_blank" rel="noopener" class="social-link" aria-label="WhatsApp TeoCode">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="white" aria-hidden="true">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
-                            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.126.556 4.121 1.527 5.847L.057 23.881l6.198-1.625A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22.043a10.026 10.026 0 01-5.124-1.404l-.367-.218-3.782.99 1.011-3.686-.239-.378A10.01 10.01 0 011.957 12C1.957 6.451 6.451 1.957 12 1.957S22.043 6.451 22.043 12 17.549 22.043 12 22.043z" />
-                        </svg>
-                    </a>
-                    <a href="https://maps.google.com/?q=R.+Valdemar+Celestino+da+Silva,+Mau%C3%A1,+SP" target="_blank" rel="noopener" class="social-link" aria-label="Localização no Google Maps">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="white" aria-hidden="true">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <p class="wrap pt-7 text-center text-sm">
-            © 2026 TeoCode · Todos os direitos reservados · CNPJ 41.061.643/0001-22 ·
-            <a href="tel:+5511926377723" class="footer-link">(11) 92637-7723</a>
-        </p>
     </footer>
 
-    <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/5511926377723?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TeoCode%20e%20gostaria%20de%20saber%20mais."
-        target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp"
-        class="group fixed bottom-7 right-7 z-[200] grid h-[58px] w-[58px] animate-float place-items-center rounded-full bg-[#25d366] shadow-[0_4px_24px_rgba(37,211,102,.5)] transition-transform duration-300 hover:scale-110">
-        <span class="pointer-events-none absolute right-[70px] whitespace-nowrap rounded-lg bg-ink/90 px-3 py-1.5 text-sm font-medium text-white opacity-0 transition-opacity duration-200 group-hover:opacity-100">Fale conosco!</span>
-        <svg viewBox="0 0 32 32" width="30" height="30" fill="white" aria-hidden="true">
-            <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.13 6.742 3.054 9.37L1.055 31.04l5.852-1.874A15.924 15.924 0 0016.004 32C24.832 32 32 24.824 32 16S24.832 0 16.004 0zm9.208 22.594c-.382 1.076-1.902 1.97-3.11 2.228-.828.176-1.908.316-5.548-1.192-4.658-1.93-7.658-6.662-7.89-6.97-.222-.308-1.876-2.496-1.876-4.762s1.172-3.376 1.63-3.844c.38-.39.998-.568 1.592-.568.192 0 .364.01.52.018.456.018.686.044.988.768.382.912 1.312 3.178 1.426 3.41.116.232.232.546.07.854-.152.318-.286.458-.518.724-.232.266-.452.47-.684.754-.21.25-.448.518-.182.974.266.448 1.18 1.94 2.532 3.142 1.74 1.548 3.15 2.044 3.648 2.254.374.158.818.1 1.094-.198.348-.384.776-.964 1.212-1.536.308-.414.696-.466 1.104-.308.416.148 2.672 1.26 3.128 1.488.456.232.76.342.872.534.108.192.108 1.108-.274 2.23z" />
-        </svg>
+    <!-- WhatsApp flutuante -->
+    <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
+        data-wa="Olá! Vim pelo site da TeoCode e gostaria de saber mais."
+        data-gc-event="cta-flutuante" aria-label="Falar com a TeoCode no WhatsApp"
+        class="wa-float fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-5 z-30 inline-flex size-14 items-center justify-center gap-2 rounded-full bg-teal text-ink shadow-[0_16px_34px_-12px_rgba(0,201,167,.7)] transition-[transform,translate,scale,box-shadow] duration-200 ease-out-expo hover:-translate-y-1 hover:shadow-[0_22px_40px_-12px_rgba(0,201,167,.8)] active:scale-95 sm:w-auto sm:px-5">
+        <i class="ph ph-whatsapp-logo text-2xl" aria-hidden="true"></i>
+        <span class="hidden text-[0.95rem] font-semibold sm:inline">WhatsApp</span>
     </a>
 
-    <script type="module" src="assets/js/main.js"></script>
-<script data-goatcounter="https://teocode.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+    <script src="assets/js/main.js" defer></script>
 </body>
-    
+
 </html>

@@ -1,0 +1,246 @@
+/* TeoCode - estilos complementares ao Tailwind (CDN).
+   Aqui ficam apenas as coisas que o Tailwind nao cobre: keyframes, estados de
+   movimento, partes do navegador (selecao, scrollbar, foco) e o accordion.
+   Observacao: este arquivo nao tem camada (@layer), entao vence os utilitarios do
+   Tailwind quando as propriedades coincidem. Mantenha-o restrito ao que esta aqui. */
+
+:root {
+  --ink: #0a0e1a;
+  --mid: #1e2740;
+  --paper: #f4f2ee;
+  --teal: #00c9a7;
+  --blue: #3d7fff;
+  --muted: #6b7280;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  color-scheme: dark;
+}
+
+html {
+  background: var(--ink);
+  color: var(--paper);
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: #2b3652 var(--ink);
+  scrollbar-width: thin;
+}
+
+@media (min-width: 1920px) { html { font-size: 112.5%; } }
+@media (min-width: 2560px) { html { font-size: 125%; } }
+
+body {
+  background: var(--ink);
+  font-family: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* ---- partes do navegador, tematizadas ---- */
+::selection { background: var(--teal); color: var(--ink); }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: #2b3652; border-radius: 999px; border: 2px solid var(--ink); }
+::-webkit-scrollbar-thumb:hover { background: #3a4768; }
+
+:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+input, textarea, select { caret-color: var(--teal); }
+a { text-underline-offset: 0.22em; }
+.tnum { font-variant-numeric: tabular-nums; }
+
+/* ---- logo original: comportamento de hover do site anterior ---- */
+.logo-ball {
+  display: block;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  box-shadow: 0 3px 14px rgba(91, 200, 200, 0.55);
+  transition: transform 0.3s var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .logo-link:hover .logo-ball { transform: scale(1.1) rotate(-5deg); }
+}
+.logo-link:active .logo-ball { transform: scale(0.96); transition-duration: 0.12s; }
+.logo-word {
+  font-family: "Syne", sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: -0.01em;
+  color: #fff;
+}
+
+/* ---- revelacao ao rolar: conteudo visivel por padrao ---- */
+.js [data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 0.65s var(--ease-out),
+    transform 0.65s var(--ease-out),
+    filter 0.65s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+.js [data-reveal="rise"] { transform: translateY(24px); filter: blur(5px); }
+.js [data-reveal="scale"] { transform: scale(0.97); filter: blur(4px); }
+.js [data-reveal].is-in { opacity: 1; transform: none; filter: none; }
+
+/* ---- hero: sequencia de entrada orquestrada (uma vez) ---- */
+.hl { display: block; overflow: hidden; padding-bottom: 0.14em; margin-bottom: -0.14em; }
+.hl > span { display: inline-block; }
+.js .hl > span {
+  transform: translateY(108%);
+  transition: transform 1s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+.js .hero-in .hl > span { transform: none; }
+.js .hero-rise {
+  opacity: 0;
+  transform: translateY(16px);
+  filter: blur(5px);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out), filter 0.8s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+.js .hero-in .hero-rise { opacity: 1; transform: none; filter: none; }
+
+/* ---- conversa de WhatsApp (exemplo ilustrativo) ---- */
+.js .msg {
+  opacity: 0;
+  transform: translateY(10px) scale(0.97);
+  transform-origin: bottom left;
+}
+.js .msg-out { transform-origin: bottom right; }
+.js .msg.is-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.35s var(--ease-out), transform 0.45s var(--ease-out);
+}
+.typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 13px 16px;
+  border-radius: 18px 18px 6px 18px;
+  background: rgba(0, 201, 167, 0.18);
+  align-self: flex-end;
+  animation: msg-pop 0.3s var(--ease-out) both;
+}
+.typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: dot 1.1s ease-in-out 2;
+}
+.typing i:nth-child(2) { animation-delay: 0.14s; }
+.typing i:nth-child(3) { animation-delay: 0.28s; }
+@keyframes dot { 0%, 60%, 100% { transform: translateY(0); opacity: 0.45; } 30% { transform: translateY(-4px); opacity: 1; } }
+@keyframes msg-pop { from { opacity: 0; transform: translateY(8px) scale(0.96); } to { opacity: 1; transform: none; } }
+
+/* ---- processo: a linha se desenha e acende cada etapa quando chega nela ---- */
+.process-line { transform-origin: left center; }
+.js .process-line { transform: scaleX(0); transition: transform 1.6s var(--ease-in-out) 0.2s; }
+.js .process-line.is-in { transform: scaleX(1); }
+@media (max-width: 1023px) {
+  .process-line { transform-origin: top center; }
+  .js .process-line { transform: scaleY(0); }
+  .js .process-line.is-in { transform: scaleY(1); }
+}
+.step-node {
+  transition: background-color 0.4s var(--ease-out), color 0.4s var(--ease-out), border-color 0.4s var(--ease-out);
+  transition-delay: var(--d, 0ms);
+}
+.js .step-node { background-color: var(--ink); color: var(--paper); }
+.js .step.is-in .step-node { background-color: var(--teal); color: var(--ink); border-color: var(--teal); }
+@media (max-width: 1023px) {
+  .step-node { transition-delay: 0ms; }
+}
+
+/* ---- FAQ: accordion animado (nativo <details>) ---- */
+details { interpolate-size: allow-keywords; }
+details::details-content {
+  height: 0;
+  overflow: clip;
+  transition: height 0.4s var(--ease-out), content-visibility 0.4s allow-discrete;
+}
+details[open]::details-content { height: auto; }
+details > p {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease-out, transform 0.15s ease-out;
+}
+details[open] > p {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.35s var(--ease-out) 0.05s, transform 0.4s var(--ease-out) 0.05s;
+}
+summary { list-style: none; transition: background-color 0.15s ease-out; }
+summary::-webkit-details-marker { display: none; }
+summary:active { background-color: rgba(244, 242, 238, 0.04); }
+details .faq-icon { transition: transform 0.35s var(--ease-out), background-color 0.2s ease, color 0.2s ease; }
+details[open] .faq-icon { transform: rotate(45deg); background-color: var(--teal); color: var(--ink); }
+
+/* ---- mapa em tema escuro ---- */
+.map-frame iframe { filter: invert(0.92) hue-rotate(180deg) saturate(0.65) contrast(0.92); }
+
+/* ---- formulario ---- */
+.field[aria-invalid="true"] { border-color: #ff8e8e; }
+.field-error { color: #ffb4b4; }
+#form-success:not([hidden]) {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: opacity 0.3s var(--ease-out), transform 0.35s var(--ease-out), filter 0.3s var(--ease-out);
+}
+@starting-style {
+  #form-success:not([hidden]) { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+}
+
+/* ---- menu mobile: abre com calma, fecha rapido ---- */
+#menu { transition: opacity 0.35s var(--ease-out), visibility 0.35s; }
+#menu:not(.is-open) { opacity: 0; visibility: hidden; transition-duration: 0.18s; }
+#menu.is-open { opacity: 1; visibility: visible; }
+#menu a.menu-link { transform: translateY(14px); opacity: 0; transition: transform 0.55s var(--ease-out), opacity 0.45s var(--ease-out); }
+#menu.is-open a.menu-link { transform: none; opacity: 1; transition-delay: calc(var(--i, 0) * 50ms + 70ms); }
+.hb-bar { transition: transform 0.3s var(--ease-out), opacity 0.15s; transform-origin: center; }
+#hamburger[aria-expanded="true"] .hb-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+#hamburger[aria-expanded="true"] .hb-bar:nth-child(2) { opacity: 0; }
+#hamburger[aria-expanded="true"] .hb-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ---- botao flutuante do WhatsApp: entra so depois do hero (o hero ja tem o CTA) ---- */
+.js .wa-float {
+  opacity: 0;
+  transform: translateY(14px) scale(0.96);
+  pointer-events: none;
+}
+.js .wa-float.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.js .wa-float {
+  transition: opacity 0.35s var(--ease-out), transform 0.45s var(--ease-out), translate 0.2s var(--ease-out), scale 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+}
+
+/* ---- movimento reduzido: menos movimento, nao zero ---- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+  *:hover, *:active, *:focus-visible { translate: none !important; scale: none !important; }
+  .logo-link:hover .logo-ball, .logo-link:active .logo-ball { transform: none; }
+
+  .js [data-reveal], .js .hero-rise {
+    transform: none !important;
+    filter: none !important;
+    transition: opacity 0.3s ease-out !important;
+    transition-delay: 0ms !important;
+  }
+  .js .hl > span { transform: none !important; opacity: 0; transition: opacity 0.4s ease-out !important; transition-delay: 0ms !important; }
+  .js .hero-in .hl > span { opacity: 1; }
+  .js .msg, .js .msg.is-in { transform: none !important; transition: opacity 0.3s ease-out !important; }
+  .js .process-line { transform: none !important; transition: none !important; }
+  .js .wa-float { transform: none !important; }
+  details::details-content { transition: none !important; }
+  details > p, details[open] > p { transform: none !important; }
+  #menu a.menu-link { transform: none !important; }
+}

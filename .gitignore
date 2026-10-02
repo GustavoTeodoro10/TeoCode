@@ -1,3 +1,11 @@
 node_modules/
 .DS_Store
 Thumbs.db
+_shot_*.html
+_h_*.html
+_full*.html
+test-*.html
+
+# Artefatos de trabalho do Impeccable (capturas, contrato de direção). Só o design.json fica versionado.
+.impeccable/*
+!.impeccable/design.json

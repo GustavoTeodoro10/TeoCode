@@ -1,0 +1,9 @@
+# Mantem arquivos de desenvolvimento fora do site publicado pelo GitHub Pages.
+exclude:
+  - PRODUCT.md
+  - DESIGN.md
+  - README.md
+  - .impeccable
+  - .claude
+  - assets/og-image.source.html
+  - assets/icon-source.html

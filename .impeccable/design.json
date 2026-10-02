@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-02T21:22:29.200598+00:00",
+  "title": "Design System: TeoCode",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Noite Navy",
+        "canonical": "oklch(17% 0.026 269)",
+        "tonalRamp": [
+          "#080b13",
+          "#252933",
+          "#454a58",
+          "#696e7e",
+          "#9095a3",
+          "#b2b7c4",
+          "#d3d7e3",
+          "#eaeef9"
+        ]
+      },
+      "mid": {
+        "role": "neutral",
+        "displayName": "Navy de Superfície",
+        "canonical": "oklch(28% 0.048 268)",
+        "tonalRamp": [
+          "#060a19",
+          "#21283c",
+          "#404a63",
+          "#636e8a",
+          "#8a95af",
+          "#adb7cf",
+          "#ced7ed",
+          "#e6eeff"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papel Quente",
+        "canonical": "oklch(96% 0.006 85)",
+        "tonalRamp": [
+          "#0c0b09",
+          "#2a2926",
+          "#4c4a47",
+          "#706e6b",
+          "#979591",
+          "#b9b7b3",
+          "#d9d7d3",
+          "#f0eeea"
+        ]
+      },
+      "teal": {
+        "role": "primary",
+        "displayName": "Teal da Luz Acesa",
+        "canonical": "oklch(75% 0.141 175)",
+        "tonalRamp": [
+          "#001508",
+          "#003825",
+          "#005f46",
+          "#00876a",
+          "#22ad91",
+          "#65ceb3",
+          "#93ecd4",
+          "#b2ffeb"
+        ]
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Azul Ambiente",
+        "canonical": "oklch(62% 0.202 262)",
+        "tonalRamp": [
+          "#010044",
+          "#001776",
+          "#013dad",
+          "#2765de",
+          "#5891fd",
+          "#81b6ff",
+          "#a7d7ff",
+          "#c2efff"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Cinza Neutro",
+        "canonical": "oklch(55% 0.023 264)",
+        "tonalRamp": [
+          "#080b12",
+          "#242932",
+          "#454a56",
+          "#686f7c",
+          "#8f95a2",
+          "#b2b7c3",
+          "#d2d8e2",
+          "#eaeff8"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Somente o título do topo, em até duas linhas."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Títulos de seção."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Títulos de cartões, ofertas e linhas de diferenciais."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Texto corrido, 52 a 56 caracteres por linha nos apoios."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Botões, links de ação e rótulos de formulário."
+      }
+    },
+    "shadows": [
+      {
+        "name": "floating-panel",
+        "value": "0 40px 80px -30px rgba(0,0,0,.7)",
+        "purpose": "Cartão da conversa de exemplo."
+      },
+      {
+        "name": "button-primary",
+        "value": "0 10px 26px -12px rgba(0,201,167,.65)",
+        "purpose": "Botão primário; intensifica no hover."
+      },
+      {
+        "name": "logo",
+        "value": "0 3px 14px rgba(91,200,200,.55)",
+        "purpose": "Sombra original do logotipo, preservada."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entradas, hover e revelações."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.77, 0, 0.175, 1)",
+        "purpose": "A linha do processo que se desenha."
+      },
+      {
+        "name": "press",
+        "value": "scale(0.97) em 120 a 200ms",
+        "purpose": "Feedback de pressão em todo elemento clicável."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "3xl",
+        "value": "1920px"
+      },
+      {
+        "name": "4xl",
+        "value": "2560px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ação principal: sempre abre o WhatsApp.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Agendar avaliação gratuita</a>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 24px;border:0;border-radius:9999px;background:#00c9a7;color:#0a0e1a;font:600 15px/1.2 'Hanken Grotesk',system-ui,sans-serif;box-shadow:0 10px 26px -12px rgba(0,201,167,.65);cursor:pointer;text-decoration:none;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s cubic-bezier(.16,1,.3,1),background-color .2s}.ds-btn-primary:hover{background:#14dbb8;transform:translateY(-2px);box-shadow:0 16px 32px -12px rgba(0,201,167,.75)}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:2px solid #00c9a7;outline-offset:3px}"
+    },
+    {
+      "name": "Service Tile",
+      "kind": "card",
+      "refersTo": "tile",
+      "description": "Célula do bento de serviços; hover sobe 4px e acende a borda em teal.",
+      "html": "<article class=\"ds-tile\"><h3>Criação de sites</h3><p>Criamos sites personalizados para atender às necessidades específicas do seu negócio.</p></article>",
+      "css": ".ds-tile{padding:36px;border:1px solid rgba(244,242,238,.1);border-radius:24px;background:linear-gradient(135deg,rgba(0,201,167,.14),rgba(30,39,64,.55) 55%);color:#f4f2ee;font-family:'Hanken Grotesk',system-ui,sans-serif;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s}.ds-tile:hover{transform:translateY(-4px);border-color:rgba(0,201,167,.45)}.ds-tile h3{margin:0 0 12px;font:700 24px/1.15 Syne,sans-serif;letter-spacing:-.02em}.ds-tile p{margin:0;line-height:1.65;color:rgba(244,242,238,.75)}"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Campo de formulário com rótulo sempre acima.",
+      "html": "<label class=\"ds-label\" for=\"ds-name\">Nome</label><input id=\"ds-name\" class=\"ds-field\" placeholder=\"Seu nome completo\" />",
+      "css": ".ds-label{display:block;margin-bottom:8px;font:500 14px 'Hanken Grotesk',system-ui,sans-serif;color:rgba(244,242,238,.85)}.ds-field{width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid rgba(244,242,238,.15);border-radius:12px;background:rgba(10,14,26,.6);color:#f4f2ee;font:400 15px 'Hanken Grotesk',system-ui,sans-serif;outline:none;caret-color:#00c9a7;transition:border-color .2s,box-shadow .2s}.ds-field::placeholder{color:rgba(244,242,238,.4)}.ds-field:focus{border-color:#00c9a7;box-shadow:0 0 0 3px rgba(0,201,167,.18)}"
+    },
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "button-primary",
+      "description": "Link da barra fixa; o sublinhado teal se desenha no hover.",
+      "html": "<a class=\"ds-nav\" href=\"#\">Serviços</a>",
+      "css": ".ds-nav{position:relative;padding:8px 0;font:500 14px 'Hanken Grotesk',system-ui,sans-serif;color:rgba(244,242,238,.75);text-decoration:none;transition:color .2s}.ds-nav::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:#00c9a7;transform:scaleX(0);transform-origin:left;transition:transform .2s cubic-bezier(.16,1,.3,1)}.ds-nav:hover{color:#f4f2ee}.ds-nav:hover::after{transform:scaleX(1)}.ds-nav:focus-visible{outline:2px solid #00c9a7;outline-offset:3px}"
+    },
+    {
+      "name": "Chat Bubbles",
+      "kind": "custom",
+      "refersTo": "tile",
+      "description": "Mensagens do exemplo de agente de IA: recebida em papel a 10%, enviada em teal.",
+      "html": "<div class=\"ds-chat\"><p class=\"ds-in\">Oi! Tem horário na quarta à tarde?</p><p class=\"ds-out\">Oi! Tenho 14h ou 16h30 na quarta. Qual prefere?</p></div>",
+      "css": ".ds-chat{display:flex;flex-direction:column;gap:10px;font:400 14px/1.35 'Hanken Grotesk',system-ui,sans-serif}.ds-chat p{margin:0;max-width:82%;padding:10px 16px}.ds-in{align-self:flex-start;border-radius:18px 18px 18px 6px;background:rgba(244,242,238,.1);color:#f4f2ee}.ds-out{align-self:flex-end;border-radius:18px 18px 6px 18px;background:#00c9a7;color:#0a0e1a}"
+    },
+    {
+      "name": "FAQ Item",
+      "kind": "custom",
+      "refersTo": "tile",
+      "description": "Accordion nativo com ícone que gira 45 graus ao abrir.",
+      "html": "<details class=\"ds-faq\"><summary>Quanto tempo leva para criar meu site?</summary><p>Sites institucionais ficam prontos em 7 a 15 dias úteis.</p></details>",
+      "css": ".ds-faq{border:1px solid rgba(244,242,238,.1);border-radius:16px;background:rgba(30,39,64,.3);color:#f4f2ee;font-family:'Hanken Grotesk',system-ui,sans-serif;transition:border-color .3s}.ds-faq[open]{border-color:rgba(0,201,167,.35)}.ds-faq summary{min-height:56px;padding:16px 24px;cursor:pointer;font:700 17px Syne,sans-serif;list-style:none}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq p{margin:0;padding:0 24px 24px;line-height:1.65;color:rgba(244,242,238,.75)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "O balcão aberto à noite",
+    "overview": "Um balcão de atendimento que continua aceso depois do expediente: o navy profundo é a noite, o teal é a luz que fica ligada, e cada superfície existe para levar o visitante a uma conversa no WhatsApp. O sistema é escuro por escolha, sóbrio nos blocos e ousado em um único lugar: a tipografia Syne em peso 800.",
+    "keyCharacteristics": [
+      "Fundo ink em toda a página; seções se diferenciam por tons de mid em baixa opacidade.",
+      "Títulos em Syne 800; texto corrido em Hanken Grotesk, sem caixa alta decorativa.",
+      "Um momento de movimento orquestrado e revelações curtas e variadas ao rolar.",
+      "Logotipo original intocado, sempre com a sombra do site anterior."
+    ],
+    "rules": [
+      {
+        "name": "The One Light Rule",
+        "body": "O teal é a única cor de ação. Se um segundo elemento precisa chamar atenção, ele ganha tamanho ou peso, não uma nova cor.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Inversion Rule",
+        "body": "A página inteira é escura; a faixa teal final é cor, não troca de tema.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Eyebrow Rule",
+        "body": "Nenhum rótulo pequeno acima de títulos.",
+        "section": "typography"
+      },
+      {
+        "name": "The Syne-Is-Brand Rule",
+        "body": "Syne só em títulos, números de etapa e no wordmark; nunca em texto corrido.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal First Rule",
+        "body": "Primeiro se resolve a hierarquia com camadas de navy e hairlines; sombra é o último recurso.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do manter o logotipo original (assets/logo.svg) em 42px com a sombra original.",
+      "Do usar teal só em ações e no destaque; texto sobre teal é ink.",
+      "Do manter todo CTA como link wa.me com mensagem contextual em data-wa e nome único em data-gc-event.",
+      "Do manter conteúdo visível por padrão e respeitar prefers-reduced-motion.",
+      "Do manter hover abaixo de 300ms, com :active em 97%."
+    ],
+    "donts": [
+      "Don't inventar avaliações, números, preços ou clientes.",
+      "Don't usar rótulos em caixa alta acima de títulos, texto com gradiente, emoji como ícone, travessão ou ponto médio em texto.",
+      "Don't alterar, redesenhar ou restilizar o logotipo.",
+      "Don't inverter seções para o tema claro nem introduzir uma segunda cor de ação."
+    ]
+  }
+}

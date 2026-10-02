@@ -1,174 +1,179 @@
-/* ── NAV SCROLL STATE ── */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-    nav.classList.toggle('is-scrolled', window.scrollY > 40);
-}, { passive: true });
+(() => {
+  'use strict';
 
-/* ── MOBILE MENU ── */
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
+  const WA_NUMBER = '5511926377723';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
+  window.__teocodeReady = true;
 
-function setMenu(open) {
-    hamburger.classList.toggle('is-open', open);
-    mobileMenu.classList.toggle('is-open', open);
+  /* ── 1. Links do WhatsApp com mensagem contextual ───────────────────────
+     O href base ja funciona sozinho; aqui acrescentamos a mensagem. */
+  $$('a[data-wa]').forEach((a) => {
+    a.href = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(a.dataset.wa)}`;
+  });
+
+  /* ── 2. Rastreio de cliques no GoatCounter ──────────────────────────────
+     Um unico listener delegado. Se o script estiver bloqueado (adblock) ou
+     falhar, o link do WhatsApp continua funcionando normalmente. */
+  document.addEventListener('click', (event) => {
+    const el = event.target.closest('[data-gc-event]');
+    if (!el) return;
+    const name = el.dataset.gcEvent;
+    if (window.goatcounter && window.goatcounter.count) {
+      try {
+        window.goatcounter.count({ path: name, title: name, event: true });
+      } catch (_) { /* o rastreio nunca pode quebrar a navegacao */ }
+    }
+  });
+
+  /* ── 3. Navegacao: estado ao rolar ─────────────────────────────────── */
+  const header = $('#topo');
+  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
+  onScroll();
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  /* ── 4. Menu mobile ────────────────────────────────────────────────── */
+  const hamburger = $('#hamburger');
+  const menu = $('#menu');
+  const setMenu = (open) => {
     hamburger.setAttribute('aria-expanded', String(open));
+    hamburger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    menu.classList.toggle('is-open', open);
+    menu.inert = !open;
     document.body.style.overflow = open ? 'hidden' : '';
-}
-
-hamburger.addEventListener('click', () => setMenu(!hamburger.classList.contains('is-open')));
-mobileMenu.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
-
-/* ── SCROLL REVEAL ── */
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            revealObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-
-document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
-
-/* ── COUNTERS ── */
-function animateCounter(el) {
-    const target = Number(el.dataset.count);
-    const suffix = el.dataset.suffix || '';
-    const duration = 1600;
-    const start = performance.now();
-
-    function tick(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = progress < 0.5 ? 2 * progress * progress : 1 - Math.pow(-2 * progress + 2, 2) / 2;
-        el.textContent = Math.floor(eased * target) + suffix;
-        if (progress < 1) requestAnimationFrame(tick);
+    if (open) $('a', menu).focus({ preventScroll: true });
+  };
+  menu.inert = true;
+  hamburger.addEventListener('click', () => setMenu(hamburger.getAttribute('aria-expanded') !== 'true'));
+  $$('a', menu).forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('is-open')) {
+      setMenu(false);
+      hamburger.focus();
     }
-    requestAnimationFrame(tick);
-}
+  });
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+  /* ── 5. Revelacao ao rolar (IntersectionObserver) ──────────────────── */
+  const revealTargets = $$('[data-reveal], .process-line, .step');
+  if (!('IntersectionObserver' in window)) {
+    revealTargets.forEach((el) => el.classList.add('is-in'));
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
+          entry.target.classList.add('is-in');
+          io.unobserve(entry.target);
         }
-    });
-}, { threshold: 0.6 });
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+    revealTargets.forEach((el) => io.observe(el));
+  }
 
-document.querySelectorAll('[data-count]').forEach((el) => counterObserver.observe(el));
+  /* ── 6. Hero: entrada orquestrada + conversa de exemplo ────────────── */
+  const hero = $('#inicio');
+  const thread = $('#chat-thread');
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-/* ── WHATSAPP CHAT MOCK (illustrative demo, not a real transcript) ── */
-const chatLog = document.getElementById('chatLog');
+  async function playChat() {
+    const messages = $$('.msg', thread);
+    if (reduceMotion) {
+      messages.forEach((m) => m.classList.add('is-in'));
+      return;
+    }
+    await wait(1500);
+    for (const msg of messages) {
+      const outgoing = msg.classList.contains('msg-out');
+      let typing;
+      if (outgoing) {
+        typing = document.createElement('span');
+        typing.className = 'typing';
+        typing.setAttribute('aria-hidden', 'true');
+        typing.innerHTML = '<i></i><i></i><i></i>';
+        thread.appendChild(typing);
+        await wait(1150);
+        typing.remove();
+      } else {
+        await wait(700);
+      }
+      msg.classList.add('is-in');
+      await wait(outgoing ? 900 : 600);
+    }
+  }
 
-if (chatLog) {
-    const script = [
-        { from: 'in', text: 'Oi! Vi o Instagram, vocês fazem site pra salão?' },
-        { from: 'out', text: 'Fazemos! 🙌 Posso te mostrar um exemplo parecido com o seu segmento e já agendar uma avaliação gratuita?' },
-        { from: 'in', text: 'Pode ser sim!' },
-        { from: 'out', text: 'Show, só confirmar: melhor dia e horário pra te chamar por aqui?' },
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    hero.classList.add('hero-in');
+    playChat();
+  }));
+
+  /* ── 6b. Botao flutuante do WhatsApp: aparece depois do hero ────────── */
+  const waFloat = $('.wa-float');
+  if (waFloat) {
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([entry]) => {
+        waFloat.classList.toggle('is-visible', !entry.isIntersecting);
+      }, { threshold: 0 }).observe(hero);
+    } else {
+      waFloat.classList.add('is-visible');
+    }
+  }
+
+  /* ── 7. Formulario -> WhatsApp ─────────────────────────────────────── */
+  const form = $('#lead-form');
+  const phone = $('#phone');
+
+  phone.addEventListener('input', (e) => {
+    let v = e.target.value.replace(/\D/g, '').slice(0, 11);
+    if (v.length > 7) v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+    else if (v.length > 2) v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+    else if (v.length) v = `(${v}`;
+    e.target.value = v;
+  });
+
+  const setError = (input, message) => {
+    const err = $(`#${input.id}-error`);
+    input.setAttribute('aria-invalid', message ? 'true' : 'false');
+    if (err) err.textContent = message || '';
+  };
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = $('#name');
+    const digits = phone.value.replace(/\D/g, '');
+    let firstInvalid = null;
+
+    if (!name.value.trim()) { setError(name, 'Informe o seu nome.'); firstInvalid = firstInvalid || name; } else setError(name, '');
+    if (digits.length < 10) { setError(phone, 'Informe um WhatsApp com DDD.'); firstInvalid = firstInvalid || phone; } else setError(phone, '');
+
+    if (firstInvalid) { firstInvalid.focus(); return; }
+
+    const email = $('#email').value.trim();
+    const service = $('#service').value;
+    const message = $('#message').value.trim();
+    const lines = [
+      'Olá, TeoCode! Vim pelo site.',
+      '',
+      `Nome: ${name.value.trim()}`,
+      `WhatsApp: ${phone.value.trim()}`,
     ];
+    if (email) lines.push(`E-mail: ${email}`);
+    if (service) lines.push(`Serviço de interesse: ${service}`);
+    lines.push('', `Mensagem: ${message || 'Gostaria de saber mais sobre os serviços.'}`);
 
-    function addBubble({ from, text }) {
-        const bubble = document.createElement('div');
-        bubble.className = `bubble ${from === 'in' ? 'bubble-in' : 'bubble-out'}`;
-        bubble.textContent = text;
-        chatLog.appendChild(bubble);
-        chatLog.scrollTop = chatLog.scrollHeight;
-    }
+    window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(lines.join('\n'))}`, '_blank', 'noopener');
+    $('#form-fields').hidden = true;
+    const ok = $('#form-success');
+    ok.hidden = false;
+    ok.focus();
+  });
 
-    function addTyping() {
-        const typing = document.createElement('div');
-        typing.className = 'typing-dots';
-        typing.innerHTML = '<span></span><span></span><span></span>';
-        chatLog.appendChild(typing);
-        return typing;
-    }
+  $('#form-reset').addEventListener('click', () => {
+    form.reset();
+    $('#form-success').hidden = true;
+    $('#form-fields').hidden = false;
+    $('#name').focus();
+  });
 
-    async function playChat() {
-        chatLog.innerHTML = '';
-        for (const line of script) {
-            if (line.from === 'out') {
-                const typing = addTyping();
-                await wait(900);
-                typing.remove();
-            } else {
-                await wait(700);
-            }
-            addBubble(line);
-            await wait(600);
-        }
-        await wait(3200);
-        playChat();
-    }
-
-    function wait(ms) {
-        return new Promise((resolve) => setTimeout(resolve, ms));
-    }
-
-    const chatObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                playChat();
-                chatObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.4 });
-
-    chatObserver.observe(chatLog);
-}
-
-/* ── PHONE MASK ── */
-const phone = document.getElementById('phone');
-if (phone) {
-    phone.addEventListener('input', (e) => {
-        let value = e.target.value.replace(/\D/g, '').slice(0, 11);
-        if (value.length > 6) value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
-        else if (value.length > 2) value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-        else if (value.length) value = `(${value}`;
-        e.target.value = value;
-    });
-}
-
-/* ── FORM → WHATSAPP ── */
-const submitBtn = document.getElementById('submitBtn');
-if (submitBtn) {
-    submitBtn.addEventListener('click', () => {
-        const name = document.getElementById('name').value.trim();
-        const phoneValue = document.getElementById('phone').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const service = document.getElementById('service').value;
-        const message = document.getElementById('message').value.trim();
-
-        if (!name || !phoneValue) {
-            alert('Por favor, preencha nome e WhatsApp.');
-            return;
-        }
-
-        const lines = [
-            'Olá, TeoCode! 👋',
-            '',
-            `Nome: ${name}`,
-            `WhatsApp: ${phoneValue}`,
-        ];
-        if (email) lines.push(`E-mail: ${email}`);
-        if (service) lines.push(`Serviço: ${service}`);
-        lines.push('', `Mensagem: ${message || 'Gostaria de saber mais sobre os serviços.'}`);
-
-        const text = encodeURIComponent(lines.join('\n'));
-        window.open(`https://wa.me/5511926377723?text=${text}`, '_blank', 'noopener');
-
-        document.getElementById('formWrap').classList.add('hidden');
-        document.getElementById('formSuccess').classList.remove('hidden');
-    });
-}
-
-/* ── SMOOTH SCROLL FOR ANCHOR LINKS ── */
-document.querySelectorAll('a[href^="#"]').forEach((a) => {
-    a.addEventListener('click', (e) => {
-        const target = document.querySelector(a.getAttribute('href'));
-        if (target) {
-            e.preventDefault();
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
+  [$('#name'), phone].forEach((input) => input.addEventListener('input', () => setError(input, '')));
+})();
