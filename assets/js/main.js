@@ -7,6 +7,34 @@
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   window.__teocodeReady = true;
 
+  /* ── 0. Perfil de movimento do aparelho ─────────────────────────────────
+     .fx   = parallax, destaque que segue o mouse e botoes magneticos (so tela
+             grande, com mouse, aparelho com folga e sem "reduzir movimento");
+     .lite = economia de dados ou aparelho modesto: revelacoes sem blur.
+     No celular .fx nunca liga; ficam so as revelacoes leves. */
+  const root = document.documentElement;
+  const mqFine = window.matchMedia('(hover: hover) and (pointer: fine)');
+  const mqWide = window.matchMedia('(min-width: 1024px)');
+  const conn = navigator.connection || {};
+  const modest = conn.saveData === true
+    || (navigator.deviceMemory && navigator.deviceMemory <= 2)
+    || (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2);
+  root.classList.toggle('lite', Boolean(modest));
+  const updateFx = () => root.classList.toggle('fx', mqFine.matches && mqWide.matches && !modest && !reduceMotion);
+  updateFx();
+  mqFine.addEventListener('change', updateFx);
+  mqWide.addEventListener('change', updateFx);
+  const fxOn = () => root.classList.contains('fx');
+
+  /* ── 0b. Titulos revelados palavra por palavra ───────────────────────── */
+  $$('[data-words]').forEach((el) => {
+    const words = el.textContent.trim().split(/\s+/);
+    el.setAttribute('aria-label', words.join(' '));
+    el.innerHTML = words
+      .map((w, i) => `<span class="wm" aria-hidden="true"><span class="wi" style="--i:${i}">${w}</span></span>`)
+      .join(' ');
+  });
+
   /* ── 1. Links do WhatsApp com mensagem contextual ───────────────────────
      O href base ja funciona sozinho; aqui acrescentamos a mensagem. */
   $$('a[data-wa]').forEach((a) => {
@@ -56,7 +84,7 @@
   window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
 
   /* ── 5. Revelacao ao rolar (IntersectionObserver) ──────────────────── */
-  const revealTargets = $$('[data-reveal], .process-line, .step');
+  const revealTargets = $$('[data-reveal], [data-words]:not(.in-hero), .step');
   if (!('IntersectionObserver' in window)) {
     revealTargets.forEach((el) => el.classList.add('is-in'));
   } else {
@@ -121,6 +149,75 @@
       waFloat.classList.add('is-visible');
     }
   }
+
+  /* ── 6b2. Video decorativo de "Como funciona" ───────────────────────────
+     Carrega e toca so quando esta visivel; pausa ao sair da tela. Com "reduzir
+     movimento", economia de dados ou aparelho modesto, fica so a imagem de capa. */
+  const video = $('#process-video');
+  const videoToggle = $('#video-toggle');
+  if (video && videoToggle && 'IntersectionObserver' in window
+      && !reduceMotion && conn.saveData !== true && !root.classList.contains('lite')) {
+    let loaded = false;
+    let userPaused = false;
+    const load = () => {
+      if (loaded) return;
+      loaded = true;
+      video.src = video.canPlayType('video/webm; codecs="vp9"') ? video.dataset.srcWebm : video.dataset.srcMp4;
+      video.load();
+    };
+    const syncToggle = () => {
+      const paused = userPaused;
+      videoToggle.setAttribute('aria-label', paused ? 'Reproduzir vídeo' : 'Pausar vídeo');
+      $('i', videoToggle).className = paused ? 'ph ph-play' : 'ph ph-pause';
+    };
+    videoToggle.hidden = false;
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        load();
+        if (!userPaused) video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    }, { threshold: 0.25 }).observe(video);
+    videoToggle.addEventListener('click', () => {
+      userPaused = !userPaused;
+      if (userPaused) video.pause(); else video.play().catch(() => {});
+      syncToggle();
+    });
+  }
+
+  /* ── 6c. Camada .fx: destaque de luz nos cartoes e botoes magneticos ──── */
+  let pointer = null;
+  let raf = 0;
+  const magnets = $$('[data-magnetic]');
+  const applyPointer = () => {
+    raf = 0;
+    if (!pointer || !fxOn()) return;
+    const { x, y, target } = pointer;
+    const spot = target.closest && target.closest('.spot');
+    if (spot) {
+      const r = spot.getBoundingClientRect();
+      spot.style.setProperty('--mx', `${x - r.left}px`);
+      spot.style.setProperty('--my', `${y - r.top}px`);
+    }
+    magnets.forEach((m) => {
+      const r = m.getBoundingClientRect();
+      const dx = x - (r.left + r.width / 2);
+      const dy = y - (r.top + r.height / 2);
+      if (Math.hypot(dx, dy) < Math.max(r.width, r.height) * 0.9) {
+        m.style.setProperty('--tx', `${Math.max(-8, Math.min(8, dx * 0.18))}px`);
+        m.style.setProperty('--ty', `${Math.max(-6, Math.min(6, dy * 0.22))}px`);
+      } else {
+        m.style.removeProperty('--tx');
+        m.style.removeProperty('--ty');
+      }
+    });
+  };
+  document.addEventListener('pointermove', (e) => {
+    if (!fxOn() || e.pointerType !== 'mouse') return;
+    pointer = { x: e.clientX, y: e.clientY, target: e.target };
+    if (!raf) raf = requestAnimationFrame(applyPointer);
+  }, { passive: true });
 
   /* ── 7. Formulario -> WhatsApp ─────────────────────────────────────── */
   const form = $('#lead-form');

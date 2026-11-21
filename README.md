@@ -1,6 +1,6 @@
 # TeoCode - site institucional
 
-Landing page one-page da TeoCode (sites, agentes de IA, SEO, e-commerce, manutenção e marketing digital, em Mauá, SP). HTML, CSS e JavaScript puros, com Tailwind CSS carregado por CDN. Não existe build nem bundler: o que está no repositório é o que vai ao ar.
+Landing page one-page da TeoCode (sites, agentes de IA, SEO, e-commerce, manutenção e aplicativos personalizados, em Mauá, SP). HTML, CSS e JavaScript puros, com Tailwind CSS carregado por CDN. Não existe build nem bundler: o que está no repositório é o que vai ao ar.
 
 Publicado em https://teocode.com.br via GitHub Pages (domínio configurado no arquivo `CNAME`).
 
@@ -46,12 +46,26 @@ Depois abra http://localhost:4173. (Tailwind, fontes e ícones vêm de CDN, ent�
 
 - **Textos**: direto no `index.html`, por seção (`#servicos`, `#ofertas`, `#processo`, `#diferenciais`, `#faq`, `#agendar`, `#contato`).
 - **Mensagem do WhatsApp de cada botão**: atributo `data-wa="..."` do link. O JavaScript monta o `wa.me` com a mensagem codificada. O número está em `assets/js/main.js` (`WA_NUMBER`) e no `href` base de cada link.
-- **Cores e fontes**: tokens no bloco `@theme` do `index.html` (`ink`, `mid`, `paper`, `teal`, `blue`, `muted`; Syne para títulos e Hanken Grotesk para texto).
+- **Cores e fontes**: tokens no bloco `@theme` do `index.html` (`ink`, `mid`, `paper`, `teal`, `blue`, `muted`; Syne para títulos e Hanken Grotesk para texto). O site é claro: fundo papel `#f4f2ee`, texto navy e teal só em preenchimentos e botões (teal não passa no contraste como cor de texto sobre claro).
 - **Imagens PNG** (favicon, apple-touch-icon e og-image) são renderizadas a partir de `assets/logo.svg` com o Edge/Chrome headless. Exemplo para o og-image (com o servidor local rodando):
 
 ```bash
 msedge --headless=new --window-size=1200,630 --virtual-time-budget=12000 --screenshot=assets/og-image.png http://localhost:4173/assets/og-image.source.html
 ```
+
+## Animações e desempenho no celular
+
+O movimento é em camadas, para o celular nunca pagar pelo que só faz sentido em tela grande:
+
+| Camada | Onde liga | O que faz |
+| --- | --- | --- |
+| Base | Todos os aparelhos | Título revelado palavra por palavra, revelações leves ao rolar, conversa de exemplo, barra de progresso da rolagem, accordion e menu animados |
+| `.fx` | Só tela de 1024px ou mais, com mouse, sem economia de dados e sem "reduzir movimento" | Parallax guiado por CSS (sem JavaScript na rolagem), destaque de luz que segue o mouse nos cartões e botões magnéticos |
+| `.lite` | Economia de dados ou aparelho com 2 GB de memória ou 2 núcleos | Revelações sem blur |
+
+- A decisão é tomada em `assets/js/main.js` (seção "Perfil de movimento do aparelho"); os efeitos em si estão em `assets/css/styles.css`.
+- Quem ativa "reduzir movimento" no aparelho recebe só fades curtos, sem deslocamento.
+- Para desligar um efeito específico, remova o atributo `data-px` (parallax), a classe `spot` (destaque de luz) ou `data-magnetic` (botão magnético) do elemento no `index.html`.
 
 ## GoatCounter (analytics sem cookies)
 
@@ -76,7 +90,7 @@ msedge --headless=new --window-size=1200,630 --virtual-time-budget=12000 --scree
   | `cta-servico-seo` | serviço SEO |
   | `cta-servico-ecommerce` | serviço E-commerce |
   | `cta-servico-manutencao` | serviço Manutenção |
-  | `cta-servico-marketing` | serviço Marketing digital |
+  | `cta-servico-apps` | serviço Aplicativos personalizados |
   | `cta-oferta-avaliacao` | oferta Avaliação gratuita |
   | `cta-oferta-projeto` | oferta Projeto de site |
   | `cta-oferta-manutencao` | oferta Manutenção mensal |

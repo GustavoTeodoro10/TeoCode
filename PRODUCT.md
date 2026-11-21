@@ -16,7 +16,7 @@ Owners of small and medium local businesses in Mauá (SP) and the surrounding re
 
 ## Product Purpose
 
-TeoCode is a digital agency based in Mauá, SP (listed on Google as "Agência de marketing digital"). It builds personalized websites and e-commerce stores, AI agents that handle customer service and sales on WhatsApp, SEO, website maintenance and digital marketing. The site exists to turn a visit into a WhatsApp conversation, ideally a booked free evaluation ("avaliação gratuita").
+TeoCode is a digital agency based in Mauá, SP (listed on Google as "Agência de marketing digital"). It builds personalized websites and e-commerce stores, AI agents that handle customer service and sales on WhatsApp, SEO, website maintenance and custom apps (mobile and web) built to each client's needs. The site exists to turn a visit into a WhatsApp conversation, ideally a booked free evaluation ("avaliação gratuita").
 
 ## Positioning
 
@@ -28,7 +28,7 @@ All contact is WhatsApp: (11) 92637-7723. Hours: Monday to Friday, 08:00 to 18:0
 
 ## Capabilities and Constraints
 
-- Services (original copy, keep the meaning): Criação de Sites, Agentes de IA, Manutenção, SEO, E-commerce, Marketing Digital.
+- Services (original copy, keep the meaning): Criação de Sites, Agentes de IA, Manutenção, SEO, E-commerce, Aplicativos Personalizados (replaced Marketing Digital on the user's request; apps for mobile and web, made to the client's needs; an app for employees to clock in at work was built recently).
 - Process: Contato inicial, Planejamento, Desenvolvimento, Lançamento.
 - Facts from the FAQ: institutional sites take 7 to 15 business days; e-commerce and complex projects 3 to 6 weeks; domain and hosting can be handled by TeoCode or use the client's own; all sites are responsive; post-launch support via WhatsApp plus monthly maintenance plans (security updates, bug fixes, small content changes); an AI agent is trained with the business's information and answers customers on WhatsApp, qualifies leads and books appointments.
 - Claims carried over from the original site copy, kept as published and not independently verified: the team answers within 1 hour during business hours; AI agents answer customers 24 hours a day; continuous support after launch.

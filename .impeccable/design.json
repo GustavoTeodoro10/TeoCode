@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-10-02T21:22:29.200598+00:00",
+  "generatedAt": "2026-11-21T14:56:07.098005+00:00",
   "title": "Design System: TeoCode",
   "extensions": {
     "colorMeta": {
@@ -51,7 +51,7 @@
       },
       "teal": {
         "role": "primary",
-        "displayName": "Teal da Luz Acesa",
+        "displayName": "Teal da Luz do Dia",
         "canonical": "oklch(75% 0.141 175)",
         "tonalRamp": [
           "#001508",
@@ -119,13 +119,18 @@
     },
     "shadows": [
       {
+        "name": "sheet",
+        "value": "0 -24px 48px -32px rgba(10,14,26,.28)",
+        "purpose": "Borda superior de cada seção empilhada."
+      },
+      {
         "name": "floating-panel",
-        "value": "0 40px 80px -30px rgba(0,0,0,.7)",
+        "value": "0 40px 70px -34px rgba(10,14,26,.45)",
         "purpose": "Cartão da conversa de exemplo."
       },
       {
         "name": "button-primary",
-        "value": "0 10px 26px -12px rgba(0,201,167,.65)",
+        "value": "0 10px 24px -12px rgba(0,140,118,.75)",
         "purpose": "Botão primário; intensifica no hover."
       },
       {
@@ -149,6 +154,11 @@
         "name": "press",
         "value": "scale(0.97) em 120 a 200ms",
         "purpose": "Feedback de pressão em todo elemento clicável."
+      },
+      {
+        "name": "fx-layer",
+        "value": "parallax, destaque de luz e botões magnéticos",
+        "purpose": "Só em tela grande com mouse e aparelho com folga (classe .fx)."
       }
     ],
     "breakpoints": [
@@ -177,15 +187,23 @@
       "refersTo": "button-primary",
       "description": "Ação principal: sempre abre o WhatsApp.",
       "html": "<a class=\"ds-btn-primary\" href=\"#\">Agendar avaliação gratuita</a>",
-      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 24px;border:0;border-radius:9999px;background:#00c9a7;color:#0a0e1a;font:600 15px/1.2 'Hanken Grotesk',system-ui,sans-serif;box-shadow:0 10px 26px -12px rgba(0,201,167,.65);cursor:pointer;text-decoration:none;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s cubic-bezier(.16,1,.3,1),background-color .2s}.ds-btn-primary:hover{background:#14dbb8;transform:translateY(-2px);box-shadow:0 16px 32px -12px rgba(0,201,167,.75)}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:2px solid #00c9a7;outline-offset:3px}"
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 24px;border:0;border-radius:9999px;background:#00c9a7;color:#0a0e1a;font:600 15px/1.2 'Hanken Grotesk',system-ui,sans-serif;box-shadow:0 10px 24px -12px rgba(0,140,118,.75);cursor:pointer;text-decoration:none;transition:transform .2s cubic-bezier(.16,1,.3,1),box-shadow .2s cubic-bezier(.16,1,.3,1),background-color .2s}.ds-btn-primary:hover{background:#14dbb8;transform:translateY(-2px)}.ds-btn-primary:active{transform:scale(.97)}.ds-btn-primary:focus-visible{outline:3px solid #0a0e1a;outline-offset:3px}"
     },
     {
       "name": "Service Tile",
       "kind": "card",
       "refersTo": "tile",
-      "description": "Célula do bento de serviços; hover sobe 4px e acende a borda em teal.",
-      "html": "<article class=\"ds-tile\"><h3>Criação de sites</h3><p>Criamos sites personalizados para atender às necessidades específicas do seu negócio.</p></article>",
-      "css": ".ds-tile{padding:36px;border:1px solid rgba(244,242,238,.1);border-radius:24px;background:linear-gradient(135deg,rgba(0,201,167,.14),rgba(30,39,64,.55) 55%);color:#f4f2ee;font-family:'Hanken Grotesk',system-ui,sans-serif;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s}.ds-tile:hover{transform:translateY(-4px);border-color:rgba(0,201,167,.45)}.ds-tile h3{margin:0 0 12px;font:700 24px/1.15 Syne,sans-serif;letter-spacing:-.02em}.ds-tile p{margin:0;line-height:1.65;color:rgba(244,242,238,.75)}"
+      "description": "Célula do bento de serviços; hover sobe 4px.",
+      "html": "<article class=\"ds-tile\"><span class=\"ds-chip\"></span><h3>Criação de sites</h3><p>Criamos sites personalizados para atender às necessidades específicas do seu negócio.</p><a href=\"#\">Conversar sobre sites</a></article>",
+      "css": ".ds-tile{padding:36px;border:1px solid rgba(10,14,26,.1);border-radius:24px;background:linear-gradient(135deg,rgba(0,201,167,.16),#f4f2ee 58%);color:#0a0e1a;font-family:'Hanken Grotesk',system-ui,sans-serif;transition:transform .3s cubic-bezier(.16,1,.3,1),border-color .3s}.ds-tile:hover{transform:translateY(-4px);border-color:rgba(10,14,26,.25)}.ds-chip{display:block;width:44px;height:44px;border-radius:12px;background:#00c9a7}.ds-tile h3{margin:24px 0 12px;font:700 24px/1.15 Syne,sans-serif;letter-spacing:-.02em}.ds-tile p{margin:0;line-height:1.65;color:rgba(10,14,26,.75)}.ds-tile a{display:inline-block;margin-top:24px;color:#0a0e1a;font-weight:600;text-decoration:underline;text-decoration-color:#00c9a7;text-decoration-thickness:2px;text-underline-offset:6px}"
+    },
+    {
+      "name": "Featured Tile",
+      "kind": "card",
+      "refersTo": "tile-featured",
+      "description": "Única superfície navy sólida da página (Agentes de IA).",
+      "html": "<article class=\"ds-tile-dark\"><h3>Agentes de IA</h3><p>Automatize atendimento e vendas com agentes de inteligência artificial treinados para o seu negócio.</p></article>",
+      "css": ".ds-tile-dark{padding:36px;border-radius:24px;background:linear-gradient(135deg,#1e2740,#0a0e1a 75%);color:#f4f2ee;font-family:'Hanken Grotesk',system-ui,sans-serif}.ds-tile-dark h3{margin:0 0 12px;font:700 24px/1.15 Syne,sans-serif;letter-spacing:-.02em}.ds-tile-dark p{margin:0;line-height:1.65;color:rgba(244,242,238,.8)}"
     },
     {
       "name": "Text Field",
@@ -193,7 +211,7 @@
       "refersTo": "field",
       "description": "Campo de formulário com rótulo sempre acima.",
       "html": "<label class=\"ds-label\" for=\"ds-name\">Nome</label><input id=\"ds-name\" class=\"ds-field\" placeholder=\"Seu nome completo\" />",
-      "css": ".ds-label{display:block;margin-bottom:8px;font:500 14px 'Hanken Grotesk',system-ui,sans-serif;color:rgba(244,242,238,.85)}.ds-field{width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid rgba(244,242,238,.15);border-radius:12px;background:rgba(10,14,26,.6);color:#f4f2ee;font:400 15px 'Hanken Grotesk',system-ui,sans-serif;outline:none;caret-color:#00c9a7;transition:border-color .2s,box-shadow .2s}.ds-field::placeholder{color:rgba(244,242,238,.4)}.ds-field:focus{border-color:#00c9a7;box-shadow:0 0 0 3px rgba(0,201,167,.18)}"
+      "css": ".ds-label{display:block;margin-bottom:8px;font:500 14px 'Hanken Grotesk',system-ui,sans-serif;color:rgba(10,14,26,.85)}.ds-field{width:100%;box-sizing:border-box;padding:12px 16px;border:1px solid rgba(10,14,26,.2);border-radius:12px;background:#fff;color:#0a0e1a;font:400 15px 'Hanken Grotesk',system-ui,sans-serif;outline:none;transition:border-color .2s,box-shadow .2s}.ds-field::placeholder{color:rgba(10,14,26,.55)}.ds-field:focus{border-color:#0a0e1a;box-shadow:0 0 0 3px rgba(0,201,167,.4)}"
     },
     {
       "name": "Navigation Link",
@@ -201,43 +219,44 @@
       "refersTo": "button-primary",
       "description": "Link da barra fixa; o sublinhado teal se desenha no hover.",
       "html": "<a class=\"ds-nav\" href=\"#\">Serviços</a>",
-      "css": ".ds-nav{position:relative;padding:8px 0;font:500 14px 'Hanken Grotesk',system-ui,sans-serif;color:rgba(244,242,238,.75);text-decoration:none;transition:color .2s}.ds-nav::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:1px;background:#00c9a7;transform:scaleX(0);transform-origin:left;transition:transform .2s cubic-bezier(.16,1,.3,1)}.ds-nav:hover{color:#f4f2ee}.ds-nav:hover::after{transform:scaleX(1)}.ds-nav:focus-visible{outline:2px solid #00c9a7;outline-offset:3px}"
+      "css": ".ds-nav{position:relative;padding:8px 0;font:500 14px 'Hanken Grotesk',system-ui,sans-serif;color:rgba(10,14,26,.75);text-decoration:none;transition:color .2s}.ds-nav::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:#00c9a7;transform:scaleX(0);transform-origin:left;transition:transform .2s cubic-bezier(.16,1,.3,1)}.ds-nav:hover{color:#0a0e1a}.ds-nav:hover::after{transform:scaleX(1)}"
     },
     {
       "name": "Chat Bubbles",
       "kind": "custom",
       "refersTo": "tile",
-      "description": "Mensagens do exemplo de agente de IA: recebida em papel a 10%, enviada em teal.",
+      "description": "Mensagens do exemplo: recebida em branco, enviada em teal.",
       "html": "<div class=\"ds-chat\"><p class=\"ds-in\">Oi! Tem horário na quarta à tarde?</p><p class=\"ds-out\">Oi! Tenho 14h ou 16h30 na quarta. Qual prefere?</p></div>",
-      "css": ".ds-chat{display:flex;flex-direction:column;gap:10px;font:400 14px/1.35 'Hanken Grotesk',system-ui,sans-serif}.ds-chat p{margin:0;max-width:82%;padding:10px 16px}.ds-in{align-self:flex-start;border-radius:18px 18px 18px 6px;background:rgba(244,242,238,.1);color:#f4f2ee}.ds-out{align-self:flex-end;border-radius:18px 18px 6px 18px;background:#00c9a7;color:#0a0e1a}"
+      "css": ".ds-chat{display:flex;flex-direction:column;gap:10px;padding:16px;background:#ebe8e1;font:400 14px/1.35 'Hanken Grotesk',system-ui,sans-serif;color:#0a0e1a}.ds-chat p{margin:0;max-width:82%;padding:10px 16px}.ds-in{align-self:flex-start;border-radius:18px 18px 18px 6px;background:#fff}.ds-out{align-self:flex-end;border-radius:18px 18px 6px 18px;background:#00c9a7}"
     },
     {
       "name": "FAQ Item",
       "kind": "custom",
       "refersTo": "tile",
-      "description": "Accordion nativo com ícone que gira 45 graus ao abrir.",
+      "description": "Accordion nativo com ícone teal que gira 45 graus ao abrir.",
       "html": "<details class=\"ds-faq\"><summary>Quanto tempo leva para criar meu site?</summary><p>Sites institucionais ficam prontos em 7 a 15 dias úteis.</p></details>",
-      "css": ".ds-faq{border:1px solid rgba(244,242,238,.1);border-radius:16px;background:rgba(30,39,64,.3);color:#f4f2ee;font-family:'Hanken Grotesk',system-ui,sans-serif;transition:border-color .3s}.ds-faq[open]{border-color:rgba(0,201,167,.35)}.ds-faq summary{min-height:56px;padding:16px 24px;cursor:pointer;font:700 17px Syne,sans-serif;list-style:none}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq p{margin:0;padding:0 24px 24px;line-height:1.65;color:rgba(244,242,238,.75)}"
+      "css": ".ds-faq{border:1px solid rgba(10,14,26,.1);border-radius:16px;background:#f4f2ee;color:#0a0e1a;font-family:'Hanken Grotesk',system-ui,sans-serif;transition:border-color .3s}.ds-faq[open]{border-color:rgba(10,14,26,.3)}.ds-faq summary{min-height:56px;padding:16px 24px;cursor:pointer;font:700 17px Syne,sans-serif;list-style:none}.ds-faq summary::-webkit-details-marker{display:none}.ds-faq p{margin:0;padding:0 24px 24px;line-height:1.65;color:rgba(10,14,26,.75)}"
     }
   ],
   "narrative": {
-    "northStar": "O balcão aberto à noite",
-    "overview": "Um balcão de atendimento que continua aceso depois do expediente: o navy profundo é a noite, o teal é a luz que fica ligada, e cada superfície existe para levar o visitante a uma conversa no WhatsApp. O sistema é escuro por escolha, sóbrio nos blocos e ousado em um único lugar: a tipografia Syne em peso 800.",
+    "northStar": "A bancada de atendimento à luz do dia",
+    "overview": "Uma bancada limpa, com papel quente, tinta navy e uma única cor de ação, onde cada folha empilhada leva o visitante um passo mais perto de uma conversa no WhatsApp. O sistema é claro, sóbrio nos blocos e ousado em um único lugar: a tipografia Syne em peso 800.",
     "keyCharacteristics": [
-      "Fundo ink em toda a página; seções se diferenciam por tons de mid em baixa opacidade.",
-      "Títulos em Syne 800; texto corrido em Hanken Grotesk, sem caixa alta decorativa.",
-      "Um momento de movimento orquestrado e revelações curtas e variadas ao rolar.",
-      "Logotipo original intocado, sempre com a sombra do site anterior."
+      "Fundo papel alternando com folhas brancas; texto sempre em navy.",
+      "Teal só em preenchimentos, com texto navy por cima; links navy com sublinhado teal.",
+      "Títulos em Syne 800 revelados palavra por palavra; texto em Hanken Grotesk.",
+      "Movimento em camadas: leve para todos, parallax e destaque de luz só em tela grande com mouse (.fx).",
+      "Logotipo original intocado, com a sombra do site anterior."
     ],
     "rules": [
       {
-        "name": "The One Light Rule",
-        "body": "O teal é a única cor de ação. Se um segundo elemento precisa chamar atenção, ele ganha tamanho ou peso, não uma nova cor.",
+        "name": "The Fill-Only Teal Rule",
+        "body": "Teal só preenche; nunca vira cor de texto ou de ícone solto sobre claro.",
         "section": "colors"
       },
       {
-        "name": "The No Inversion Rule",
-        "body": "A página inteira é escura; a faixa teal final é cor, não troca de tema.",
+        "name": "The One Dark Rule",
+        "body": "O navy sólido aparece em uma única superfície por tela; o resto é claro.",
         "section": "colors"
       },
       {
@@ -251,23 +270,23 @@
         "section": "typography"
       },
       {
-        "name": "The Tonal First Rule",
-        "body": "Primeiro se resolve a hierarquia com camadas de navy e hairlines; sombra é o último recurso.",
+        "name": "The Sheet Rule",
+        "body": "A hierarquia entre seções vem de folhas que se sobrepõem, não de linhas divisórias.",
         "section": "elevation"
       }
     ],
     "dos": [
       "Do manter o logotipo original (assets/logo.svg) em 42px com a sombra original.",
-      "Do usar teal só em ações e no destaque; texto sobre teal é ink.",
-      "Do manter todo CTA como link wa.me com mensagem contextual em data-wa e nome único em data-gc-event.",
-      "Do manter conteúdo visível por padrão e respeitar prefers-reduced-motion.",
-      "Do manter hover abaixo de 300ms, com :active em 97%."
+      "Do usar teal só em preenchimentos, com texto navy por cima.",
+      "Do manter todo CTA como link wa.me com mensagem em data-wa e nome único em data-gc-event.",
+      "Do ligar parallax, destaque de luz e botões magnéticos só pela classe .fx.",
+      "Do manter conteúdo visível por padrão e respeitar prefers-reduced-motion."
     ],
     "donts": [
       "Don't inventar avaliações, números, preços ou clientes.",
-      "Don't usar rótulos em caixa alta acima de títulos, texto com gradiente, emoji como ícone, travessão ou ponto médio em texto.",
+      "Don't usar teal como cor de texto sobre claro, rótulos em caixa alta acima de títulos, texto com gradiente, emoji como ícone, travessão ou ponto médio em texto.",
       "Don't alterar, redesenhar ou restilizar o logotipo.",
-      "Don't inverter seções para o tema claro nem introduzir uma segunda cor de ação."
+      "Don't voltar ao tema escuro nem usar mais de uma superfície navy sólida por tela."
     ]
   }
 }
