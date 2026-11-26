@@ -28,6 +28,8 @@
 
   /* ── 0b. Titulos revelados palavra por palavra ───────────────────────── */
   $$('[data-words]').forEach((el) => {
+    // o titulo do topo so e animado em tela grande (classe definida no <head>)
+    if (el.classList.contains('in-hero') && !root.classList.contains('hero-anim')) return;
     // Divide so em espacos comuns: um &nbsp; no HTML mantem duas palavras na mesma linha.
     const words = el.textContent.trim().split(/[ \t\r\n]+/);
     el.innerHTML = words
@@ -56,10 +58,20 @@
   });
 
   /* ── 3. Navegacao: estado ao rolar ─────────────────────────────────── */
+  // Um marcador de 24px no topo avisa quando a pagina rolou, sem ler window.scrollY
+  // no carregamento (essa leitura obrigava o navegador a recalcular o layout).
   const header = $('#topo');
-  const onScroll = () => header.classList.toggle('is-scrolled', window.scrollY > 24);
-  onScroll();
-  window.addEventListener('scroll', onScroll, { passive: true });
+  if ('IntersectionObserver' in window) {
+    const marker = document.createElement('div');
+    marker.setAttribute('aria-hidden', 'true');
+    marker.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:24px;pointer-events:none';
+    document.body.prepend(marker);
+    new IntersectionObserver(([entry]) => {
+      header.classList.toggle('is-scrolled', !entry.isIntersecting);
+    }).observe(marker);
+  } else {
+    header.classList.add('is-scrolled');
+  }
 
   /* ── 4. Menu mobile ────────────────────────────────────────────────── */
   const hamburger = $('#hamburger');
@@ -155,6 +167,20 @@
      movimento", economia de dados ou aparelho modesto, fica so a imagem de capa. */
   const video = $('#process-video');
   const videoToggle = $('#video-toggle');
+  // A capa vale para todos, mas so e baixada quando a secao esta perto da tela.
+  if (video) {
+    const showPoster = () => { video.poster = video.dataset.poster; };
+    if (!('IntersectionObserver' in window)) {
+      showPoster();
+    } else {
+      const posterIO = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting) return;
+        showPoster();
+        posterIO.disconnect();
+      }, { rootMargin: '400px 0px' });
+      posterIO.observe(video);
+    }
+  }
   if (video && videoToggle && 'IntersectionObserver' in window
       && !reduceMotion && conn.saveData !== true && !root.classList.contains('lite')) {
     let loaded = false;
@@ -168,7 +194,7 @@
     const syncToggle = () => {
       const paused = userPaused;
       videoToggle.setAttribute('aria-label', paused ? 'Reproduzir vídeo' : 'Pausar vídeo');
-      $('i', videoToggle).className = paused ? 'ph ph-play' : 'ph ph-pause';
+      $('use', videoToggle).setAttribute('href', paused ? '#i-play' : '#i-pause');
     };
     videoToggle.hidden = false;
     new IntersectionObserver(([entry]) => {

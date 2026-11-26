@@ -7,3 +7,5 @@ exclude:
   - .claude
   - assets/og-image.source.html
   - assets/icon-source.html
+  - assets/css/tailwind.input.css
+  - build-css.cmd

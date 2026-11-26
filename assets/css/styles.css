@@ -10,6 +10,17 @@
      botoes magneticos. O JS so liga .fx quando o aparelho aguenta (ver assets/js/main.js);
    - .lite (economia de dados ou aparelho modesto): sem blur nas revelacoes. */
 
+/* Substitutas usadas enquanto as fontes do Google nao chegam: Arial/Roboto com a
+   largura ajustada (medida contra Syne e Hanken Grotesk). */
+@font-face { font-family: "Syne Fallback"; font-weight: 800; src: local("Arial Bold"), local("Arial-BoldMT"), local("Roboto Bold"), local("Roboto-Bold");
+  size-adjust: 165%; ascent-override: 56%; descent-override: 17%; line-gap-override: 0%; }
+@font-face { font-family: "Syne Fallback"; font-weight: 600 700; src: local("Arial Bold"), local("Arial-BoldMT"), local("Roboto Bold"), local("Roboto-Bold");
+  size-adjust: 115%; ascent-override: 81%; descent-override: 24%; line-gap-override: 0%; }
+@font-face { font-family: "Hanken Fallback"; font-weight: 400 500; src: local("Arial"), local("ArialMT"), local("Roboto"), local("Roboto-Regular");
+  size-adjust: 100%; ascent-override: 100%; descent-override: 30%; line-gap-override: 0%; }
+@font-face { font-family: "Hanken Fallback"; font-weight: 600 700; src: local("Arial Bold"), local("Arial-BoldMT"), local("Roboto Bold"), local("Roboto-Bold");
+  size-adjust: 94%; ascent-override: 106%; descent-override: 32%; line-gap-override: 0%; }
+
 :root {
   --ink: #0a0e1a;
   --mid: #1e2740;
@@ -37,7 +48,7 @@ html {
 
 body {
   background: var(--paper);
-  font-family: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  font-family: "Hanken Grotesk", "Hanken Fallback", ui-sans-serif, system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -71,7 +82,7 @@ a { text-underline-offset: 0.22em; }
 }
 .logo-link:active .logo-ball { transform: scale(0.96); transition-duration: 0.12s; }
 .logo-word {
-  font-family: "Syne", sans-serif;
+  font-family: "Syne", "Syne Fallback", sans-serif;
   font-weight: 800;
   font-size: 1.4rem;
   letter-spacing: -0.01em;
@@ -120,16 +131,16 @@ a { text-underline-offset: 0.22em; }
 }
 .js .is-in .wi, .js .hero-in .wi { transform: none; }
 
-/* ---- hero: entrada orquestrada (uma vez) ---- */
-.js .hero-rise {
+/* ---- hero: entrada orquestrada (uma vez, so em tela grande: classe .hero-anim) ---- */
+.hero-anim .hero-rise {
   opacity: 0;
   transform: translateY(16px);
-  filter: blur(5px);
-  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out), filter 0.8s var(--ease-out);
+  transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
   transition-delay: var(--d, 0ms);
 }
-.js.lite .hero-rise { filter: none; }
-.js .hero-in .hero-rise { opacity: 1; transform: none; filter: none; }
+.hero-anim .hero-in .hero-rise { opacity: 1; transform: none; }
+/* evita o titulo piscar antes de o main.js separar as palavras */
+.hero-anim .in-hero:not(:has(.wi)) { visibility: hidden; }
 
 /* ---- conversa de WhatsApp (exemplo ilustrativo) ---- */
 .js .msg {
@@ -292,7 +303,7 @@ details[open] .faq-icon { transform: rotate(45deg); }
   .logo-link:hover .logo-ball, .logo-link:active .logo-ball { transform: none; }
   .scroll-progress { display: none !important; }
 
-  .js [data-reveal], .js .hero-rise {
+  .js [data-reveal] {
     transform: none !important;
     filter: none !important;
     transition: opacity 0.3s ease-out !important;

@@ -7,9 +7,16 @@
     <meta name="theme-color" content="#f4f2ee" />
     <script>
         document.documentElement.classList.replace('no-js', 'js');
+        // A entrada animada do topo vale só em tela grande; no celular o texto aparece direto.
+        if (window.matchMedia('(min-width: 1024px) and (prefers-reduced-motion: no-preference)').matches) {
+            document.documentElement.classList.add('hero-anim');
+        }
         // Se o main.js nao carregar (rede, bloqueio), devolve o conteudo visivel em vez de deixar tudo oculto.
         setTimeout(function () {
-            if (!window.__teocodeReady) document.documentElement.classList.replace('js', 'no-js');
+            if (!window.__teocodeReady) {
+                document.documentElement.classList.replace('js', 'no-js');
+                document.documentElement.classList.remove('hero-anim');
+            }
         }, 6000);
     </script>
 
@@ -76,75 +83,41 @@
     <!-- Analytics: GoatCounter (sem cookies) -->
     <script data-goatcounter="https://teocode.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-    <!-- Fontes e ícones -->
+    <!-- Fontes: carregam sem travar a tela; enquanto isso valem as substitutas do styles.css -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
-        rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" />
+    <link rel="stylesheet" media="print" onload="this.media='all'"
+        href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" />
+    <noscript><link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Syne:wght@600;700;800&display=swap" /></noscript>
 
-    <!-- Tailwind CSS via CDN (sem build) -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-        @theme {
-            --color-ink: #0a0e1a;
-            --color-mid: #1e2740;
-            --color-paper: #f4f2ee;
-            --color-teal: #00c9a7;
-            --color-blue: #3d7fff;
-            --color-muted: #6b7280;
-            --font-display: "Syne", ui-sans-serif, system-ui, sans-serif;
-            --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
-            --breakpoint-3xl: 120rem;
-            --breakpoint-4xl: 160rem;
-            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @layer components {
-            /* Botoes: pill. Superficies: 24px. Campos: 12px. Teal so em fundos e botoes (nunca como cor de texto). */
-            .btn-primary {
-                @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-teal px-6 py-3 text-[0.95rem] font-semibold text-ink shadow-[0_10px_24px_-12px_rgba(0,140,118,.75)] transition-[transform,translate,scale,box-shadow,background-color] duration-200 ease-out-expo hover:-translate-y-0.5 hover:bg-[#14dbb8] hover:shadow-[0_16px_30px_-12px_rgba(0,140,118,.8)] active:translate-y-0 active:scale-[.97];
-            }
-            .btn-ink {
-                @apply inline-flex min-h-12 items-center justify-center gap-2.5 rounded-full bg-ink px-6 py-3 text-[0.95rem] font-semibold text-paper shadow-[0_12px_28px_-14px_rgba(10,14,26,.8)] transition-[transform,translate,scale,box-shadow,background-color] duration-200 ease-out-expo hover:-translate-y-0.5 hover:bg-[#141b30] active:translate-y-0 active:scale-[.97];
-            }
-            .btn-quiet {
-                @apply inline-flex min-h-12 items-center gap-2 rounded-full px-3 py-3 text-[0.95rem] font-medium text-ink/80 transition-[color,transform,translate,scale] duration-200 ease-out-expo hover:text-ink active:scale-[.97];
-            }
-            .sheet {
-                @apply relative -mt-10 rounded-t-[2.5rem] shadow-[0_-24px_48px_-32px_rgba(10,14,26,.28)];
-            }
-            .tile {
-                @apply relative flex flex-col overflow-hidden rounded-3xl border border-ink/10 bg-paper p-7 transition-[transform,translate,scale,border-color,box-shadow] duration-300 ease-out-expo hover:-translate-y-1 hover:border-ink/25 hover:shadow-[0_24px_40px_-28px_rgba(10,14,26,.35)] sm:p-9;
-            }
-            .tile-link {
-                @apply mt-auto inline-flex min-h-11 items-center gap-1.5 pt-8 text-[0.95rem] font-semibold underline decoration-teal decoration-2 underline-offset-[6px] transition-[gap,color,transform,translate,scale] duration-200 ease-out-expo hover:gap-2.5 active:scale-[.97];
-            }
-            .chip {
-                @apply grid size-11 shrink-0 place-items-center rounded-xl bg-teal text-xl text-ink;
-            }
-            .field {
-                @apply w-full rounded-xl border border-ink/20 bg-white px-4 py-3 text-[0.95rem] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-ink/55 focus:border-ink focus:shadow-[0_0_0_3px_rgba(0,201,167,.4)];
-            }
-            .field-label {
-                @apply mb-2 block text-sm font-medium text-ink/85;
-            }
-            .nav-link {
-                @apply relative py-2 text-sm font-medium text-ink/75 transition-colors duration-200 hover:text-ink after:absolute after:inset-x-0 after:-bottom-0.5 after:h-0.5 after:origin-left after:scale-x-0 after:bg-teal after:transition-transform after:duration-200 after:ease-out-expo hover:after:scale-x-100;
-            }
-            .footer-link {
-                @apply inline-flex min-h-8 items-center text-sm text-ink/70 underline-offset-4 transition-colors duration-200 hover:text-ink hover:underline hover:decoration-teal hover:decoration-2;
-            }
-            .h2 {
-                @apply font-display text-balance text-[clamp(2rem,3.6vw,3.25rem)] font-extrabold leading-[1.06] tracking-[-0.03em];
-            }
-        }
-    </style>
+    <!-- CSS compilado (.\build-css.cmd). styles.css vem depois e complementa. -->
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 
 <body class="font-sans text-ink">
+    <!-- Ícones Phosphor 2.1.1 (licença MIT), só os usados na página -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true">
+        <symbol id="i-arrow-down" viewBox="0 0 256 256"><path d="M205.66,149.66l-72,72a8,8,0,0,1-11.32,0l-72-72a8,8,0,0,1,11.32-11.32L120,196.69V40a8,8,0,0,1,16,0V196.69l58.34-58.35a8,8,0,0,1,11.32,11.32Z"/></symbol>
+        <symbol id="i-arrow-up-right" viewBox="0 0 256 256"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></symbol>
+        <symbol id="i-browser" viewBox="0 0 256 256"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V88H40V56Zm0,144H40V104H216v96Z"/></symbol>
+        <symbol id="i-calendar-check" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-38.34-85.66a8,8,0,0,1,0,11.32l-48,48a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L116,164.69l42.34-42.35A8,8,0,0,1,169.66,122.34Z"/></symbol>
+        <symbol id="i-check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol>
+        <symbol id="i-checks" viewBox="0 0 256 256"><path d="M149.61,85.71l-89.6,88a8,8,0,0,1-11.22,0L10.39,136a8,8,0,1,1,11.22-11.41L54.4,156.79l84-82.5a8,8,0,1,1,11.22,11.42Zm96.1-11.32a8,8,0,0,0-11.32-.1l-84,82.5-18.83-18.5a8,8,0,0,0-11.21,11.42l24.43,24a8,8,0,0,0,11.22,0l89.6-88A8,8,0,0,0,245.71,74.39Z"/></symbol>
+        <symbol id="i-clock" viewBox="0 0 256 256"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></symbol>
+        <symbol id="i-device-mobile" viewBox="0 0 256 256"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM72,64H184V192H72Zm8-32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"/></symbol>
+        <symbol id="i-envelope-simple" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z"/></symbol>
+        <symbol id="i-magnifying-glass" viewBox="0 0 256 256"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></symbol>
+        <symbol id="i-map-pin" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></symbol>
+        <symbol id="i-pause" viewBox="0 0 256 256"><path d="M200,32H160a16,16,0,0,0-16,16V208a16,16,0,0,0,16,16h40a16,16,0,0,0,16-16V48A16,16,0,0,0,200,32Zm0,176H160V48h40ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Zm0,176H56V48H96Z"/></symbol>
+        <symbol id="i-play" viewBox="0 0 256 256"><path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27ZM80,215.94V40l143.83,88Z"/></symbol>
+        <symbol id="i-plus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></symbol>
+        <symbol id="i-robot" viewBox="0 0 256 256"><path d="M200,48H136V16a8,8,0,0,0-16,0V48H56A32,32,0,0,0,24,80V192a32,32,0,0,0,32,32H200a32,32,0,0,0,32-32V80A32,32,0,0,0,200,48Zm16,144a16,16,0,0,1-16,16H56a16,16,0,0,1-16-16V80A16,16,0,0,1,56,64H200a16,16,0,0,1,16,16Zm-52-56H92a28,28,0,0,0,0,56h72a28,28,0,0,0,0-56Zm-24,16v24H116V152ZM80,164a12,12,0,0,1,12-12h8v24H92A12,12,0,0,1,80,164Zm84,12h-8V152h8a12,12,0,0,1,0,24ZM72,108a12,12,0,1,1,12,12A12,12,0,0,1,72,108Zm88,0a12,12,0,1,1,12,12A12,12,0,0,1,160,108Z"/></symbol>
+        <symbol id="i-storefront" viewBox="0 0 256 256"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96h0v16a40,40,0,0,0,16,32v72a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V144a40,40,0,0,0,16-32V96ZM54,48H202l11.42,40H42.61Zm50,56h48v8a24,24,0,0,1-48,0Zm-16,0v8a24,24,0,0,1-35.12,21.26,7.88,7.88,0,0,0-1.82-1.06A24,24,0,0,1,40,112v-8ZM200,208H56V151.2a40.57,40.57,0,0,0,8,.8,40,40,0,0,0,32-16,40,40,0,0,0,64,0,40,40,0,0,0,32,16,40.57,40.57,0,0,0,8-.8Zm4.93-75.8a8.08,8.08,0,0,0-1.8,1.05A24,24,0,0,1,168,112v-8h48v8A24,24,0,0,1,204.93,132.2Z"/></symbol>
+        <symbol id="i-whatsapp-logo" viewBox="0 0 256 256"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></symbol>
+        <symbol id="i-wrench" viewBox="0 0 256 256"><path d="M226.76,69a8,8,0,0,0-12.84-2.88l-40.3,37.19-17.23-3.7-3.7-17.23,37.19-40.3A8,8,0,0,0,187,29.24,72,72,0,0,0,88,96,72.34,72.34,0,0,0,94,124.94L33.79,177c-.15.12-.29.26-.43.39a32,32,0,0,0,45.26,45.26c.13-.13.27-.28.39-.42L131.06,162A72,72,0,0,0,232,96,71.56,71.56,0,0,0,226.76,69ZM160,152a56.14,56.14,0,0,1-27.07-7,8,8,0,0,0-9.92,1.77L67.11,211.51a16,16,0,0,1-22.62-22.62L109.18,133a8,8,0,0,0,1.77-9.93,56,56,0,0,1,58.36-82.31l-31.2,33.81a8,8,0,0,0-1.94,7.1L141.83,108a8,8,0,0,0,6.14,6.14l26.35,5.66a8,8,0,0,0,7.1-1.94l33.81-31.2A56.06,56.06,0,0,1,160,152Z"/></symbol>
+    </svg>
     <a href="#conteudo"
         class="sr-only z-[80] rounded-full bg-teal px-5 py-3 font-semibold text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4">Ir
         para o conteúdo</a>
@@ -171,7 +144,7 @@
                     <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                         data-wa="Olá! Vim pelo site da TeoCode e quero agendar uma avaliação gratuita."
                         data-gc-event="cta-nav" data-magnetic class="btn-primary !min-h-11 !px-5 !py-2 !text-sm">
-                        <i class="ph ph-whatsapp-logo text-lg" aria-hidden="true"></i>
+                        <svg class="icon text-lg" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg>
                         Agendar avaliação
                     </a>
                 </li>
@@ -199,7 +172,7 @@
         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
             data-wa="Olá! Vim pelo site da TeoCode (menu no celular) e quero agendar uma avaliação gratuita."
             data-gc-event="cta-menu-mobile" class="btn-primary menu-link mt-4 self-start" style="--i:6">
-            <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+            <svg class="icon text-xl" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg>
             Agendar avaliação gratuita
         </a>
     </div>
@@ -234,12 +207,12 @@
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá! Vi o site da TeoCode e quero agendar minha avaliação gratuita."
                             data-gc-event="cta-hero" data-magnetic class="btn-primary">
-                            <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+                            <svg class="icon text-xl" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg>
                             Agendar avaliação gratuita
                         </a>
                         <a href="#servicos" class="btn-quiet max-sm:-ml-3">
                             Conhecer os serviços
-                            <i class="ph ph-arrow-down" aria-hidden="true"></i>
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-down" /></svg>
                         </a>
                     </div>
                 </div>
@@ -251,7 +224,7 @@
                             class="overflow-hidden rounded-3xl border border-ink/10 bg-white shadow-[0_40px_70px_-34px_rgba(10,14,26,.45)]">
                             <div class="flex items-center gap-3 border-b border-ink/10 px-5 py-4">
                                 <span class="grid size-10 place-items-center rounded-full bg-teal text-ink">
-                                    <i class="ph ph-storefront text-xl" aria-hidden="true"></i>
+                                    <svg class="icon text-xl" aria-hidden="true"><use href="#i-storefront" /></svg>
                                 </span>
                                 <div class="leading-tight">
                                     <p class="font-display text-[0.95rem] font-bold">Seu negócio</p>
@@ -265,7 +238,7 @@
                                 </p>
                                 <p class="msg msg-out max-w-[82%] self-end rounded-[18px_18px_6px_18px] bg-teal px-4 py-2.5 text-[0.92rem] leading-snug text-ink">
                                     Oi! Tenho 14h ou 16h30 na quarta. Qual prefere?
-                                    <span class="mt-1 flex items-center justify-end gap-1 text-[0.7rem] text-ink/70"><time class="tnum">14:02</time><i class="ph ph-checks text-sm" aria-hidden="true"></i></span>
+                                    <span class="mt-1 flex items-center justify-end gap-1 text-[0.7rem] text-ink/70"><time class="tnum">14:02</time><svg class="icon text-sm" aria-hidden="true"><use href="#i-checks" /></svg></span>
                                 </p>
                                 <p class="msg msg-in max-w-[82%] self-start rounded-[18px_18px_18px_6px] bg-white px-4 py-2.5 text-[0.92rem] leading-snug text-ink shadow-[0_1px_0_rgba(10,14,26,.08)]">
                                     16h30, por favor.
@@ -273,7 +246,7 @@
                                 </p>
                                 <p class="msg msg-out max-w-[82%] self-end rounded-[18px_18px_6px_18px] bg-teal px-4 py-2.5 text-[0.92rem] leading-snug text-ink">
                                     Agendado para quarta, às 16h30. Até lá!
-                                    <span class="mt-1 flex items-center justify-end gap-1 text-[0.7rem] text-ink/70"><time class="tnum">14:03</time><i class="ph ph-checks text-sm" aria-hidden="true"></i></span>
+                                    <span class="mt-1 flex items-center justify-end gap-1 text-[0.7rem] text-ink/70"><time class="tnum">14:03</time><svg class="icon text-sm" aria-hidden="true"><use href="#i-checks" /></svg></span>
                                 </p>
                             </div>
                         </div>
@@ -284,7 +257,7 @@
                                 data-wa="Olá, vi o site e quero um agente de IA como o do exemplo, para atender os clientes do meu negócio no WhatsApp."
                                 data-gc-event="cta-hero-agente"
                                 class="inline-flex min-h-11 items-center gap-1.5 text-[0.95rem] font-semibold text-ink underline decoration-teal decoration-2 underline-offset-[6px] transition-[gap] duration-200 ease-out-expo hover:gap-2.5">
-                                Quero um agente de IA assim <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                                Quero um agente de IA assim <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
                             </a>
                         </p>
                     </figure>
@@ -307,57 +280,57 @@
                     <!-- Criação de sites -->
                     <article data-reveal="rise" style="--d:0ms"
                         class="tile spot bg-[linear-gradient(135deg,rgba(0,201,167,.16),#f4f2ee_58%)] sm:col-span-2 lg:col-span-7 lg:min-h-[330px]">
-                        <span class="chip"><i class="ph ph-browser" aria-hidden="true"></i></span>
+                        <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-browser" /></svg></span>
                         <h3 class="mt-6 font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Criação de sites</h3>
                         <p class="mt-3 max-w-[46ch] leading-relaxed text-ink/75">Criamos sites personalizados para
                             atender às necessidades específicas do seu negócio.</p>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e tenho interesse em Criação de Sites." data-gc-event="cta-servico-sites"
-                            class="tile-link">Conversar sobre sites <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                            class="tile-link">Conversar sobre sites <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
                     </article>
 
                     <!-- Agentes de IA (superfície navy de contraste) -->
                     <div class="sm:col-span-2 lg:col-span-5" data-px="c">
                         <article data-reveal="rise" style="--d:60ms"
                             class="tile spot h-full border-ink bg-[linear-gradient(135deg,#1e2740,#0a0e1a_75%)] text-paper hover:border-ink lg:min-h-[330px]">
-                            <span class="chip"><i class="ph ph-robot" aria-hidden="true"></i></span>
+                            <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-robot" /></svg></span>
                             <h3 class="mt-6 font-display text-[1.7rem] font-bold leading-tight tracking-[-0.02em]">Agentes de IA</h3>
                             <p class="mt-3 max-w-[40ch] leading-relaxed text-paper/80">Automatize atendimento e vendas com
                                 agentes de inteligência artificial treinados para o seu negócio.</p>
                             <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                                 data-wa="Olá, vi o site e tenho interesse em Agentes de IA para atendimento no WhatsApp."
-                                data-gc-event="cta-servico-agentes-ia" class="tile-link">Conversar sobre agentes de IA <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                                data-gc-event="cta-servico-agentes-ia" class="tile-link">Conversar sobre agentes de IA <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
                         </article>
                     </div>
 
                     <!-- SEO -->
                     <article data-reveal="rise" style="--d:0ms"
                         class="tile spot lg:col-span-5 lg:min-h-[290px]">
-                        <span class="chip"><i class="ph ph-magnifying-glass" aria-hidden="true"></i></span>
+                        <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-magnifying-glass" /></svg></span>
                         <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">SEO</h3>
                         <p class="mt-3 max-w-[40ch] leading-relaxed text-ink/75">Otimização para motores de busca.
                             Aumente sua visibilidade e atraia mais clientes.</p>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e tenho interesse em SEO." data-gc-event="cta-servico-seo"
-                            class="tile-link">Conversar sobre SEO <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                            class="tile-link">Conversar sobre SEO <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
                     </article>
 
                     <!-- E-commerce -->
                     <article data-reveal="rise" style="--d:60ms"
                         class="tile spot bg-[linear-gradient(160deg,rgba(61,127,255,.14),#f4f2ee_62%)] lg:col-span-7 lg:min-h-[290px]">
-                        <span class="chip"><i class="ph ph-storefront" aria-hidden="true"></i></span>
+                        <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-storefront" /></svg></span>
                         <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">E-commerce</h3>
                         <p class="mt-3 max-w-[46ch] leading-relaxed text-ink/75">Criamos lojas virtuais para você
                             vender mais. Sua empresa pronta para vender online com sucesso.</p>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e tenho interesse em E-commerce (loja virtual)." data-gc-event="cta-servico-ecommerce"
-                            class="tile-link">Conversar sobre e-commerce <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                            class="tile-link">Conversar sobre e-commerce <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
                     </article>
 
                     <!-- Aplicativos personalizados -->
                     <article data-reveal="rise" style="--d:0ms"
                         class="tile spot bg-[radial-gradient(120%_90%_at_100%_0%,rgba(0,201,167,.16),transparent_60%),#f4f2ee] sm:col-span-1 lg:col-span-7 lg:min-h-[260px]">
-                        <span class="chip"><i class="ph ph-device-mobile" aria-hidden="true"></i></span>
+                        <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-device-mobile" /></svg></span>
                         <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">Aplicativos personalizados</h3>
                         <p class="mt-3 max-w-[48ch] leading-relaxed text-ink/75">Criamos aplicativos de acordo com a
                             necessidade do seu negócio, para celular e web.</p>
@@ -370,19 +343,19 @@
                         </ul>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e tenho interesse em Aplicativos Personalizados." data-gc-event="cta-servico-apps"
-                            class="tile-link">Conversar sobre aplicativos <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                            class="tile-link">Conversar sobre aplicativos <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
                     </article>
 
                     <!-- Manutenção -->
                     <article data-reveal="rise" style="--d:60ms"
                         class="tile spot sm:col-span-1 lg:col-span-5 lg:min-h-[260px]">
-                        <span class="chip"><i class="ph ph-wrench" aria-hidden="true"></i></span>
+                        <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-wrench" /></svg></span>
                         <h3 class="mt-6 font-display text-[1.5rem] font-bold leading-tight tracking-[-0.02em]">Manutenção</h3>
                         <p class="mt-3 max-w-[44ch] leading-relaxed text-ink/75">Oferecemos atualizações regulares,
                             correções de bugs e monitoramento de segurança.</p>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e tenho interesse em Manutenção de site." data-gc-event="cta-servico-manutencao"
-                            class="tile-link">Conversar sobre manutenção <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                            class="tile-link">Conversar sobre manutenção <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
                     </article>
                 </div>
             </div>
@@ -411,17 +384,17 @@
                                 <p class="mt-3 max-w-[48ch] leading-relaxed text-ink/80">Conte sobre o seu negócio e
                                     as suas necessidades. Nós fazemos um diagnóstico completo.</p>
                             </div>
-                            <span class="chip"><i class="ph ph-calendar-check" aria-hidden="true"></i></span>
+                            <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-calendar-check" /></svg></span>
                         </div>
                         <ul class="mt-6 grid gap-2.5 text-[0.95rem] text-ink/85 sm:grid-cols-2">
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>Diagnóstico completo do seu negócio</li>
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>Conversa direto pelo WhatsApp</li>
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>Orçamento gratuito</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>Diagnóstico completo do seu negócio</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>Conversa direto pelo WhatsApp</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>Orçamento gratuito</li>
                         </ul>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e quero agendar a avaliação gratuita."
                             data-gc-event="cta-oferta-avaliacao" data-magnetic class="btn-primary mt-8">
-                            <i class="ph ph-calendar-check text-xl" aria-hidden="true"></i>
+                            <svg class="icon text-xl" aria-hidden="true"><use href="#i-calendar-check" /></svg>
                             Agendar avaliação gratuita
                         </a>
                     </article>
@@ -435,17 +408,17 @@
                                 <p class="mt-3 max-w-[48ch] leading-relaxed text-ink/75">Do planejamento ao
                                     lançamento, um site personalizado para o seu negócio.</p>
                             </div>
-                            <span class="chip"><i class="ph ph-browser" aria-hidden="true"></i></span>
+                            <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-browser" /></svg></span>
                         </div>
                         <ul class="mt-6 grid gap-2.5 text-[0.95rem] text-ink/80 sm:grid-cols-2">
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>Sites institucionais em 7 a 15 dias úteis</li>
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>E-commerce e projetos complexos em 3 a 6 semanas</li>
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>Domínio e hospedagem cuidados por nós, ou na sua infraestrutura</li>
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>100% responsivo</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>Sites institucionais em 7 a 15 dias úteis</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>E-commerce e projetos complexos em 3 a 6 semanas</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>Domínio e hospedagem cuidados por nós, ou na sua infraestrutura</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>100% responsivo</li>
                         </ul>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e tenho interesse em um projeto de site."
-                            data-gc-event="cta-oferta-projeto" class="tile-link !pt-7">Pedir um projeto de site <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                            data-gc-event="cta-oferta-projeto" class="tile-link !pt-7">Pedir um projeto de site <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
                     </article>
 
                     <!-- Manutenção mensal -->
@@ -457,16 +430,16 @@
                                 <p class="mt-3 max-w-[48ch] leading-relaxed text-ink/75">Seu site cuidado depois do
                                     lançamento, com suporte pelo WhatsApp.</p>
                             </div>
-                            <span class="chip"><i class="ph ph-wrench" aria-hidden="true"></i></span>
+                            <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-wrench" /></svg></span>
                         </div>
                         <ul class="mt-6 grid gap-2.5 text-[0.95rem] text-ink/80 sm:grid-cols-2">
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>Atualizações de segurança</li>
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>Correção de bugs</li>
-                            <li class="flex items-start gap-2.5"><i class="ph ph-check mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink" aria-hidden="true"></i>Pequenas alterações de conteúdo</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>Atualizações de segurança</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>Correção de bugs</li>
+                            <li class="flex items-start gap-2.5"><span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full bg-teal text-[0.8rem] text-ink"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>Pequenas alterações de conteúdo</li>
                         </ul>
                         <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                             data-wa="Olá, vi o site e tenho interesse no plano de manutenção mensal."
-                            data-gc-event="cta-oferta-manutencao" class="tile-link !pt-7">Pedir manutenção mensal <i class="ph ph-arrow-up-right" aria-hidden="true"></i></a>
+                            data-gc-event="cta-oferta-manutencao" class="tile-link !pt-7">Pedir manutenção mensal <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg></a>
                     </article>
                 </div>
             </div>
@@ -509,11 +482,11 @@
                     <div class="lg:sticky lg:top-28 lg:col-span-5" data-reveal="scale">
                         <div class="relative aspect-[4/3] overflow-hidden rounded-3xl border border-ink/10 bg-[#e8e5de] shadow-[0_30px_50px_-34px_rgba(10,14,26,.4)] lg:aspect-[4/5]">
                             <video id="process-video" class="size-full object-cover object-[35%_50%]" muted loop playsinline preload="none"
-                                poster="assets/video/processo-poster.jpg" aria-hidden="true" tabindex="-1"
+                                data-poster="assets/video/processo-poster.jpg" aria-hidden="true" tabindex="-1"
                                 data-src-webm="assets/video/processo.webm" data-src-mp4="assets/video/processo.mp4"></video>
                             <button id="video-toggle" type="button" aria-label="Pausar vídeo" hidden
                                 class="absolute bottom-4 right-4 grid size-11 place-items-center rounded-full bg-paper/90 text-xl text-ink shadow-[0_8px_20px_-10px_rgba(10,14,26,.6)] transition-[transform,scale] duration-200 ease-out-expo hover:scale-105 active:scale-95">
-                                <i class="ph ph-pause" aria-hidden="true"></i>
+                                <svg class="icon" aria-hidden="true"><use href="#i-pause" /></svg>
                             </button>
                         </div>
                     </div>
@@ -523,7 +496,7 @@
                     <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                         data-wa="Olá, vi o site e quero dar o contato inicial para conversar sobre o meu projeto."
                         data-gc-event="cta-processo" data-magnetic class="btn-primary">
-                        <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+                        <svg class="icon text-xl" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg>
                         Começar pelo contato inicial
                     </a>
                 </div>
@@ -565,7 +538,7 @@
                                 target="_blank" rel="noopener noreferrer"
                                 data-gc-event="link-perfil-google" class="mt-4 inline-flex min-h-11 items-center gap-2 font-semibold text-ink underline decoration-teal decoration-2 underline-offset-[6px]">
                                 Ver o perfil da TeoCode no Google
-                                <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                                <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
                             </a>
                         </div>
                     </div>
@@ -585,35 +558,35 @@
                     <details class="group rounded-2xl border border-ink/10 bg-paper transition-colors duration-300 open:border-ink/30 hover:border-ink/25">
                         <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
                             Quanto tempo leva para criar meu site?
-                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg></span>
                         </summary>
                         <p class="px-6 pb-6 leading-relaxed text-ink/75">Sites institucionais ficam prontos em 7 a 15 dias úteis. E-commerces e projetos mais complexos podem levar de 3 a 6 semanas. Sempre alinhamos prazos realistas antes de começar.</p>
                     </details>
                     <details class="group rounded-2xl border border-ink/10 bg-paper transition-colors duration-300 open:border-ink/30 hover:border-ink/25">
                         <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
                             Preciso ter domínio e hospedagem?
-                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg></span>
                         </summary>
                         <p class="px-6 pb-6 leading-relaxed text-ink/75">Podemos cuidar de tudo para você: registramos o domínio, configuramos a hospedagem e entregamos o site funcionando. Ou, se preferir, trabalhamos com sua infraestrutura existente.</p>
                     </details>
                     <details class="group rounded-2xl border border-ink/10 bg-paper transition-colors duration-300 open:border-ink/30 hover:border-ink/25">
                         <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
                             O site funciona no celular?
-                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg></span>
                         </summary>
                         <p class="px-6 pb-6 leading-relaxed text-ink/75">Sim. Todos os nossos sites são 100% responsivos e funcionam perfeitamente em celulares, tablets e computadores. Isso também melhora seu posicionamento no Google.</p>
                     </details>
                     <details class="group rounded-2xl border border-ink/10 bg-paper transition-colors duration-300 open:border-ink/30 hover:border-ink/25">
                         <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
                             Como funciona o suporte pós-lançamento?
-                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg></span>
                         </summary>
                         <p class="px-6 pb-6 leading-relaxed text-ink/75">Oferecemos suporte via WhatsApp e planos de manutenção mensal, que incluem atualizações de segurança, correções de bugs e pequenas alterações de conteúdo.</p>
                     </details>
                     <details class="group rounded-2xl border border-ink/10 bg-paper transition-colors duration-300 open:border-ink/30 hover:border-ink/25">
                         <summary class="flex min-h-14 cursor-pointer items-center justify-between gap-4 px-6 py-4 font-display text-[1.05rem] font-bold">
                             O que é um agente de IA e como ele pode ajudar meu negócio?
-                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><i class="ph ph-plus" aria-hidden="true"></i></span>
+                            <span class="faq-icon grid size-8 shrink-0 place-items-center rounded-full bg-teal text-ink"><svg class="icon" aria-hidden="true"><use href="#i-plus" /></svg></span>
                         </summary>
                         <p class="px-6 pb-6 leading-relaxed text-ink/75">Um agente de IA é um assistente virtual inteligente treinado com as informações do seu negócio. Ele atende clientes 24h no WhatsApp, qualifica leads, agenda compromissos e responde dúvidas, tudo automaticamente.</p>
                     </details>
@@ -625,7 +598,7 @@
                         data-wa="Olá, vi o site e tenho uma dúvida."
                         data-gc-event="cta-faq" class="inline-flex min-h-11 items-center gap-2 font-semibold text-ink underline decoration-teal decoration-2 underline-offset-[6px]">
                         Perguntar pelo WhatsApp
-                        <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                        <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
                     </a>
                 </div>
             </div>
@@ -645,7 +618,7 @@
                     <a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                         data-wa="Olá! Quero agendar minha avaliação gratuita com a TeoCode."
                         data-gc-event="cta-banner" data-magnetic class="btn-ink !min-h-14 !px-8 !text-base">
-                        <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+                        <svg class="icon text-xl" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg>
                         Agendar avaliação gratuita
                     </a>
                 </div>
@@ -667,20 +640,20 @@
                             data-wa="Olá! Vim pelo site da TeoCode e gostaria de conversar."
                             data-gc-event="cta-contato-whatsapp"
                             class="group flex items-center gap-4 rounded-2xl border border-ink/10 bg-white p-4 transition-[border-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-ink/30 active:scale-[.99]">
-                            <span class="chip"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></span>
+                            <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg></span>
                             <span><span class="block font-semibold">Telefone e WhatsApp</span><span class="tnum text-sm text-ink/70">(11) 92637-7723</span></span>
                         </a>
                         <a href="mailto:contato@teocode.com.br" data-gc-event="link-contato-email"
                             class="group flex items-center gap-4 rounded-2xl border border-ink/10 bg-white p-4 transition-[border-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-ink/30 active:scale-[.99]">
-                            <span class="chip"><i class="ph ph-envelope-simple" aria-hidden="true"></i></span>
+                            <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-envelope-simple" /></svg></span>
                             <span><span class="block font-semibold">E-mail</span><span class="text-sm text-ink/70">contato@teocode.com.br</span></span>
                         </a>
                         <div class="flex items-start gap-4 rounded-2xl border border-ink/10 bg-white p-4">
-                            <span class="chip"><i class="ph ph-map-pin" aria-hidden="true"></i></span>
+                            <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-map-pin" /></svg></span>
                             <span><span class="block font-semibold">Endereço</span><span class="text-sm leading-relaxed text-ink/70">R. Valdemar Celestino da Silva, Parque São Vicente, Mauá, SP, 09371-317</span></span>
                         </div>
                         <div class="flex items-start gap-4 rounded-2xl border border-ink/10 bg-white p-4">
-                            <span class="chip"><i class="ph ph-clock" aria-hidden="true"></i></span>
+                            <span class="chip"><svg class="icon" aria-hidden="true"><use href="#i-clock" /></svg></span>
                             <div class="w-full">
                                 <p class="font-semibold">Horário de atendimento</p>
                                 <dl class="tnum mt-2 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-sm">
@@ -732,14 +705,14 @@
                                     <textarea id="message" name="message" rows="4" class="field resize-y" placeholder="Conte sobre o seu projeto ou necessidade"></textarea>
                                 </div>
                                 <button type="submit" data-gc-event="cta-contato-formulario" class="btn-primary mt-7 w-full">
-                                    <i class="ph ph-whatsapp-logo text-xl" aria-hidden="true"></i>
+                                    <svg class="icon text-xl" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg>
                                     Enviar pelo WhatsApp
                                 </button>
                                 <p class="mt-3 text-center text-sm text-ink/65">Ao enviar, você abre o WhatsApp com a mensagem pronta para finalizar o contato.</p>
                             </div>
 
                             <div id="form-success" hidden tabindex="-1" role="status" class="py-10 text-center outline-none">
-                                <span class="chip mx-auto !size-14 !rounded-full !text-3xl"><i class="ph ph-check" aria-hidden="true"></i></span>
+                                <span class="chip mx-auto !size-14 !rounded-full !text-3xl"><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg></span>
                                 <p class="mt-4 font-display text-xl font-bold">Mensagem pronta no WhatsApp</p>
                                 <p class="mx-auto mt-2 max-w-[40ch] text-ink/70">Finalize o envio por lá. Se a janela não abriu, tente novamente.</p>
                                 <button type="button" id="form-reset" class="btn-quiet mt-4">Preencher de novo</button>
@@ -761,7 +734,7 @@
                         <a href="https://www.google.com/maps/place/TeoCode/@-23.6656131,-46.4840818,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce6971df8926f3:0x5eda3e3e42c58448!8m2!3d-23.6656131!4d-46.4840818!16s%2Fg%2F11wqy1f6_c"
                             target="_blank" rel="noopener noreferrer" data-gc-event="link-contato-maps"
                             class="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-ink underline decoration-teal decoration-2 underline-offset-[6px]">
-                            Abrir no Google Maps <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+                            Abrir no Google Maps <svg class="icon" aria-hidden="true"><use href="#i-arrow-up-right" /></svg>
                         </a>
                     </div>
                 </div>
@@ -786,9 +759,9 @@
                     <ul class="mt-4 flex flex-col gap-1.5">
                         <li><a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                                 data-wa="Olá! Vim pelo rodapé do site da TeoCode e gostaria de mais informações."
-                                data-gc-event="cta-footer" class="footer-link tnum gap-2"><i class="ph ph-whatsapp-logo text-lg text-ink" aria-hidden="true"></i>(11) 92637-7723</a></li>
-                        <li><a href="mailto:contato@teocode.com.br" data-gc-event="link-footer-email" class="footer-link gap-2"><i class="ph ph-envelope-simple text-lg text-ink" aria-hidden="true"></i>contato@teocode.com.br</a></li>
-                        <li class="flex items-start gap-2 py-1 text-sm leading-relaxed text-ink/70"><i class="ph ph-map-pin mt-0.5 text-lg text-ink" aria-hidden="true"></i><span>R. Valdemar Celestino da Silva, Parque São Vicente, Mauá, SP, 09371-317</span></li>
+                                data-gc-event="cta-footer" class="footer-link tnum gap-2"><svg class="icon text-lg text-ink" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg>(11) 92637-7723</a></li>
+                        <li><a href="mailto:contato@teocode.com.br" data-gc-event="link-footer-email" class="footer-link gap-2"><svg class="icon text-lg text-ink" aria-hidden="true"><use href="#i-envelope-simple" /></svg>contato@teocode.com.br</a></li>
+                        <li class="flex items-start gap-2 py-1 text-sm leading-relaxed text-ink/70"><svg class="icon mt-0.5 text-lg text-ink" aria-hidden="true"><use href="#i-map-pin" /></svg><span>R. Valdemar Celestino da Silva, Parque São Vicente, Mauá, SP, 09371-317</span></li>
                     </ul>
                 </div>
 
@@ -810,10 +783,10 @@
                         <li><a href="https://wa.me/5511926377723" target="_blank" rel="noopener noreferrer"
                                 data-wa="Olá! Vim pelos ícones de contato do site da TeoCode."
                                 data-gc-event="cta-footer-social" aria-label="WhatsApp da TeoCode"
-                                class="grid size-11 place-items-center rounded-full border border-ink/20 text-xl text-ink transition-[color,border-color,background-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-teal hover:bg-teal active:scale-95"><i class="ph ph-whatsapp-logo" aria-hidden="true"></i></a></li>
+                                class="grid size-11 place-items-center rounded-full border border-ink/20 text-xl text-ink transition-[color,border-color,background-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-teal hover:bg-teal active:scale-95"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg></a></li>
                         <li><a href="https://www.google.com/maps/place/TeoCode/@-23.6656131,-46.4840818,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce6971df8926f3:0x5eda3e3e42c58448!8m2!3d-23.6656131!4d-46.4840818!16s%2Fg%2F11wqy1f6_c"
                                 target="_blank" rel="noopener noreferrer" data-gc-event="link-footer-maps" aria-label="Perfil da TeoCode no Google Maps"
-                                class="grid size-11 place-items-center rounded-full border border-ink/20 text-xl text-ink transition-[color,border-color,background-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-teal hover:bg-teal active:scale-95"><i class="ph ph-map-pin" aria-hidden="true"></i></a></li>
+                                class="grid size-11 place-items-center rounded-full border border-ink/20 text-xl text-ink transition-[color,border-color,background-color,transform,translate,scale] duration-200 ease-out-expo hover:-translate-y-0.5 hover:border-teal hover:bg-teal active:scale-95"><svg class="icon" aria-hidden="true"><use href="#i-map-pin" /></svg></a></li>
                     </ul>
                 </div>
             </div>
@@ -830,7 +803,7 @@
         data-wa="Olá! Vim pelo site da TeoCode e gostaria de saber mais."
         data-gc-event="cta-flutuante" aria-label="Falar com a TeoCode no WhatsApp"
         class="wa-float fixed bottom-[max(1.25rem,env(safe-area-inset-bottom))] right-5 z-30 inline-flex size-14 items-center justify-center gap-2 rounded-full bg-teal text-ink shadow-[0_16px_30px_-12px_rgba(0,140,118,.8)] transition-[transform,translate,scale,box-shadow] duration-200 ease-out-expo hover:-translate-y-1 hover:shadow-[0_22px_38px_-12px_rgba(0,140,118,.9)] active:scale-95 sm:w-auto sm:px-5">
-        <i class="ph ph-whatsapp-logo text-2xl" aria-hidden="true"></i>
+        <svg class="icon text-2xl" aria-hidden="true"><use href="#i-whatsapp-logo" /></svg>
         <span class="hidden text-[0.95rem] font-semibold sm:inline">WhatsApp</span>
     </a>
 

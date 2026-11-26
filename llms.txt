@@ -2,20 +2,18 @@
 
 > Agência em Mauá, SP, que cria sites personalizados, lojas virtuais, aplicativos personalizados (celular e web) e agentes de IA para atendimento no WhatsApp, além de SEO e manutenção de sites.
 
-## Serviços
+## Páginas
 
-- Criação de sites
-- Agentes de IA
-- SEO
-- E-commerce
-- Aplicativos personalizados
-- Manutenção
+- [Página inicial](https://teocode.com.br/): apresentação da TeoCode
+- [Serviços](https://teocode.com.br/#servicos): criação de sites, agentes de IA, SEO, e-commerce, aplicativos personalizados e manutenção
+- [Ofertas](https://teocode.com.br/#ofertas): avaliação gratuita, projeto de site e manutenção mensal
+- [Como funciona](https://teocode.com.br/#processo): contato inicial, planejamento, desenvolvimento e lançamento
+- [Perguntas frequentes](https://teocode.com.br/#faq): prazos, domínio e hospedagem, suporte e agentes de IA
 
 ## Contato
 
-- Site: https://teocode.com.br/
-- WhatsApp e telefone: (11) 92637-7723, https://wa.me/5511926377723
-- E-mail: contato@teocode.com.br
+- [WhatsApp e telefone (11) 92637-7723](https://wa.me/5511926377723)
+- [contato@teocode.com.br](mailto:contato@teocode.com.br)
 - Endereço: R. Valdemar Celestino da Silva, Parque São Vicente, Mauá, SP, 09371-317
 - Horário: segunda a sexta, das 08:00 às 18:00
 - CNPJ: 41.061.643/0001-22

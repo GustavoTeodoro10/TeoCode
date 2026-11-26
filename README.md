@@ -1,6 +1,6 @@
 # TeoCode - site institucional
 
-Landing page one-page da TeoCode (sites, agentes de IA, SEO, e-commerce, manutenção e aplicativos personalizados, em Mauá, SP). HTML, CSS e JavaScript puros, com Tailwind CSS carregado por CDN. Não existe build nem bundler: o que está no repositório é o que vai ao ar.
+Landing page one-page da TeoCode (sites, agentes de IA, SEO, e-commerce, manutenção e aplicativos personalizados, em Mauá, SP). HTML, CSS e JavaScript puros, com Tailwind CSS compilado para um arquivo estático. O único passo de build é o do CSS (veja "CSS (Tailwind)"); o que está no repositório é o que vai ao ar.
 
 Publicado em https://teocode.com.br via GitHub Pages (domínio configurado no arquivo `CNAME`).
 
@@ -10,6 +10,7 @@ Publicado em https://teocode.com.br via GitHub Pages (domínio configurado no ar
 .
 ├── index.html                  # página única (todo o conteúdo, SEO, Open Graph, JSON-LD, GoatCounter)
 ├── 404.html                    # página de endereço não encontrado (estilos próprios, sem Tailwind)
+├── build-css.cmd               # compila o CSS do Tailwind (não vai para o site publicado)
 ├── favicon.ico                 # ícone pedido por navegadores na raiz (gerado a partir do logotipo)
 ├── robots.txt                  # libera os robôs de busca e aponta o sitemap
 ├── sitemap.xml                 # atualizar o <lastmod> quando o conteúdo mudar
@@ -20,7 +21,9 @@ Publicado em https://teocode.com.br via GitHub Pages (domínio configurado no ar
 ├── PRODUCT.md                  # contexto do produto e fatos confirmados (uso interno)
 ├── DESIGN.md                   # sistema visual documentado (uso interno)
 └── assets/
-    ├── css/styles.css          # complementos ao Tailwind: movimento, accordion, partes do navegador
+    ├── css/tailwind.input.css  # fonte do Tailwind: cores, fontes e componentes
+    ├── css/tailwind.css        # GERADO pelo build-css.cmd (não editar à mão)
+    ├── css/styles.css          # complementos ao Tailwind: movimento, accordion, fontes substitutas
     ├── js/main.js              # links do WhatsApp, rastreio de cliques, menu, animações, formulário
     ├── logo.svg                # logotipo ORIGINAL da TeoCode (não alterar)
     ├── favicon.svg             # favicon (o próprio logotipo)
@@ -39,7 +42,23 @@ Qualquer servidor estático serve. Exemplo com Python:
 python -m http.server 4173
 ```
 
-Depois abra http://localhost:4173. (Tailwind, fontes e ícones vêm de CDN, então é preciso internet.)
+Depois abra http://localhost:4173. (As fontes vêm do Google Fonts; sem internet aparecem as substitutas.)
+
+## CSS (Tailwind)
+
+O site carrega `assets/css/tailwind.css`, que contém só as classes usadas. **Ao criar ou trocar classes** no `index.html` ou no `main.js`, ou ao mudar o `tailwind.input.css`, compile antes do commit:
+
+```powershell
+.\build-css.cmd
+```
+
+Mudanças só de texto não precisam compilar. Para recompilar sozinho enquanto edita: `.\build-css.cmd --watch`.
+
+O compilador é o executável oficial do Tailwind CSS 4.3.5 (não precisa de Node) e fica fora do repositório, em `%USERPROFILE%\tools\tailwindcss-4.3.5\tailwindcss-windows-x64.exe`. Em outro computador, baixe-o em https://github.com/tailwindlabs/tailwindcss/releases/tag/v4.3.5 para esse caminho.
+
+## Ícones
+
+Os ícones são do Phosphor 2.1.1 (peso regular), embutidos como `<symbol>` no início do `<body>`. Para usar um que já existe: `<svg class="icon" aria-hidden="true"><use href="#i-nome" /></svg>`. Para um novo, copie o `<path>` do SVG em https://phosphoricons.com para um `<symbol id="i-nome" viewBox="0 0 256 256">`.
 
 ## Deploy (GitHub Pages)
 
@@ -52,7 +71,7 @@ Depois abra http://localhost:4173. (Tailwind, fontes e ícones vêm de CDN, ent�
 - **Textos**: direto no `index.html`, por seção (`#servicos`, `#ofertas`, `#processo`, `#diferenciais`, `#faq`, `#agendar`, `#contato`).
 - **Dados do negócio** (telefone, e-mail, endereço, horário, serviços): ao mudar, atualizar também o JSON-LD do `index.html` e o `llms.txt`.
 - **Mensagem do WhatsApp de cada botão**: atributo `data-wa="..."` do link. O JavaScript monta o `wa.me` com a mensagem codificada. O número está em `assets/js/main.js` (`WA_NUMBER`) e no `href` base de cada link.
-- **Cores e fontes**: tokens no bloco `@theme` do `index.html` (`ink`, `mid`, `paper`, `teal`, `blue`, `muted`; Syne para títulos e Hanken Grotesk para texto). O site é claro: fundo papel `#f4f2ee`, texto navy e teal só em preenchimentos e botões (teal não passa no contraste como cor de texto sobre claro).
+- **Cores e fontes**: tokens no bloco `@theme` do `assets/css/tailwind.input.css` (depois compile) (`ink`, `mid`, `paper`, `teal`, `blue`, `muted`; Syne para títulos e Hanken Grotesk para texto). O site é claro: fundo papel `#f4f2ee`, texto navy e teal só em preenchimentos e botões (teal não passa no contraste como cor de texto sobre claro).
 - **Imagens PNG** (favicon, apple-touch-icon e og-image) são renderizadas a partir de `assets/logo.svg` com o Edge/Chrome headless. Exemplo para o og-image (com o servidor local rodando):
 
 ```bash
@@ -65,9 +84,11 @@ O movimento é em camadas, para o celular nunca pagar pelo que só faz sentido e
 
 | Camada | Onde liga | O que faz |
 | --- | --- | --- |
-| Base | Todos os aparelhos | Título revelado palavra por palavra, revelações leves ao rolar, conversa de exemplo, barra de progresso da rolagem, accordion e menu animados |
+| Base | Todos os aparelhos (a entrada do topo só em telas de 1024px ou mais) | Título revelado palavra por palavra, revelações leves ao rolar, conversa de exemplo, barra de progresso da rolagem, accordion e menu animados |
 | `.fx` | Só tela de 1024px ou mais, com mouse, sem economia de dados e sem "reduzir movimento" | Parallax guiado por CSS (sem JavaScript na rolagem), destaque de luz que segue o mouse nos cartões e botões magnéticos |
 | `.lite` | Economia de dados ou aparelho com 2 GB de memória ou 2 núcleos | Revelações sem blur |
+
+No celular o título, o texto e os botões do topo aparecem imediatamente, para não atrasar a primeira tela.
 
 - A decisão é tomada em `assets/js/main.js` (seção "Perfil de movimento do aparelho"); os efeitos em si estão em `assets/css/styles.css`.
 - Quem ativa "reduzir movimento" no aparelho recebe só fades curtos, sem deslocamento.

@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Static HTML, CSS and vanilla JS with Tailwind CSS loaded from a CDN. No build step and no bundler (decided by the user). Deployed on GitHub Pages with the custom domain `teocode.com.br` (`CNAME` at the repo root).
+Static HTML, CSS and vanilla JS. Tailwind CSS is compiled to a static file with the standalone CLI (`build-css.cmd`); this replaced the CDN build on 2026-11-25, on the user's decision, for mobile performance. No bundler and no Node. Deployed on GitHub Pages with the custom domain `teocode.com.br` (`CNAME` at the repo root).
 
 ## Users
 
