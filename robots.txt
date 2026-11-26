@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://teocode.com.br/sitemap.xml

@@ -9,6 +9,11 @@ Publicado em https://teocode.com.br via GitHub Pages (domínio configurado no ar
 ```
 .
 ├── index.html                  # página única (todo o conteúdo, SEO, Open Graph, JSON-LD, GoatCounter)
+├── 404.html                    # página de endereço não encontrado (estilos próprios, sem Tailwind)
+├── favicon.ico                 # ícone pedido por navegadores na raiz (gerado a partir do logotipo)
+├── robots.txt                  # libera os robôs de busca e aponta o sitemap
+├── sitemap.xml                 # atualizar o <lastmod> quando o conteúdo mudar
+├── llms.txt                    # resumo do negócio (padrão TeoCode; o Google ignora)
 ├── CNAME                       # domínio customizado do GitHub Pages
 ├── _config.yml                 # mantém arquivos de desenvolvimento fora do site publicado
 ├── README.md
@@ -45,6 +50,7 @@ Depois abra http://localhost:4173. (Tailwind, fontes e ícones vêm de CDN, ent�
 ## Como editar
 
 - **Textos**: direto no `index.html`, por seção (`#servicos`, `#ofertas`, `#processo`, `#diferenciais`, `#faq`, `#agendar`, `#contato`).
+- **Dados do negócio** (telefone, e-mail, endereço, horário, serviços): ao mudar, atualizar também o JSON-LD do `index.html` e o `llms.txt`.
 - **Mensagem do WhatsApp de cada botão**: atributo `data-wa="..."` do link. O JavaScript monta o `wa.me` com a mensagem codificada. O número está em `assets/js/main.js` (`WA_NUMBER`) e no `href` base de cada link.
 - **Cores e fontes**: tokens no bloco `@theme` do `index.html` (`ink`, `mid`, `paper`, `teal`, `blue`, `muted`; Syne para títulos e Hanken Grotesk para texto). O site é claro: fundo papel `#f4f2ee`, texto navy e teal só em preenchimentos e botões (teal não passa no contraste como cor de texto sobre claro).
 - **Imagens PNG** (favicon, apple-touch-icon e og-image) são renderizadas a partir de `assets/logo.svg` com o Edge/Chrome headless. Exemplo para o og-image (com o servidor local rodando):
@@ -102,6 +108,7 @@ O movimento é em camadas, para o celular nunca pagar pelo que só faz sentido e
   | `cta-footer` | telefone/WhatsApp do rodapé |
   | `cta-footer-social` | ícone do WhatsApp no rodapé |
   | `cta-flutuante` | botão flutuante do WhatsApp |
+  | `cta-404` | botão do WhatsApp na página `404.html` (rastreio no próprio arquivo) |
 
   Eventos de links que não vão ao WhatsApp, também registrados: `link-perfil-google`, `link-contato-email`, `link-contato-maps`, `link-footer-email`, `link-footer-maps`.
 

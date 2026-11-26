@@ -28,10 +28,10 @@
 
   /* ── 0b. Titulos revelados palavra por palavra ───────────────────────── */
   $$('[data-words]').forEach((el) => {
-    const words = el.textContent.trim().split(/\s+/);
-    el.setAttribute('aria-label', words.join(' '));
+    // Divide so em espacos comuns: um &nbsp; no HTML mantem duas palavras na mesma linha.
+    const words = el.textContent.trim().split(/[ \t\r\n]+/);
     el.innerHTML = words
-      .map((w, i) => `<span class="wm" aria-hidden="true"><span class="wi" style="--i:${i}">${w}</span></span>`)
+      .map((w, i) => `<span class="wm"><span class="wi" style="--i:${i}">${w}</span></span>`)
       .join(' ');
   });
 
